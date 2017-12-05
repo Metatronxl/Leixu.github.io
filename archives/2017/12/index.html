@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://Metatronxl.github.io">
-  <title>xulei&#39;s BLog</title>
+  <title>Archives: 2017/12 | xulei&#39;s BLog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="xulei&#39;s BLog">
-<meta property="og:url" content="http://Metatronxl.github.io/index.html">
+<meta property="og:url" content="http://Metatronxl.github.io/archives/2017/12/index.html">
 <meta property="og:site_name" content="xulei&#39;s BLog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
@@ -152,181 +152,47 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-python-爬虫总结帖（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/05/python-爬虫总结帖（一）/">python 爬虫总结帖（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/05/python-爬虫总结帖（一）/" class="archive-article-date">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/05/python-爬虫总结帖（一）/" class="archive-article-date">
   	<time datetime="2017-12-05T08:47:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-05</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>主要是re，requests，BeautifulSoup，urllib2的使用总结</li>
-</ul>
-<h2 id="1-requests基本用法示例"><a href="#1-requests基本用法示例" class="headerlink" title="1.requests基本用法示例"></a>1.requests基本用法示例</h2><blockquote>
-<p>使用requests加载网站</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># coding:utf-8</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line"># 下载新浪新闻首页的内容</span><br><span class="line">url = &apos;http://news.sina.com.cn/china/&apos;</span><br><span class="line"># 用get函数发送GET请求，获取响应</span><br><span class="line">res = requests.get(url)</span><br><span class="line"># 设置响应的编码格式utf-8（默认格式为ISO-8859-1），防止中文出现乱码</span><br><span class="line">res.encoding = &apos;utf-8&apos;</span><br><span class="line"></span><br><span class="line">print type(res)</span><br><span class="line">print res</span><br><span class="line">print res.text</span><br><span class="line"></span><br><span class="line"># 输出：</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">&lt;class &apos;requests.models.Response&apos;&gt;</span><br><span class="line">&lt;Response [200]&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;!-- [ published at 2017-04-19 23:30:28 ] --&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</span><br><span class="line">&lt;title&gt;国内新闻_新闻中心_新浪网&lt;/title&gt;</span><br><span class="line">&lt;meta name=&quot;keywords&quot; content=&quot;国内时政,内地新闻&quot;&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>requests 发送请求与传递参数</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"> </span><br><span class="line">r = requests.get(url=&apos;http://www.itwhy.org&apos;)    # 最基本的GET请求</span><br><span class="line">print(r.status_code)    # 获取返回状态</span><br><span class="line">r = requests.get(url=&apos;http://dict.baidu.com/s&apos;, params=&#123;&apos;wd&apos;:&apos;python&apos;&#125;)   #带参数的GET请求</span><br><span class="line">print(r.url)</span><br><span class="line">print(r.text)   #打印解码后的返回数据</span><br></pre></td></tr></table></figure>
-<blockquote>
-<h4 id="requests-接口统一，使用方便"><a href="#requests-接口统一，使用方便" class="headerlink" title="requests 接口统一，使用方便"></a>requests 接口统一，使用方便</h4><ul>
-<li>requests.get(‘<a href="https://github.com/timeline.json’" target="_blank" rel="noopener">https://github.com/timeline.json’</a>) #GET请求</li>
-<li>requests.post(“<a href="http://httpbin.org/post”" target="_blank" rel="noopener">http://httpbin.org/post”</a>) #POST请求</li>
-<li>requests.put(“<a href="http://httpbin.org/put”" target="_blank" rel="noopener">http://httpbin.org/put”</a>) #PUT请求</li>
-<li>requests.delete(“<a href="http://httpbin.org/delete”" target="_blank" rel="noopener">http://httpbin.org/delete”</a>) #DELETE请求</li>
-<li>requests.head(“<a href="http://httpbin.org/get”" target="_blank" rel="noopener">http://httpbin.org/get”</a>) #HEAD请求</li>
-<li>requests.options(“<a href="http://httpbin.org/get”" target="_blank" rel="noopener">http://httpbin.org/get”</a>) #OPTIONS请求</li>
-</ul>
-</blockquote>
-<p>###</p>
-<blockquote>
-<h4 id="requests使用post发送json请求"><a href="#requests使用post发送json请求" class="headerlink" title="requests使用post发送json请求"></a>requests使用post发送json请求</h4></blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import json</span><br><span class="line"> </span><br><span class="line">r = requests.post(&apos;https://api.github.com/some/endpoint&apos;, data=json.dumps(&#123;&apos;some&apos;: &apos;data&apos;&#125;))</span><br><span class="line">print(r.json())</span><br></pre></td></tr></table></figure>
-<blockquote>
-<h4 id="requests-定制header："><a href="#requests-定制header：" class="headerlink" title="requests 定制header："></a>requests 定制header：</h4></blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import requests</span><br><span class="line">import json</span><br><span class="line"> </span><br><span class="line">data = &#123;&apos;some&apos;: &apos;data&apos;&#125;</span><br><span class="line">headers = &#123;&apos;content-type&apos;: &apos;application/json&apos;,</span><br><span class="line">           &apos;User-Agent&apos;: &apos;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0&apos;&#125;</span><br><span class="line"> </span><br><span class="line">r = requests.post(&apos;https://api.github.com/some/endpoint&apos;, data=data, headers=headers)</span><br><span class="line">print(r.text</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>requests 代理访问</p>
-<ul>
-<li>有时候为了避免封IP，或者在某些公司内网访问外网时候，需要用到代理服务器发送请求，代理的用法示例：</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">proxies = &#123;&apos;http&apos;:&apos;http://proxy.test.com:8080&apos;,&apos;https&apos;:&apos;http://proxy.test.com:8080&apos;&#125;  # 其中proxy.test.com即为代理服务器的地址</span><br><span class="line">url = &apos;https://www.baidu.com&apos;  # 这个url为要访问的url</span><br><span class="line">resp = requests.get(url,proxies = proxies)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<h3 id="更多详细的用法还是需要阅读官方库，requests几乎可以代替urllib的使用"><a href="#更多详细的用法还是需要阅读官方库，requests几乎可以代替urllib的使用" class="headerlink" title="更多详细的用法还是需要阅读官方库，requests几乎可以代替urllib的使用"></a>更多详细的用法还是需要阅读官方库，requests几乎可以代替urllib的使用</h3></blockquote>
-<h2 id="2-urllib2-使用示例"><a href="#2-urllib2-使用示例" class="headerlink" title="2.urllib2 使用示例"></a>2.urllib2 使用示例</h2><blockquote>
-<p>使用urllib2加载一个网页的html（方便使用Soup进行解析）</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import urllib2</span><br><span class="line">response = urllib2.urlopen(&apos;http://python.org/)</span><br><span class="line">html = response.read()</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/05/python-爬虫总结帖（一）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-testArticle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/22/testArticle/">搭建博客感想</a>
+      <a class="archive-article-title" href="/2017/12/05/python-爬虫总结帖（一）/">python 爬虫总结帖（一）</a>
     </h1>
   
 
-        
-        <a href="/2017/11/22/testArticle/" class="archive-article-date">
-  	<time datetime="2017-11-22T12:18:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p> 最早是已去中科大数据搬砖的薇薇跟我提起说要搭建博客的事，当时也说好要心血来潮自己彻彻底底的撸完一整套blog代码，flask和django也都学了，暑假也试过自己搭建一个清爽的blog，但是一想到自己还要买域名，买服务器。Emmm…用Github搭建博客才是最吼的！🙂</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这就是我的第一篇博客了，</span><br><span class="line">虽然水了点，以后可是要堂堂正正发干货的，坚决不 ~~摸鱼~~  ！</span><br></pre></td></tr></table></figure>
-<hr>
-<blockquote>
-<p>后记：感谢鹅厂大佬Litten提供的yilia主题</p>
-<p>在此附上大佬的github地址：<a href="https://github.com/litten" target="_blank" rel="noopener">https://github.com/litten</a></p>
-</blockquote>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/22/testArticle/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
+    </div></section>
+  
+
+    
 
 
           </div>
@@ -348,9 +214,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
