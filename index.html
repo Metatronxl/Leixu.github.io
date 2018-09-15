@@ -152,6 +152,127 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-机器学习笔记（1）：贝叶斯分类器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/15/机器学习笔记（1）：贝叶斯分类器/">机器学习笔记（1）：贝叶斯分类器</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/15/机器学习笔记（1）：贝叶斯分类器/" class="archive-article-date">
+  	<time datetime="2018-09-15T14:12:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="0x00-贝叶斯定理"><a href="#0x00-贝叶斯定理" class="headerlink" title="0x00 贝叶斯定理"></a>0x00 贝叶斯定理</h3><p><code>条件概率</code>$ P(A|B) = \frac{P(AB)}{ P(B)}$ 表示的是事件B已经发生的情况下事件A发生的概率，进而可以推出</p>
+<p><code>贝叶斯定理</code>$ P(B|A) = \frac{P(A|B)P(B)}{P(A)} $</p>
+<h3 id="0x01-朴素贝叶斯分类"><a href="#0x01-朴素贝叶斯分类" class="headerlink" title="0x01 朴素贝叶斯分类"></a>0x01 朴素贝叶斯分类</h3><blockquote>
+<p>朴素贝叶斯思想基础：对于给出的待分类项，求解在此项出现的条件下各个类别出现的概率，哪个最大，就认为此待分类项属于哪个类别。</p>
+</blockquote>
+<p>正式定义：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fvajpvqqzcj30uk08ata8.jpg" alt="屏幕快照 2018-09-15 下午9.28.12"></p>
+<p>所以由上述步骤理论，在各个特征属性独立的前提下，根据贝叶斯定理可以得到<br>$$<br>P(y_i|x) = \frac{P(x|y_i)P(y_i)}{P(x)}<br>$$<br>因为分母为一个常数，所以只需要$P(x|y_i)P(y_i) $最大化即可，同时因为各个属性是条件独立，所以有：<br>$$<br>P(x|y_i)P(y_i) = P(a_1|y_i)P(y_i)…P(a_m|y_i)P(y_i) =  P(y<em>i)\prod</em>{j=1}^nP(a_j|y_i)<br>$$</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/15/机器学习笔记（1）：贝叶斯分类器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-linux内核设计的艺术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="linux内核设计的艺术"><a href="#linux内核设计的艺术" class="headerlink" title="linux内核设计的艺术"></a>linux内核设计的艺术</h3><ul>
+<li>实模式内存寻址空间指的是？</li>
+</ul>
+<p>实模式代表是cpu写死的</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/10/linux内核设计的艺术/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python-爬虫总结帖（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
