@@ -152,6 +152,461 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-AdaBoost算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/16/AdaBoost算法/">机器学习笔记(5):AdaBoost算法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/16/AdaBoost算法/" class="archive-article-date">
+  	<time datetime="2018-09-16T07:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>######参考Blog：<br><a href="https://wizardforcel.gitbooks.io/dm-algo-top10/content/adaboost.html" target="_blank" rel="noopener">adaBoost算法</a></p>
+<p>######参考书籍：<br>《机器学习实战》</p>
+<ul>
+<li>参考书籍：<blockquote>
+<p>Adaboost是一种迭代算法，其核心思想是针对同一个训练集训练不同的分类器（弱分类器），然后把这些弱分类器集合起来，构成一个更强的最终分类器（强分类器）。Adaboost算法本身是通过改变数据分布来实现的，它根据每次训练集之中每个样本的分类是否正确，以及上次的总体分类的准确率，来确定每个样本的权值。将修改过权值的新数据集送给下层分类器进行训练，最后将每次得到的分类器最后融合起来，作为最后的决策分类器。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="算法概述"><a href="#算法概述" class="headerlink" title="算法概述"></a>算法概述</h5><blockquote>
+<p>AdaBoost为每个分类器分配了一个权重值alpha，这些alpha值是基于每个弱分类器的错误率进行计算的</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>先通过对N个训练样本的学习得到第一个弱分类器(权重相等)</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>2.在第二次训练中，第一次分对的样本的权重降低，分错的样本权重提高（突出错误样本）</p>
+</li>
+<li><p>3.最终经过提升的强分类器，即某个数据被分为哪一类主要由各匪类器权值决定</p>
+</li>
+</ul>
+<h5 id="对比Bagging（基于数据随机重抽样的分类器构建方法）"><a href="#对比Bagging（基于数据随机重抽样的分类器构建方法）" class="headerlink" title="对比Bagging（基于数据随机重抽样的分类器构建方法）"></a>对比Bagging（基于数据随机重抽样的分类器构建方法）</h5><ul>
+<li>使用加权后选取的训练数据代替随机选取的训练样本，训练的重点被放在被已有分类器错分的那些数据，从而获得新的分类器</li>
+<li>联合所有弱分类器，使用加权的投票机制代替平均投票机制。分类效果好的弱分类器具有较大的权重，分类效果差的分类器具有较小的权重。</li>
+</ul>
+<h5 id="算法训练过程"><a href="#算法训练过程" class="headerlink" title="算法训练过程"></a>算法训练过程</h5><p>adaBoost 算法流程<br><img src="http://upload-images.jianshu.io/upload_images/1679955-b1c3c191c096078a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-12 下午9.39.21.png"></p>
+<blockquote>
+<p>1.被错误分类的样本权重(alpha)会升高（见下面?alpha定义）</p>
+<ol>
+<li>分类效果差的分类器的权重会降低</li>
+</ol>
+</blockquote>
+<ul>
+<li><p>错误率的定义为：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-80388a5cd0c56ba9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="错误率定义"></p>
+</li>
+<li><p>alpha计算公式：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-78aa0e8ab4b73896.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-12 下午9.33.28.png"></p>
+</li>
+<li><p>样本权重公式:</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-3943407115da2ed9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-12 下午9.38.34.png"></p>
+<p>由公式可以看到，权值是关于误差的表达式。每次迭代都会提高错分点的权值，当下一次分类器再次错分这些点之后，会提高整体的错误率，这样就导致分类器权值变小，进而导致这个分类器在最终的混合分类器中的权值变小，也就是说，Adaboost算法让正确率高的分类器占整体的权值更高，让正确率低的分类器权值更低，从而提高最终分类器的正确率。</p>
+<h5 id="实例讲解"><a href="#实例讲解" class="headerlink" title="实例讲解"></a>实例讲解</h5><p>[站外图片上传中…(image-17246c-1515809860998)]<br>图中“+”和“-”表示两种类别。我们用水平或者垂直的直线作为分类器进行分类。<br>算法开始前默认均匀分布D，共10个样本，故每个样本权值为0.1.<br>第一次分类：<br>[站外图片上传中…(image-72228f-1515809860998)]<br>第一次划分有3个点划分错误，根据误差表达式计算可得<br>e1 = (0.1+0.1+0.1)/1.0 = 0.3</p>
+<p>分类器权重为：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-d3d6fd0657823d42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-12 下午10.03.12.png"><br>第二次分类：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-bf2bcc4f9a250574.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>分类误差为e2 = 0.2144<br>分类器权重：a2 = 0.6493<br>错分的3个点权值为：d2 = 0.1*（1-0.2144)/0.2144 = 0.3664</p>
+<p>第三次分类：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-02b2d5e58001b3fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>e3= 0.1365                  a3 = 0.9223            d3 = 0.6326</p>
+<p>最终的强分类器即为三个弱分类器的叠加：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-548d318f0785c64a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-12 下午10.07.37.png"></p>
+<h5 id="adaboost-Python代码"><a href="#adaboost-Python代码" class="headerlink" title="adaboost Python代码"></a>adaboost Python代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">将所有的弱分类器的结果加权求和就可以得到最后的结果 :P</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># demo数据集</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadSimpData</span><span class="params">()</span>:</span></span><br><span class="line">    datMat = matrix([[ <span class="number">1.</span> ,  <span class="number">2.1</span>],</span><br><span class="line">        [ <span class="number">2.</span> ,  <span class="number">1.1</span>],</span><br><span class="line">        [ <span class="number">1.3</span>,  <span class="number">1.</span> ],</span><br><span class="line">        [ <span class="number">1.</span> ,  <span class="number">1.</span> ],</span><br><span class="line">        [ <span class="number">2.</span> ,  <span class="number">1.</span> ]])</span><br><span class="line">    classLabels = [<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">-1.0</span>, <span class="number">-1.0</span>, <span class="number">1.0</span>]</span><br><span class="line">    <span class="keyword">return</span> datMat,classLabels</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stumpClassify</span><span class="params">(dataMatrix,dimen,threshVal,threshIneg)</span>:</span></span><br><span class="line">    retArray = ones((shape(dataMatrix)[<span class="number">0</span>],<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">if</span> threshIneg == <span class="string">'lt'</span>:</span><br><span class="line">        <span class="comment">#数据过滤</span></span><br><span class="line">        retArray[dataMatrix[:,dimen] &lt;= threshVal] = <span class="number">-1.0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        retArray[dataMatrix[:,dimen] &gt; threshVal] = <span class="number">-1.0</span></span><br><span class="line">    <span class="keyword">return</span> retArray</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildStump</span><span class="params">(dataArr,classLabels,D)</span>:</span></span><br><span class="line">    dataMatrix = mat(dataArr)</span><br><span class="line">    labelMat = mat(classLabels).T</span><br><span class="line">    m,n = shape(dataMatrix)</span><br><span class="line">    numSteps = <span class="number">10.0</span> ; bestStump = &#123;&#125;;bestClasEst = mat(zeros((m,<span class="number">1</span>)))</span><br><span class="line">    minError = inf</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        rangeMin = dataMatrix[:,i].min(); rangeMax = dataMatrix[:,i].max()</span><br><span class="line">        stepSize = (rangeMax-rangeMin)/ numSteps</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">-1</span>,int(numSteps)+<span class="number">1</span>): <span class="comment">## 阀值可以设置在取值范围之外</span></span><br><span class="line">            <span class="keyword">for</span> inequal <span class="keyword">in</span> [<span class="string">'lt'</span>,<span class="string">'gt'</span>]:</span><br><span class="line">                threshVal = (rangeMin + float(j)*stepSize)</span><br><span class="line">                predictedVals = stumpClassify(dataMatrix,i,threshVal,inequal)</span><br><span class="line">                errArr = mat(ones((m,<span class="number">1</span>)))</span><br><span class="line">                errArr[predictedVals == labelMat] = <span class="number">0</span></span><br><span class="line">                weightdError = D.T * errArr</span><br><span class="line">                <span class="comment"># print "split : dim %d ,thresh %.2f , thresh inequal: %s, the weighted error is %.3f" % \</span></span><br><span class="line">                <span class="comment">#     (i,threshVal,inequal,weightdError)</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> weightdError &lt; minError:</span><br><span class="line">                    minError = weightdError</span><br><span class="line">                    bestClasEst = predictedVals.copy()</span><br><span class="line">                    bestStump[<span class="string">'dim'</span>] = i</span><br><span class="line">                    bestStump[<span class="string">'thresh'</span>] = threshVal</span><br><span class="line">                    bestStump[<span class="string">'ineq'</span>] = inequal</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> bestStump,minError,bestClasEst</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">adaBoostTrainDS</span><span class="params">(dataArr,classLabels,numIt=<span class="number">40</span>)</span>:</span> <span class="comment"># 单层决策树(decision stump)</span></span><br><span class="line">    weakClassArr = []</span><br><span class="line">    m = shape(dataArr)[<span class="number">0</span>] <span class="comment"># 数组第一维的个数</span></span><br><span class="line">    D = mat(ones((m,<span class="number">1</span>))/m) <span class="comment"># 一开始的权重是相等的</span></span><br><span class="line">    aggClassEst = mat(zeros((m,<span class="number">1</span>)))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(numIt):</span><br><span class="line">        bestStump,error,classEst = buildStump(dataArr,classLabels,D)</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"current D:"</span>,D.T</span><br><span class="line">        <span class="comment"># 算法为分配器分配的权重值</span></span><br><span class="line">        alpha = float(<span class="number">0.5</span>*log((<span class="number">1.0</span>-error)/max(error,<span class="number">1e-16</span>)))  <span class="comment"># 确保不会发生除0</span></span><br><span class="line">        bestStump[<span class="string">'alpha'</span>] = alpha</span><br><span class="line">        weakClassArr.append(bestStump)</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"classEst: "</span>,classEst.T</span><br><span class="line"></span><br><span class="line">        expon = multiply(<span class="number">-1</span>*alpha*mat(classLabels).T,classEst)</span><br><span class="line">        D= multiply(D,exp(expon))</span><br><span class="line">        D = D/D.sum()</span><br><span class="line">        aggClassEst += alpha*classEst <span class="comment">#将错误率累加计算,可以更好的估计出这个值是对的还是错误的</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"aggClassEst: "</span>,aggClassEst.T</span><br><span class="line"></span><br><span class="line">        aggErrors = multiply(sign(aggClassEst) != mat(classLabels).T,ones((m,<span class="number">1</span>))) <span class="comment"># numpy.sign() 大于0的返回1,小于0的返回-1 ,等于0的返回0</span></span><br><span class="line">        errorRate = aggErrors.sum()/m</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"total error: "</span>,errorRate,<span class="string">"\n"</span></span><br><span class="line">        <span class="keyword">if</span> errorRate == <span class="number">0.0</span>:<span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> weakClassArr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addClassify</span><span class="params">(datToClass,classifierArr)</span>:</span></span><br><span class="line">    dataMatrix = mat(datToClass)</span><br><span class="line">    m = shape(dataMatrix)[<span class="number">0</span>]</span><br><span class="line">    aggClassEst = mat(zeros((m,<span class="number">1</span>)))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(classifierArr)):</span><br><span class="line">        classEst = stumpClassify(dataMatrix,classifierArr[i][<span class="string">'dim'</span>],classifierArr[i][<span class="string">'thresh'</span>],classifierArr[i][<span class="string">'ineq'</span>])</span><br><span class="line">        aggClassEst += classifierArr[i][<span class="string">'alpha'</span>]*classEst <span class="comment">#将多个弱分类器的错误率累加计算,可以更好的估计出这个值是否是错误的</span></span><br><span class="line">        <span class="keyword">print</span> aggClassEst</span><br><span class="line">    <span class="keyword">return</span> sign(aggClassEst)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    dataMat,classLabels = loadSimpData()</span><br><span class="line">    adaBoostTrainDS(dataMat,classLabels,<span class="number">9</span>)</span><br></pre></td></tr></table></figure>
+<p>#####算法优点：</p>
+<ul>
+<li>1)Adaboost是一种有很高精度的分类器 </li>
+<li>2)可以使用各种方法构建子分类器,Adaboost算法提供的是框架</li>
+<li>3）不用做特征筛选</li>
+<li>4）不用担心overfitting的问题</li>
+</ul>
+<p>#####算法缺点：</p>
+<ul>
+<li>1）容易受到噪声干扰（大部分算法存在这样的缺点）</li>
+<li>2）训练时间较长</li>
+<li>3）依赖弱分类器的选择</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/16/AdaBoost算法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-线性回归、预测回归、一般回归" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/16/线性回归、预测回归、一般回归/">机器学习笔记(4):线性回归、预测回归、一般回归</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/16/线性回归、预测回归、一般回归/" class="archive-article-date">
+  	<time datetime="2018-09-16T07:27:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="平方误差代价函数"><a href="#平方误差代价函数" class="headerlink" title="平方误差代价函数"></a>平方误差代价函数</h6><blockquote>
+<p>我们的目标就是让J()尽可能的小</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-f008d18366521bcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="平方误差代价函数 .png"></p>
+<h6 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h6><ul>
+<li>:= 是赋值的意思</li>
+<li>$\alpha$  是指learning rate(学习速度)</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-1266ebcb4bb86df3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/440" alt="梯度下降"></p>
+<blockquote>
+<p> 对theta求导（斜率），theta在左半边的时候，斜率为负，所以theta会向右更新，同理在又边的时候会向左更新。可以得出当斜率为0的时候，theta不再更新。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-01c209d91b612704.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/440" alt="偏导数.jpg"></p>
+<blockquote>
+<p> 我们可以用梯度下降对多个参数（theta）进行求导，当多个参数均开始收敛（即前后两次迭代的值不再发生变化了。一般情况下，会设置一个具体的参数，当前后两次迭代差值小于该参数时候结束迭代）的时候，这即为一个比较合适的值。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-ca96119b29467199.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/440" alt="最后得出的偏导公式.jpg"></p>
+<h6 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h6><ul>
+<li>知识回顾：矩阵的迹<br>  <a href="http://blog.csdn.net/mathmetics/article/deta" target="_blank" rel="noopener">http://blog.csdn.net/mathmetics/article/deta</a> ils/17504179</li>
+</ul>
+<blockquote>
+<p>将训练特征表示为X矩阵，结果表示成y向量，仍然是线性回归模型，误差函数不变。那么θ可以直接由下面公式得出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">此方法要求X是列满秩的，而且求矩阵的逆比较慢。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-628fb9ddea326813.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240" alt="最小二乘法"></p>
+<blockquote>
+<p>最小二乘法讲解：<br><a href="https://www.cnblogs.com/iamccme/archive/2013/05/15/3080737.html" target="_blank" rel="noopener">https://www.cnblogs.com/iamccme/archive/2013/05/15/3080737.html</a></p>
+<p>最大似然估计<br><a href="http://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html" target="_blank" rel="noopener">http://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html</a></p>
+</blockquote>
+<h5 id="带权重的线性回归"><a href="#带权重的线性回归" class="headerlink" title="带权重的线性回归"></a>带权重的线性回归</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">上面提到的线性回归的误差函数里系统都是1，没有权重。带权重的线性回归加入了权重信息。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>基本假设是<br><img src="http://upload-images.jianshu.io/upload_images/1679955-1d145e43d2391c0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="
+"></p>
+</li>
+<li><p>其中假设w(i)符合公式：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-55c89ba332cd9d2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+</ul>
+<p>其中x是要预测的特征，这样假设的道理是离x越近的样本权重越大，越远的影响越小。这个公式与高斯分布类似，但不一样,因为W(i)不是随机变量。<br>此方法成为非参数学习算法，因为误差函数随着预测值的不同而不同，这样θ无法事先确定，预测一次需要临时计算，感觉类似KNN。</p>
+<h5 id="分类和对数回归"><a href="#分类和对数回归" class="headerlink" title="分类和对数回归"></a>分类和对数回归</h5><p>一般来说，回归不用在分类问题上，因为回归是连续型模型，而且受噪声影响比较大。如果非要应用进入，可以使用对数回归。</p>
+<p>对数回归本质上是线性回归，只是在特征到结果的映射中加入了一层函数映射，即先把特征线性求和，然后使用函数g(z)将最为假设函数来预测。g(z)可以将连续值映射到0和1上。</p>
+<p>对数回归的假设函数如下，线性回归假设函数只是θ^T x</p>
+<blockquote>
+<p> ######sigmod函数/Logistic函数<br> <img src="http://upload-images.jianshu.io/upload_images/1679955-f6f7ea37c2987da0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="sigmod函数"></p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-4c3c26ef4301006c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/440" alt="sigmod函数的轨迹"></p>
+<p>对数回归用来分类0/1问题，也就是预测结果属于0或者1的二值分类问题。这里假设了二值满足伯努利分布，也就是<br><img src="http://upload-images.jianshu.io/upload_images/1679955-e81af65a770397d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>当然假设它满足泊松分布、指数分布等等也可以，只是比较复杂，后面会提到线性回归的一般形式。<br>与第7节一样，仍然求的是最大似然估计，然后求导，得到迭代公式结果为</p>
+<blockquote>
+<p>这个结果看上去与线性回归类似，只是θ^T x(i)换成了hθ (x（i))，但其实h就是θ^T x(i)经过g(z)映射过来的，而这也是它与最小二乘回归的最大区别<br><img src="http://upload-images.jianshu.io/upload_images/1679955-de4242faca3e5810.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<h5 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h5><ul>
+<li>参考资料：<br><a href="http://blog.csdn.net/computerme/article/details/50486937" target="_blank" rel="noopener">http://blog.csdn.net/computerme/article/details/50486937</a></li>
+</ul>
+<blockquote>
+<p>简单来说，岭回归是在矩阵X^tX上加入一个∂ I 从而使矩阵奇异，进而能对X^tX+ ∂ I 求逆。其中矩阵I是一个m*m的单位矩阵，对角线元素为1，其余元素为0，而∂是一个用户定义的数值。在这种情况下，回归系数的计算公式变成：</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-89012020c6e1df49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240" alt="回归系数公式"><br>岭回归最先用于处理特征数多于样本数的情况，现在也用于在估计中加入偏差，从而得到更好的估计，这里通过引入∂来限制了所有w之和，通过引入惩罚项，能够减少不重要的参数，这个技术在统计学中也叫做缩减。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/16/线性回归、预测回归、一般回归/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-特征缩放" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: 机器学习笔记(3):特征缩放<br>date: 2018-09-16 15:26:47<br>tags:</p>
+<ul>
+<li>机器学习</li>
+</ul>
+<hr>
+<blockquote>
+<p>参考：<a href="http://blog.csdn.net/xlinsist/article/details/51212348" target="_blank" rel="noopener">http://blog.csdn.net/xlinsist/article/details/51212348</a></p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2></blockquote>
+<p>在运用一些机器学习算法的时候不可避免地要对数据进行特征缩放（feature scaling），比如：在随机梯度下降（stochastic gradient descent）算法中，特征缩放有时能提高算法的收敛速度。下面我会主要介绍一些特征缩放的方法。</p>
+<h2 id="什么是特征缩放"><a href="#什么是特征缩放" class="headerlink" title="什么是特征缩放"></a>什么是特征缩放</h2><p>特征缩放是用来标准化数据特征的范围。</p>
+<h2 id="机器算法为什么要特征缩放"><a href="#机器算法为什么要特征缩放" class="headerlink" title="机器算法为什么要特征缩放"></a>机器算法为什么要特征缩放</h2><p>特征缩放还可以使机器学习算法工作的更好。比如在K近邻算法中，分类器主要是计算两点之间的欧几里得距离，如果一个特征比其它的特征有更大的范围值，那么距离将会被这个特征值所主导。因此每个特征应该被归一化，比如将取值范围处理为0到1之间。</p>
+<p>就如我在引言所说，特征缩放也可以加快梯度收敛的速度。</p>
+<h2 id="特征缩放的一些方法"><a href="#特征缩放的一些方法" class="headerlink" title="特征缩放的一些方法"></a>特征缩放的一些方法</h2><h3 id="调节比例（Rescaling）"><a href="#调节比例（Rescaling）" class="headerlink" title="调节比例（Rescaling）"></a>调节比例（Rescaling）</h3><p>这种方法是将数据的特征缩放到[0,1]或[-1,1]之间。缩放到什么范围取决于数据的性质。对于这种方法的公式如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-0f69461dd085c15e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/440" alt="调节比例(Rescaling)"></p>
+<h3 id="标准化-Standardization"><a href="#标准化-Standardization" class="headerlink" title="标准化(Standardization)"></a>标准化(Standardization)</h3><p>特征标准化使每个特征的值有零均值(zero-mean)和单位方差(unit-variance)。这个方法在机器学习地算法中被广泛地使用。例如：SVM，逻辑回归和神经网络。这个方法的公式如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-46c238b066e1f40f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标准化(Standardization)"></p>
+<ul>
+<li>其中delta为x的标准差</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/16/特征缩放/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Pycharm配置Spark避坑指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/16/Pycharm配置Spark避坑指南/">Pycharm配置Spark避坑指南</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/16/Pycharm配置Spark避坑指南/" class="archive-article-date">
+  	<time datetime="2018-09-16T07:24:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>PS：本文建立在使用Mac或者linux系统的基础上，也不建议使用window系统进行spark配置=_=</p>
+</blockquote>
+<h4 id="安装JAVA环境"><a href="#安装JAVA环境" class="headerlink" title="安装JAVA环境"></a>安装JAVA环境</h4><p>这部没啥好说的吧，上网搜java安装一大把。<br>切记配置java全局变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
+<p>然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=$(/usr/libexec/java_home)</span><br></pre></td></tr></table></figure></p>
+<h4 id="安装scala"><a href="#安装scala" class="headerlink" title="安装scala"></a>安装scala</h4><p>这里推荐Mac党首选工具<a href="https://brew.sh" target="_blank" rel="noopener">brew</a><br>可以省去你配置全局变量以及管理包这一影响效率的过程</p>
+<ul>
+<li>安装scala的命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install scala</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>安装完成后用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scala -version</span><br></pre></td></tr></table></figure></p>
+<p>查看是否安装成功</p>
+<h3 id="安装Spark"><a href="#安装Spark" class="headerlink" title="安装Spark"></a>安装Spark</h3><p>这里有一个坑一定要注意，<br>不要用brew去安装spark！！！<br>不要用brew去安装spark！！！<br>不要用brew去安装spark！！！</p>
+<p>因为brew安装完的所有的包地址都在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/local/Cellar/</span><br></pre></td></tr></table></figure></p>
+<p>里面，这意味着你在pycharm执行命令会有权限问题的产生</p>
+<p>所以我们采用去官网下载包的方式: P<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://spark.apache.org/downloads.html</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-d9a95edb6675ae93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640" alt="Spark官网"><br>下载完成后解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf spark-2.0.1-bin-hadoop2.7.tgz</span><br></pre></td></tr></table></figure></p>
+<p>配置spark路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
+<p>配置如下参数（自己本机spark路径，<em>*</em>填自己的真实路径）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export  SPARK_HOME = /Users/***/spark/spark-2.0.1-bin-hadoop2.7</span><br><span class="line">export PATH= $PATH:$SPARK_HOME/bin</span><br></pre></td></tr></table></figure></p>
+<p>如果一切没有配置过SSH，在主目录输入如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen –t rsa –P</span><br></pre></td></tr></table></figure></p>
+<p>一直按回车直到结束，接着输入命令，追加私钥：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p>启动Spark</p>
+<p>进入Spark目录运行pyspark启动脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyspark</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-df299a549bb374fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640" alt="屏幕快照 2018-01-14 下午2.23.04.png"></p>
+<h4 id="在pycharm中配置spark"><a href="#在pycharm中配置spark" class="headerlink" title="在pycharm中配置spark"></a>在pycharm中配置spark</h4><p>首先打开pyCharm 的Perferences &gt; Project Structure<br><img src="http://upload-images.jianshu.io/upload_images/1679955-1c5f733d3c473fde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.25.16.png"></p>
+<ul>
+<li>选择右边?的Add Content Root</li>
+<li>找到spark的目录</li>
+<li>导入py4j和pyspark的包<br>包的具体位置为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark &gt; python &gt;lib</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-de3b2f54068ff9e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.28.24.png"></p>
+<p>配置完成后：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-9772e91ec78dcf53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.28.50.png"></p>
+<p>接着我们打开工程右上角的Edit Condigurations<br><img src="http://upload-images.jianshu.io/upload_images/1679955-6183788b2f1a59e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.29.07.png"></p>
+<p>找到Environment Variables配置：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-5906bccb8351a3e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.30.09.png"></p>
+<p>接着配置PYTHONPATH和SPARK_HOME</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1679955-176ea36e8837ae4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.31.20.png"></p>
+<p>PYTHONPATH为spark目录下python包的位置<br>在我的电脑中，PYTHONPATH为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/xulei2/Documents/tmpFile/DataMining/spark-2.2.0-bin-hadoop2.7/python</span><br></pre></td></tr></table></figure></p>
+<p>SPARK_HOME为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/xulei2/Documents/tmpFile/DataMining/spark-2.2.0-bin-hadoop2.7</span><br></pre></td></tr></table></figure></p>
+<p>点击确认，配置成功：）</p>
+<h5 id="测试是否能够正常运行"><a href="#测试是否能够正常运行" class="headerlink" title="测试是否能够正常运行"></a>测试是否能够正常运行</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</span><br><span class="line">    <span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Successfully imported Spark Modules"</span>)</span><br><span class="line"><span class="keyword">except</span> ImportError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Can not import Spark Modules"</span>, e)</span><br><span class="line">    sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">sc = SparkContext(<span class="string">"local"</span>,<span class="string">"apple"</span>)</span><br><span class="line">words = sc.parallelize([<span class="string">"scala"</span>, <span class="string">"java"</span>, <span class="string">"hadoop"</span>, <span class="string">"spark"</span>, <span class="string">"akka"</span>])</span><br><span class="line">print(words.count())</span><br></pre></td></tr></table></figure>
+<p>输入下面结果即为正常<br><img src="http://upload-images.jianshu.io/upload_images/1679955-1cbdc35470c80dd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.34.35.png"></p>
+<p>####brew安装的种种坑<br>这里就不提了，别用brew安装spark就成，我是配置了一个下午无果，始终显示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java gateway process exited before sending the driver its port number</span><br></pre></td></tr></table></figure></p>
+<p>如果有老司机能够给予解答，万分感谢，毕竟brew配置spark比起自己手动配置方便了不是一点两点- -</p>
+<blockquote>
+<p>如果其他童鞋配置spark有问题，欢迎给我留言共同交流：）</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">spark</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/16/Pycharm配置Spark避坑指南/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-机器学习笔记（1）：贝叶斯分类器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -174,6 +629,7 @@
       
         <h3 id="0x00-贝叶斯定理"><a href="#0x00-贝叶斯定理" class="headerlink" title="0x00 贝叶斯定理"></a>0x00 贝叶斯定理</h3><p><code>条件概率</code>$ P(A|B) = \frac{P(AB)}{ P(B)}$ 表示的是事件B已经发生的情况下事件A发生的概率，进而可以推出</p>
 <p><code>贝叶斯定理</code>$ P(B|A) = \frac{P(A|B)P(B)}{P(A)} $</p>
+<p><code>先验概率</code>  $P(B)$</p>
 <h3 id="0x01-朴素贝叶斯分类"><a href="#0x01-朴素贝叶斯分类" class="headerlink" title="0x01 朴素贝叶斯分类"></a>0x01 朴素贝叶斯分类</h3><blockquote>
 <p>朴素贝叶斯思想基础：对于给出的待分类项，求解在此项出现的条件下各个类别出现的概率，哪个最大，就认为此待分类项属于哪个类别。</p>
 </blockquote>
@@ -302,6 +758,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -373,6 +840,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -496,7 +974,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">spark</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
