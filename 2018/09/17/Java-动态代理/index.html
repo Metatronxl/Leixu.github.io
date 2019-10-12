@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Noisy&#39;s BLog">
 <meta property="og:description" content="参考链接： Java 动态代理-掘金 仿照Spring实现简单的IOC和AOP Java 设计模式：代理模式  源码可以参考github地址   Java 实现动态代理主要涉及以下几个类：  java.lang.reflect.Proxy: 这是生成代理类的主类，通过 Proxy 类生成的代理类都继承了 Proxy 类，即 DynamicProxyClass extends Proxy。 java">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-17T07:21:47.138Z">
+<meta property="og:updated_time" content="2019-10-12T09:01:58.409Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 动态代理">
 <meta name="twitter:description" content="参考链接： Java 动态代理-掘金 仿照Spring实现简单的IOC和AOP Java 设计模式：代理模式  源码可以参考github地址   Java 实现动态代理主要涉及以下几个类：  java.lang.reflect.Proxy: 这是生成代理类的主类，通过 Proxy 类生成的代理类都继承了 Proxy 类，即 DynamicProxyClass extends Proxy。 java">
@@ -203,6 +203,7 @@
 <li><code>java.lang.reflect.Proxy</code>: 这是生成代理类的主类，通过 Proxy 类生成的代理类都继承了 Proxy 类，即 <code>DynamicProxyClass extends Proxy</code>。</li>
 <li><code>java.lang.reflect.InvocationHandler</code>: 这里称他为”调用处理器”，他是一个接口，我们动态生成的代理类需要完成的具体内容需要自己定义一个类，而这个类必须实现 InvocationHandler 接口。</li>
 </ul>
+<a id="more"></a>
 <h2 id="Proxy-类"><a href="#Proxy-类" class="headerlink" title="Proxy 类"></a>Proxy 类</h2><p>proxy的代理方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建代理对象  </span></span><br><span class="line"><span class="function"><span class="keyword">static</span> Object <span class="title">newProxyInstance</span><span class="params">(ClassLoader loader,Class&lt;?&gt;[] interfaces,InvocationHandler h)</span></span></span><br></pre></td></tr></table></figure>
 <p><code>loader</code>是类加载器对象（即哪个类加载器来加载这个代理类到 JVM 的方法区）</p>
@@ -350,8 +351,8 @@
     </a>
   
   
-    <a href="/2018/09/16/特征缩放/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">机器学习笔记(3):特征缩放</div>
+    <a href="/2018/09/16/AdaBoost算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习笔记(5):AdaBoost算法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -516,11 +517,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java后端</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,15 +533,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java后端</a>
               </li>
              
               <li class="article-tag-list-item">
