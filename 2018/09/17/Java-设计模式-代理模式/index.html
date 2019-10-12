@@ -23,6 +23,12 @@
 <meta name="twitter:description" content="Java的动态代理其实用到了代理模式的手段。所谓代理模式是指客户端并不直接调用实际的对象，而是通过调用代理，来间接的调用实际的对象。 参考链接 Java中的代理模式   0x00 静态代理静态代理在使用时,需要定义接口或者父类,被代理对象（目标对象）与代理对象（Proxy）一起实现相同的接口或者是继承相同父类。  demo  123456789101112131415161718192021222">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fvckwc77cdj30df05iglh.jpg">
   
+
+
+  <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
+  <script src="/lib/gitalk/gitalk.min.js"></script>
+
+
   
     <link rel="icon" href="/favicon.png">
   
@@ -359,7 +365,9 @@
 
   
 
- 
+
+
+
   
   
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
@@ -378,6 +386,28 @@
 
   
 
+  
+
+
+      <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '',
+  clientSecret: '',
+  repo: 'https://metatronxl.github.io/',
+  owner: 'Metatronxl',
+  admin: ['Metatronxl'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
+  
   
 
 

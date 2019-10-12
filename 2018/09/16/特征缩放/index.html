@@ -24,6 +24,12 @@
 <meta name="twitter:description" content="参考：http://blog.csdn.net/xlinsist/article/details/51212348 引言 在运用一些机器学习算法的时候不可避免地要对数据进行特征缩放（feature scaling），比如：在随机梯度下降（stochastic gradient descent）算法中，特征缩放有时能提高算法的收敛速度。下面我会主要介绍一些特征缩放的方法。 什么是特征缩放特征缩放是">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1679955-0f69461dd085c15e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/440">
   
+
+
+  <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
+  <script src="/lib/gitalk/gitalk.min.js"></script>
+
+
   
     <link rel="icon" href="/favicon.png">
   
@@ -312,18 +318,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/16/AdaBoost算法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/17/Java-动态代理/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          机器学习笔记(5):AdaBoost算法
+          Java 动态代理
         
       </div>
     </a>
   
   
-    <a href="/2018/09/16/线性回归、预测回归、一般回归/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">机器学习笔记(4):线性回归、预测回归、一般回归</div>
+    <a href="/2018/09/16/AdaBoost算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习笔记(5):AdaBoost算法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -350,7 +356,9 @@
 
   
 
- 
+
+
+
   
   
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
@@ -369,6 +377,28 @@
 
   
 
+  
+
+
+      <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '',
+  clientSecret: '',
+  repo: 'https://metatronxl.github.io/',
+  owner: 'Metatronxl',
+  admin: ['Metatronxl'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
+  
   
 
 

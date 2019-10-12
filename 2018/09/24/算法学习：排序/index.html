@@ -24,6 +24,12 @@
 <meta name="twitter:description" content="《算法设计与分析》课程学习总结  0x00 插入排序pass  0x01 希尔排序原理：将待排序的数组元素按照下标进行一定的增量分组，分成多个子序列，对这些子序列进行插入排序，然后依次缩减增量再进行排序，直到增量为1，排序结束">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6095354-ff984d80dbc0455f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/670">
   
+
+
+  <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
+  <script src="/lib/gitalk/gitalk.min.js"></script>
+
+
   
     <link rel="icon" href="/favicon.png">
   
@@ -350,7 +356,9 @@
 
   
 
- 
+
+
+
   
   
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
@@ -369,6 +377,28 @@
 
   
 
+  
+
+
+      <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '',
+  clientSecret: '',
+  repo: 'https://metatronxl.github.io/',
+  owner: 'Metatronxl',
+  admin: ['Metatronxl'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
+  
   
 
 

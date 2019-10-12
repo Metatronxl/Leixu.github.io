@@ -30,6 +30,12 @@
 <meta name="twitter:description" content="######参考Blog：adaBoost算法 ######参考书籍：《机器学习实战》  参考书籍： Adaboost是一种迭代算法，其核心思想是针对同一个训练集训练不同的分类器（弱分类器），然后把这些弱分类器集合起来，构成一个更强的最终分类器（强分类器）。Adaboost算法本身是通过改变数据分布来实现的，它根据每次训练集之中每个样本的分类是否正确，以及上次的总体分类的准确率，来确定每个样本的权">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1679955-b1c3c191c096078a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
+
+
+  <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
+  <script src="/lib/gitalk/gitalk.min.js"></script>
+
+
   
     <link rel="icon" href="/favicon.png">
   
@@ -366,18 +372,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/17/Java-动态代理/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/16/特征缩放/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java 动态代理
+          机器学习笔记(3):特征缩放
         
       </div>
     </a>
   
   
-    <a href="/2018/09/16/特征缩放/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">机器学习笔记(3):特征缩放</div>
+    <a href="/2018/09/16/线性回归、预测回归、一般回归/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习笔记(4):线性回归、预测回归、一般回归</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -404,7 +410,9 @@
 
   
 
- 
+
+
+
   
   
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
@@ -423,6 +431,28 @@
 
   
 
+  
+
+
+      <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '',
+  clientSecret: '',
+  repo: 'https://metatronxl.github.io/',
+  owner: 'Metatronxl',
+  admin: ['Metatronxl'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
+  
   
 
 
