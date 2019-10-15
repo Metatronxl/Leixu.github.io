@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://Metatronxl.github.io">
-  <title>搭建博客感想 | Noisy&#39;s BLog</title>
+  <title>Netty 面试题整理-- Reactor模型 | Noisy&#39;s BLog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="最早是已去中科大数据搬砖的薇薇跟我提起说要搭建博客的事，当时也说好要心血来潮自己彻彻底底的撸完一整套blog代码，flask和django也都学了，暑假也试过自己搭建一个清爽的blog，但是一想到自己还要买域名，买服务器。Emmm…用Github搭建博客才是最吼的！🙂  12这就是我的第一篇博客了，虽然水了点，以后可">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="对于Reactor模型的具体介绍以及3种模型的实现这里就不多介绍了，网上有大量参考的资料，这里只做简要讲述，重点是阐述Netty中对Reactor模型的实现  Reactor模型的核心思想是将关注的IO事件注册到多路复用器上，一旦有 I/O 事件触发，将事件分发到事件处理器中，执行就绪 I/O 事件对应的处理函数中。模">
+<meta name="keywords" content="Netty">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建博客感想">
-<meta property="og:url" content="http://Metatronxl.github.io/2017/11/22/testArticle/index.html">
+<meta property="og:title" content="Netty 面试题整理-- Reactor模型">
+<meta property="og:url" content="http://Metatronxl.github.io/2019/10/15/Netty-面试题整理-Reactor模型/index.html">
 <meta property="og:site_name" content="Noisy&#39;s BLog">
-<meta property="og:description" content="最早是已去中科大数据搬砖的薇薇跟我提起说要搭建博客的事，当时也说好要心血来潮自己彻彻底底的撸完一整套blog代码，flask和django也都学了，暑假也试过自己搭建一个清爽的blog，但是一想到自己还要买域名，买服务器。Emmm…用Github搭建博客才是最吼的！🙂  12这就是我的第一篇博客了，虽然水了点，以后可是要堂堂正正发干货的，坚决不 ~~摸鱼~~  ！   后记：感谢鹅厂大佬Li">
+<meta property="og:description" content="对于Reactor模型的具体介绍以及3种模型的实现这里就不多介绍了，网上有大量参考的资料，这里只做简要讲述，重点是阐述Netty中对Reactor模型的实现  Reactor模型的核心思想是将关注的IO事件注册到多路复用器上，一旦有 I/O 事件触发，将事件分发到事件处理器中，执行就绪 I/O 事件对应的处理函数中。模型中有三个重要的组件：   多路复用器：由操作系统提供接口，Linux 提供的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-12T06:11:47.077Z">
+<meta property="og:image" content="http://static2.iocoder.cn/images/Netty/2018_05_01/03.png">
+<meta property="og:updated_time" content="2019-10-15T07:09:08.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建博客感想">
-<meta name="twitter:description" content="最早是已去中科大数据搬砖的薇薇跟我提起说要搭建博客的事，当时也说好要心血来潮自己彻彻底底的撸完一整套blog代码，flask和django也都学了，暑假也试过自己搭建一个清爽的blog，但是一想到自己还要买域名，买服务器。Emmm…用Github搭建博客才是最吼的！🙂  12这就是我的第一篇博客了，虽然水了点，以后可是要堂堂正正发干货的，坚决不 ~~摸鱼~~  ！   后记：感谢鹅厂大佬Li">
+<meta name="twitter:title" content="Netty 面试题整理-- Reactor模型">
+<meta name="twitter:description" content="对于Reactor模型的具体介绍以及3种模型的实现这里就不多介绍了，网上有大量参考的资料，这里只做简要讲述，重点是阐述Netty中对Reactor模型的实现  Reactor模型的核心思想是将关注的IO事件注册到多路复用器上，一旦有 I/O 事件触发，将事件分发到事件处理器中，执行就绪 I/O 事件对应的处理函数中。模型中有三个重要的组件：   多路复用器：由操作系统提供接口，Linux 提供的">
+<meta name="twitter:image" content="http://static2.iocoder.cn/images/Netty/2018_05_01/03.png">
   
     <link rel="alternative" href="/atom.xml" title="Noisy&#39;s BLog" type="application/atom+xml">
   
@@ -176,14 +178,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-testArticle" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Netty-面试题整理-Reactor模型" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      搭建博客感想
+      Netty 面试题整理-- Reactor模型
     </h1>
   
 
@@ -195,8 +197,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2017/11/22/testArticle/" class="archive-article-date">
-        <time datetime="2017-11-22T12:18:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
+<a href="/2019/10/15/Netty-面试题整理-Reactor模型/" class="archive-article-date">
+        <time datetime="2019-10-15T07:07:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
 </a>
 
   
@@ -209,7 +211,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">164字</span>
+      <span class="post-count">804字</span>
     </span>
   </span>
 
@@ -218,7 +220,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -230,14 +232,34 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p> 最早是已去中科大数据搬砖的薇薇跟我提起说要搭建博客的事，当时也说好要心血来潮自己彻彻底底的撸完一整套blog代码，flask和django也都学了，暑假也试过自己搭建一个清爽的blog，但是一想到自己还要买域名，买服务器。Emmm…用Github搭建博客才是最吼的！🙂</p>
+<p>对于Reactor模型的具体介绍以及3种模型的实现这里就不多介绍了，网上有大量参考的资料，这里只做简要讲述，重点是阐述Netty中对Reactor模型的实现</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这就是我的第一篇博客了，</span><br><span class="line">虽然水了点，以后可是要堂堂正正发干货的，坚决不 ~~摸鱼~~  ！</span><br></pre></td></tr></table></figure>
-<hr>
+<p>Reactor模型的核心思想是将关注的IO事件注册到多路复用器上，一旦有 I/O 事件触发，将事件分发到事件处理器中，执行就绪 I/O 事件对应的处理函数中。模型中有三个重要的组件：</p>
 <blockquote>
-<p>后记：感谢鹅厂大佬Litten提供的yilia主题</p>
-<p>在此附上大佬的github地址：<a href="https://github.com/litten" target="_blank" rel="noopener">https://github.com/litten</a></p>
+<ul>
+<li>多路复用器：由操作系统提供接口，Linux 提供的 I/O 复用接口有select、poll、epoll 。</li>
+<li>事件分离器：将多路复用器返回的就绪事件分发到事件处理器中。</li>
+<li>事件处理器：处理就绪事件处理函数。</li>
+</ul>
 </blockquote>
+<a id="more"></a>
+<p>其中Netty NIO 为多Reactor 多线程模型的变种，mainReactor负责监听ServerSocketChannel，用来处理客户端新连接的建立，并将建立的客户端的 SocketChannel 指定注册给 subReactor 。subReactor 维护自己的 Selector ，基于 mainReactor 建立的客户端的 SocketChannel 多路分离 IO 读写事件，读写网络数据。对于业务处理的功能，另外扔给 worker 线程池来完成。图例如下</p>
+<p><img src="http://static2.iocoder.cn/images/Netty/2018_05_01/03.png" alt="03"></p>
+<h3 id="Netty-NIO-客户端"><a href="#Netty-NIO-客户端" class="headerlink" title="Netty NIO 客户端"></a>Netty NIO 客户端</h3><ul>
+<li>对于一个Netty NIO客户端来说一个EventLoop对应的是一个Reactor。</li>
+<li>一个 Bootstrap 的启动，只能发起对一个远程的地址。所以只会使用一个 NIO Selector ，也就是说仅使用<strong>一个</strong> Reactor 。即使，我们在声明使用一个 EventLoopGroup ，该 EventLoopGroup 也只会分配一个 EventLoop 对 IO 事件进行处理。</li>
+</ul>
+<p>所以我们可以认为我Netty NIO客户端是一种【Reactor 单线程模型】</p>
+<p>（注：Dubbo 或 Motan 这两个 RPC 框架，支持通过配置，同一个 Consumer 对同一个 Provider 实例同时建立多个客户端连接。可以算是Reactor多线程模型，但我们一般传统意义上的Netty客户端是单线程模型）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个 EventLoopGroup 对象</span></span><br><span class="line">EventLoopGroup group = <span class="keyword">new</span> NioEventLoopGroup();</span><br><span class="line"><span class="comment">// 创建 Bootstrap 对象</span></span><br><span class="line">Bootstrap b = <span class="keyword">new</span> Bootstrap();</span><br><span class="line"><span class="comment">// 设置使用的 EventLoopGroup</span></span><br><span class="line">b.group(group);</span><br></pre></td></tr></table></figure>
+<h3 id="Netty-NIO-服务端"><a href="#Netty-NIO-服务端" class="headerlink" title="Netty NIO 服务端"></a>Netty NIO 服务端</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建两个 EventLoopGroup 对象</span></span><br><span class="line">EventLoopGroup bossGroup = <span class="keyword">new</span> NioEventLoopGroup(<span class="number">1</span>); <span class="comment">// 创建 boss 线程组 用于服务端接受客户端的连接</span></span><br><span class="line">EventLoopGroup workerGroup = <span class="keyword">new</span> NioEventLoopGroup(); <span class="comment">// 创建 worker 线程组 用于进行 SocketChannel 的数据读写</span></span><br><span class="line"><span class="comment">// 创建 ServerBootstrap 对象</span></span><br><span class="line">ServerBootstrap b = <span class="keyword">new</span> ServerBootstrap();</span><br><span class="line"><span class="comment">// 设置使用的 EventLoopGroup</span></span><br><span class="line">b.group(bossGroup, workerGroup);</span><br></pre></td></tr></table></figure>
+<p>对于 Netty NIO 服务端来说，创建两个 EventLoopGroup 。</p>
+<ul>
+<li><code>bossGroup</code> 对应 Reactor 模式的 mainReactor ，用于服务端接受客户端的连接。比较特殊的是，传入了方法参数 <code>nThreads = 1</code> ，表示只使用一个 EventLoop ，即只使用一个 Reactor 。这个也符合我们上面提到的，“<em>通常，mainReactor 只需要一个，因为它一个线程就可以处理</em>”。</li>
+<li><code>workerGroup</code> 对应 Reactor 模式的 subReactor ，用于进行 SocketChannel 的数据读写。对于 EventLoopGroup ，如果未传递方法参数 <code>nThreads</code> ，表示使用 CPU 个数 Reactor 。这个也符合我们上面提到的，“<em>通常，subReactor 的个数和 CPU 个数相等，每个 subReactor 独占一个线程来处理</em>”。</li>
+</ul>
+<p>因为使用两个 EventLoopGroup ，所以符合【多 Reactor 多线程模型】的多 Reactor 的要求</p>
+<p>参考：<a href="http://svip.iocoder.cn/Netty/EventLoop-1-Reactor-Model/" target="_blank" rel="noopener">精尽 Netty 源码解析 —— EventLoop（一）之 Reactor 模型</a></p>
 
     
 
@@ -284,7 +306,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://Metatronxl.github.io/2017/11/22/testArticle/" title="搭建博客感想" target="_blank">http://Metatronxl.github.io/2017/11/22/testArticle/</a>
+          <a href="http://Metatronxl.github.io/2019/10/15/Netty-面试题整理-Reactor模型/" title="Netty 面试题整理-- Reactor模型" target="_blank">http://Metatronxl.github.io/2019/10/15/Netty-面试题整理-Reactor模型/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -303,7 +325,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Netty</a>
         		</li>
       		
 		</ul>
@@ -359,7 +381,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://Metatronxl.github.io/2017/11/22/testArticle/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://Metatronxl.github.io/2019/10/15/Netty-面试题整理-Reactor模型/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -374,15 +396,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/12/05/python-爬虫总结帖（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          python 爬虫总结帖（一）
-        
-      </div>
-    </a>
   
+    <a href="/2019/10/12/关于NBA问题的一点思考/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于NBA问题的一点思考</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -418,9 +436,9 @@
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "搭建博客感想" -->
+  <!-- id: "Netty 面试题整理-- Reactor模型" -->
   var giteement = new Giteement({
-    id: '20171122201856',
+    id: '20191015150745',
     owner: 'Metatronxl',
     repo: 'blog',
     backcall_uri: 'https://metatronxl.github.io/',
