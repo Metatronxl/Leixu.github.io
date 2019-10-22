@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://Metatronxl.github.io">
-  <title>Tag: 算法 | Noisy&#39;s BLog</title>
+  <title>Netty 面试题整理(二) | Noisy&#39;s BLog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Noisy&#39;s BLog">
-<meta property="og:url" content="http://Metatronxl.github.io/tags/算法/index.html">
+  <meta name="description" content="0x01  Netty 核心组件 Bootstrap &amp;amp; ServerBootstrap Channel ChannelFuture EventLoop &amp;amp; EventLoopGroup ChannelHandler ChannelPipeline">
+<meta name="keywords" content="Netty">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Netty 面试题整理(二)">
+<meta property="og:url" content="http://Metatronxl.github.io/2019/10/22/Netty-面试题整理-二/index.html">
 <meta property="og:site_name" content="Noisy&#39;s BLog">
+<meta property="og:description" content="0x01  Netty 核心组件 Bootstrap &amp;amp; ServerBootstrap Channel ChannelFuture EventLoop &amp;amp; EventLoopGroup ChannelHandler ChannelPipeline">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://static2.iocoder.cn/images/Netty/2018_03_05/03.png">
+<meta property="og:updated_time" content="2019-10-22T03:07:05.064Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Noisy&#39;s BLog">
+<meta name="twitter:title" content="Netty 面试题整理(二)">
+<meta name="twitter:description" content="0x01  Netty 核心组件 Bootstrap &amp;amp; ServerBootstrap Channel ChannelFuture EventLoop &amp;amp; EventLoopGroup ChannelHandler ChannelPipeline">
+<meta name="twitter:image" content="http://static2.iocoder.cn/images/Netty/2018_03_05/03.png">
   
     <link rel="alternative" href="/atom.xml" title="Noisy&#39;s BLog" type="application/atom+xml">
   
@@ -171,65 +178,311 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Netty-面试题整理-二" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2018/09/24/算法学习：排序/" class="archive-article-date">
-        <time datetime="2018-09-24T11:05:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-24</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2018/09/24/算法学习：排序/" target="_blank">算法学习：排序 </a>
   
+    <h1 class="article-title" itemprop="name">
+      Netty 面试题整理(二)
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2019/10/22/Netty-面试题整理-二/" class="archive-article-date">
+        <time datetime="2019-10-22T03:06:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">949字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="0x01-Netty-核心组件"><a href="#0x01-Netty-核心组件" class="headerlink" title="0x01  Netty 核心组件"></a>0x01  Netty 核心组件</h2><ul>
+<li>Bootstrap &amp; ServerBootstrap</li>
+<li>Channel</li>
+<li>ChannelFuture</li>
+<li>EventLoop &amp; EventLoopGroup</li>
+<li>ChannelHandler</li>
+<li>ChannelPipeline</li>
+</ul>
+<a id="more"></a>
+<h2 id="0x02-Bootstrap-amp-ServerBootstrap"><a href="#0x02-Bootstrap-amp-ServerBootstrap" class="headerlink" title="0x02  Bootstrap &amp; ServerBootstrap"></a>0x02  Bootstrap &amp; ServerBootstrap</h2><p>2个类均继承AbstractBootstrap。</p>
+<p>Bootstrap 用于启动一个 Netty TCP 客户端，或者 UDP 的一端。</p>
+<blockquote>
+<ul>
+<li>通常使用 <code>#connet(...)</code> 方法连接到远程的主机和端口，作为一个 Netty TCP 客户端。</li>
+<li>也可以通过 <code>#bind(...)</code> 方法绑定本地的一个端口，作为 UDP 的一端。</li>
+<li>仅仅需要使用<strong>一个</strong> EventLoopGroup </li>
+</ul>
+</blockquote>
+<p>ServerBootstrap 往往是用于启动一个 Netty 服务端。</p>
+<blockquote>
+<ul>
+<li>通常使用 <code>#bind(...)</code> 方法绑定本地的端口上，然后等待客户端的连接。</li>
+<li>使用<strong>两个</strong> EventLoopGroup 对象( 当然这个对象可以引用同一个对象 )：第一个用于处理它本地 Socket <strong>连接</strong>的 IO 事件处理，而第二个责负责处理远程客户端的 IO 事件处理。</li>
+</ul>
+</blockquote>
+<ul>
+<li>TODO 1   添加源码分析</li>
+<li>TODO 2 添加常见面试问题</li>
+</ul>
+<h2 id="0x03-Channel"><a href="#0x03-Channel" class="headerlink" title="0x03 Channel"></a>0x03 Channel</h2><p>Channel 是 Netty 网络操作抽象类，它除了包括基本的 I/O 操作，如 bind、connect、read、write 之外，还包括了 Netty 框架相关的一些功能，如获取该 Channel 的 EventLoop 。</p>
+<h2 id="0x04-EventLoop-amp-amp-EventLoopGroup"><a href="#0x04-EventLoop-amp-amp-EventLoopGroup" class="headerlink" title="0x04 EventLoop &amp;&amp; EventLoopGroup"></a>0x04 EventLoop &amp;&amp; EventLoopGroup</h2><p>Netty 基于<strong>事件驱动模型</strong>，使用不同的事件来通知我们状态的改变或者操作状态的改变。它定义了在整个连接的生命周期里当有事件发生的时候处理的核心抽象。</p>
+<p>Channel 为Netty 网络操作抽象类，EventLoop 负责处理注册到其上的 Channel 处理 I/O 操作，两者配合参与 I/O 操作。</p>
+<p>EventLoopGroup 是一个 EventLoop 的分组，它可以获取到一个或者多个 EventLoop 对象，因此它提供了迭代出 EventLoop 对象的方法。</p>
+<p><strong>注意点⚠️</strong></p>
+<blockquote>
+<ul>
+<li>一个 EventLoopGroup 包含一个或多个 EventLoop ，即 EventLoopGroup : EventLoop = <code>1 : n</code> 。</li>
+<li>一个 EventLoop 在它的生命周期内，只能与一个 Thread 绑定，即 EventLoop : Thread = <code>1 : 1</code> 。</li>
+<li>所有有 EventLoop 处理的 I/O 事件都将在它<strong>专有</strong>的 Thread 上被处理，从而保证线程安全，即 Thread : EventLoop = <code>1 : 1</code>。</li>
+<li>一个 Channel 在它的生命周期内只能注册到一个 EventLoop 上，即 Channel : EventLoop = <code>n : 1</code> 。</li>
+<li>一个 EventLoop 可被分配至一个或多个 Channel ，即 EventLoop : Channel = <code>1 : n</code> 。</li>
+</ul>
+<p>当一个连接到达时，Netty 就会创建一个 Channel，然后从 EventLoopGroup 中分配一个 EventLoop 来给这个 Channel 绑定上，在该 Channel 的整个生命周期中都是有这个绑定的 EventLoop 来服务的。</p>
+</blockquote>
+<h2 id="0x05-ChannelFuture"><a href="#0x05-ChannelFuture" class="headerlink" title="0x05 ChannelFuture"></a>0x05 ChannelFuture</h2><p>Netty 为异步非阻塞，即所有的 I/O 操作都为异步的，因此，我们不能立刻得知消息是否已经被处理了。Netty 提供了 ChannelFuture 接口，通过该接口的 <code>#addListener(...)</code> 方法，注册一个 ChannelFutureListener，当操作执行成功或者失败时，监听就会自动触发返回结果。</p>
+<h2 id="0x06-ChannelHandler"><a href="#0x06-ChannelHandler" class="headerlink" title="0x06 ChannelHandler"></a>0x06 ChannelHandler</h2><p>ChannelHandler 有两个核心子类 ChannelInboundHandler 和 ChannelOutboundHandler，其中 ChannelInboundHandler 用于接收、处理入站( Inbound )的数据和事件，而 ChannelOutboundHandler 则相反，用于接收、处理出站( Outbound )的数据和事件。</p>
+<h2 id="0x07-ChannelPipeline"><a href="#0x07-ChannelPipeline" class="headerlink" title="0x07 ChannelPipeline"></a>0x07 ChannelPipeline</h2><p>ChannelPipeline 为 ChannelHandler 的<strong>链</strong>，提供了一个容器并定义了用于沿着链传播入站和出站事件流的 API 。一个数据或者事件可能会被多个 Handler 处理，在这个过程中，数据或者事件经流 ChannelPipeline ，由 ChannelHandler 处理。在这个处理过程中，一个 ChannelHandler 接收数据后处理完成后交给下一个 ChannelHandler，或者什么都不做直接交给下一个 ChannelHandler。</p>
+<p>当数据流进入ChannelPipeline时是从头部开始依次传递到每一个handler，直到尾部。相对的，如果数据是被写出，则从尾部开始传递到头部。</p>
+<ul>
+<li>ctx.writeAndFlush与ctx.channel().writeAndFlush的区别</li>
+</ul>
+<blockquote>
+<p>ctx.writeAndFlush()是将数据从当前节点开始向前传递，ctx.channel().writeAndFlush是强制从channel的尾部开始将数据向前传递</p>
+<p>类似的还有ctx.fireChannelRead() 和ctx.channel().fireChannelRead()</p>
+</blockquote>
+<p><img src="http://static2.iocoder.cn/images/Netty/2018_03_05/03.png" alt="03"></p>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/alipay.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Noisy
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://Metatronxl.github.io/2019/10/22/Netty-面试题整理-二/" title="Netty 面试题整理(二)" target="_blank">http://Metatronxl.github.io/2019/10/22/Netty-面试题整理-二/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Netty</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://Metatronxl.github.io/2019/10/22/Netty-面试题整理-二/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/22/Netty-面试题整理-三/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Netty 面试题整理(三)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "Netty 面试题整理(二)" -->
+  var giteement = new Giteement({
+    id: '20191022110628',
+    owner: 'Metatronxl',
+    repo: 'blog',
+    backcall_uri: 'https://metatronxl.github.io/',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: 'c8066ba72dafa09e8ead5106a273c39e3e8b7fb6b1126197cca5b689130b6551',
+      client_secret: 'ddaf1d18db1be2164a90cc50596f5250a9fc25e178e50fc66250099a602c52d0'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
+
+
+
+
+
+
 
 
           </div>
@@ -270,9 +523,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

@@ -184,6 +184,191 @@
 
 
   
+    <article id="post-Netty-面试题整理-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/10/22/Netty-面试题整理-二/" target="_blank">Netty 面试题整理(二)</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/22/Netty-面试题整理-二/" class="archive-article-date">
+        <time datetime="2019-10-22T03:06:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="0x01-Netty-核心组件"><a href="#0x01-Netty-核心组件" class="headerlink" title="0x01  Netty 核心组件"></a>0x01  Netty 核心组件</h2><ul>
+<li>Bootstrap &amp; ServerBootstrap</li>
+<li>Channel</li>
+<li>ChannelFuture</li>
+<li>EventLoop &amp; EventLoopGroup</li>
+<li>ChannelHandler</li>
+<li>ChannelPipeline</li>
+</ul>
+    
+    <a class="article-more-a" href="/2019/10/22/Netty-面试题整理-二/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Netty</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/10/22/Netty-面试题整理-二/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Netty-面试题整理-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/10/22/Netty-面试题整理-三/" target="_blank">Netty 面试题整理(三)</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/22/Netty-面试题整理-三/" class="archive-article-date">
+        <time datetime="2019-10-22T03:05:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="0x01-什么是业务线程池"><a href="#0x01-什么是业务线程池" class="headerlink" title="0x01 什么是业务线程池"></a>0x01 什么是业务线程池</h2><p><strong>Question</strong>：无论是那种类型的 Reactor 模型，都需要在 Reactor 所在的线程中，进行读写操作。那么此时就会有一个问题，如果我们读取到数据，需要进行业务逻辑处理，并且这个业务逻辑需要对数据库、缓存等等进行操作，会有什么问题呢？假设这个数据库操作需要 5 ms ，那就意味着这个 Reactor 线程在这 5 ms 无法进行注册在这个 Reactor 的 Channel 进行读写操作。也就是说，多个 Channel 的所有读写操作都变成了串行。势必，这样的效率会非常非常非常的低。</p>
+<p><strong>解决</strong>：那么怎么解决呢？创建业务线程池，将读取到的数据，提交到业务线程池中进行处理。这样，Reactor 的 Channel 就不会被阻塞，而 Channel 的所有读写操作都变成了并行了。</p>
+<p><strong>案例</strong>： <a href="http://dubbo.apache.org/zh-cn/docs/user/demos/thread-model.html" target="_blank" rel="noopener">《Dubbo 用户指南 —— 线程模型》</a>就是使用线程池来处理IO线程中时间处理逻辑较慢 or 需要发起新请求的情况（查询数据库、连接事件中发起登陆请求.etc）</p>
+    
+    <a class="article-more-a" href="/2019/10/22/Netty-面试题整理-三/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Netty</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/10/22/Netty-面试题整理-三/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Netty-面试题整理-Reactor模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1041,237 +1226,6 @@
 
 
   
-    <article id="post-Pycharm配置Spark避坑指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/09/16/Pycharm配置Spark避坑指南/" target="_blank">Pycharm配置Spark避坑指南</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/09/16/Pycharm配置Spark避坑指南/" class="archive-article-date">
-        <time datetime="2018-09-16T07:24:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>PS：本文建立在使用Mac或者linux系统的基础上，也不建议使用window系统进行spark配置=_=</p>
-</blockquote>
-<h4 id="安装JAVA环境"><a href="#安装JAVA环境" class="headerlink" title="安装JAVA环境"></a>安装JAVA环境</h4><p>这部没啥好说的吧，上网搜java安装一大把。<br>切记配置java全局变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
-<p>然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=$(/usr/libexec/java_home)</span><br></pre></td></tr></table></figure></p>
-<h4 id="安装scala"><a href="#安装scala" class="headerlink" title="安装scala"></a>安装scala</h4><p>这里推荐Mac党首选工具<a href="https://brew.sh" target="_blank" rel="noopener">brew</a><br>可以省去你配置全局变量以及管理包这一影响效率的过程</p>
-<ul>
-<li>安装scala的命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install scala</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>安装完成后用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scala -version</span><br></pre></td></tr></table></figure></p>
-<p>查看是否安装成功</p>
-<h3 id="安装Spark"><a href="#安装Spark" class="headerlink" title="安装Spark"></a>安装Spark</h3><p>这里有一个坑一定要注意，<br>不要用brew去安装spark！！！<br>不要用brew去安装spark！！！<br>不要用brew去安装spark！！！</p>
-<p>因为brew安装完的所有的包地址都在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/local/Cellar/</span><br></pre></td></tr></table></figure></p>
-<p>里面，这意味着你在pycharm执行命令会有权限问题的产生</p>
-<p>所以我们采用去官网下载包的方式: P<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://spark.apache.org/downloads.html</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-d9a95edb6675ae93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640" alt="Spark官网"><br>下载完成后解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf spark-2.0.1-bin-hadoop2.7.tgz</span><br></pre></td></tr></table></figure></p>
-<p>配置spark路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
-<p>配置如下参数（自己本机spark路径，<em>*</em>填自己的真实路径）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export  SPARK_HOME = /Users/***/spark/spark-2.0.1-bin-hadoop2.7</span><br><span class="line">export PATH= $PATH:$SPARK_HOME/bin</span><br></pre></td></tr></table></figure></p>
-<p>如果一切没有配置过SSH，在主目录输入如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen –t rsa –P</span><br></pre></td></tr></table></figure></p>
-<p>一直按回车直到结束，接着输入命令，追加私钥：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
-<p>启动Spark</p>
-<p>进入Spark目录运行pyspark启动脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyspark</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-df299a549bb374fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640" alt="屏幕快照 2018-01-14 下午2.23.04.png"></p>
-<h4 id="在pycharm中配置spark"><a href="#在pycharm中配置spark" class="headerlink" title="在pycharm中配置spark"></a>在pycharm中配置spark</h4><p>首先打开pyCharm 的Perferences &gt; Project Structure<br><img src="http://upload-images.jianshu.io/upload_images/1679955-1c5f733d3c473fde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.25.16.png"></p>
-<ul>
-<li>选择右边?的Add Content Root</li>
-<li>找到spark的目录</li>
-<li>导入py4j和pyspark的包<br>包的具体位置为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark &gt; python &gt;lib</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-de3b2f54068ff9e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.28.24.png"></p>
-<p>配置完成后：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-9772e91ec78dcf53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.28.50.png"></p>
-<p>接着我们打开工程右上角的Edit Condigurations<br><img src="http://upload-images.jianshu.io/upload_images/1679955-6183788b2f1a59e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.29.07.png"></p>
-<p>找到Environment Variables配置：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-5906bccb8351a3e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.30.09.png"></p>
-<p>接着配置PYTHONPATH和SPARK_HOME</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-176ea36e8837ae4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.31.20.png"></p>
-<p>PYTHONPATH为spark目录下python包的位置<br>在我的电脑中，PYTHONPATH为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/xulei2/Documents/tmpFile/DataMining/spark-2.2.0-bin-hadoop2.7/python</span><br></pre></td></tr></table></figure></p>
-<p>SPARK_HOME为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/xulei2/Documents/tmpFile/DataMining/spark-2.2.0-bin-hadoop2.7</span><br></pre></td></tr></table></figure></p>
-<p>点击确认，配置成功：）</p>
-<h5 id="测试是否能够正常运行"><a href="#测试是否能够正常运行" class="headerlink" title="测试是否能够正常运行"></a>测试是否能够正常运行</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</span><br><span class="line">    <span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Successfully imported Spark Modules"</span>)</span><br><span class="line"><span class="keyword">except</span> ImportError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Can not import Spark Modules"</span>, e)</span><br><span class="line">    sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">sc = SparkContext(<span class="string">"local"</span>,<span class="string">"apple"</span>)</span><br><span class="line">words = sc.parallelize([<span class="string">"scala"</span>, <span class="string">"java"</span>, <span class="string">"hadoop"</span>, <span class="string">"spark"</span>, <span class="string">"akka"</span>])</span><br><span class="line">print(words.count())</span><br></pre></td></tr></table></figure>
-<p>输入下面结果即为正常<br><img src="http://upload-images.jianshu.io/upload_images/1679955-1cbdc35470c80dd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-14 下午2.34.35.png"></p>
-<p>####brew安装的种种坑<br>这里就不提了，别用brew安装spark就成，我是配置了一个下午无果，始终显示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java gateway process exited before sending the driver its port number</span><br></pre></td></tr></table></figure></p>
-<p>如果有老司机能够给予解答，万分感谢，毕竟brew配置spark比起自己手动配置方便了不是一点两点- -</p>
-<blockquote>
-<p>如果其他童鞋配置spark有问题，欢迎给我留言共同交流：）</p>
-</blockquote>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">spark</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/09/16/Pycharm配置Spark避坑指南/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-机器学习笔记（1）：贝叶斯分类器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/09/15/机器学习笔记（1）：贝叶斯分类器/" target="_blank">机器学习笔记（1）：贝叶斯分类器</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/09/15/机器学习笔记（1）：贝叶斯分类器/" class="archive-article-date">
-        <time datetime="2018-09-15T14:12:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="0x00-贝叶斯定理"><a href="#0x00-贝叶斯定理" class="headerlink" title="0x00 贝叶斯定理"></a>0x00 贝叶斯定理</h3><p><code>条件概率</code>$ P(A|B) = \frac{P(AB)}{ P(B)}$ 表示的是事件B已经发生的情况下事件A发生的概率，进而可以推出</p>
-<p><code>贝叶斯定理</code>$ P(B|A) = \frac{P(A|B)P(B)}{P(A)} $</p>
-<p><code>先验概率</code>  $P(B)$</p>
-<h3 id="0x01-朴素贝叶斯分类"><a href="#0x01-朴素贝叶斯分类" class="headerlink" title="0x01 朴素贝叶斯分类"></a>0x01 朴素贝叶斯分类</h3><blockquote>
-<p>朴素贝叶斯思想基础：对于给出的待分类项，求解在此项出现的条件下各个类别出现的概率，哪个最大，就认为此待分类项属于哪个类别。</p>
-</blockquote>
-<p>正式定义：</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fvajpvqqzcj30uk08ata8.jpg" alt="屏幕快照 2018-09-15 下午9.28.12"></p>
-<p>所以由上述步骤理论，在各个特征属性独立的前提下，根据贝叶斯定理可以得到<br>$$<br>P(y_i|x) = \frac{P(x|y_i)P(y_i)}{P(x)}<br>$$<br>因为分母为一个常数，所以只需要$P(x|y_i)P(y_i) $最大化即可，同时因为各个属性是条件独立，所以有：<br>$$<br>P(x|y_i)P(y_i) = P(a_1|y_i)P(y_i)…P(a_m|y_i)P(y_i) =  P(y<em>i)\prod</em>{j=1}^nP(a_j|y_i)<br>$$</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/09/15/机器学习笔记（1）：贝叶斯分类器/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1409,11 +1363,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Netty</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color1">Netty</a>
               </li>
              
               <li class="article-tag-list-item">

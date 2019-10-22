@@ -19,7 +19,7 @@
 <meta property="og:description" content="对于Reactor模型的具体介绍以及3种模型的实现这里就不多介绍了，网上有大量参考的资料，这里只做简要讲述，重点是阐述Netty中对Reactor模型的实现  Reactor模型的核心思想是将关注的IO事件注册到多路复用器上，一旦有 I/O 事件触发，将事件分发到事件处理器中，执行就绪 I/O 事件对应的处理函数中。模型中有三个重要的组件：   多路复用器：由操作系统提供接口，Linux 提供的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://static2.iocoder.cn/images/Netty/2018_05_01/03.png">
-<meta property="og:updated_time" content="2019-10-15T07:09:08.453Z">
+<meta property="og:updated_time" content="2019-10-21T02:38:13.385Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Netty 面试题整理-- Reactor模型">
 <meta name="twitter:description" content="对于Reactor模型的具体介绍以及3种模型的实现这里就不多介绍了，网上有大量参考的资料，这里只做简要讲述，重点是阐述Netty中对Reactor模型的实现  Reactor模型的核心思想是将关注的IO事件注册到多路复用器上，一旦有 I/O 事件触发，将事件分发到事件处理器中，执行就绪 I/O 事件对应的处理函数中。模型中有三个重要的组件：   多路复用器：由操作系统提供接口，Linux 提供的">
@@ -211,7 +211,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">804字</span>
+      <span class="post-count">1.2k字</span>
     </span>
   </span>
 
@@ -220,7 +220,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -243,23 +243,47 @@
 </ul>
 </blockquote>
 <a id="more"></a>
-<p>其中Netty NIO 为多Reactor 多线程模型的变种，mainReactor负责监听ServerSocketChannel，用来处理客户端新连接的建立，并将建立的客户端的 SocketChannel 指定注册给 subReactor 。subReactor 维护自己的 Selector ，基于 mainReactor 建立的客户端的 SocketChannel 多路分离 IO 读写事件，读写网络数据。对于业务处理的功能，另外扔给 worker 线程池来完成。图例如下</p>
+<h3 id="0x01-Reactor-线程模型"><a href="#0x01-Reactor-线程模型" class="headerlink" title="0x01 Reactor 线程模型"></a>0x01 Reactor 线程模型</h3><ol>
+<li>Reactor单线程模型：所有的IO操作都由同一个NIO线程处理。</li>
+</ol>
+<blockquote>
+<p>使用的是异步非阻塞IO，所有的IO操作都不会导致阻塞，理论上一个线程可以独立处理所有IO相关的操作。但是即使线程利用率达到100%，也不会能撑住太高的并发。</p>
+</blockquote>
+<ol>
+<li>Reactor多线程模型：Reactor多线程模型与单线程模型最大的区别就是有一组NIO线程来处理IO操作。</li>
+</ol>
+<blockquote>
+<p>有专门一个NIO线程—-Acceptor线程用于监听服务端，接收客户端的TCP连接请求,网络IO操作—-读、写等由一个NIO线程池负责。瓶颈在于客户端同时连接数，毕竟是一个线程再做监听工作。</p>
+</blockquote>
+<ol>
+<li>主从Reactor模型：服务端用于接收客户端连接的不再是一个单独的NIO线程，而是一个独立的NIO线程池。后续操作与2类似。</li>
+</ol>
+<blockquote>
+<p>官方推荐模型,可以解决一个服务端监听线程无法有效处理所有客户端连接的性能不足问题。</p>
+</blockquote>
+<h3 id="0x02-Netty-模型"><a href="#0x02-Netty-模型" class="headerlink" title="0x02 Netty 模型"></a>0x02 Netty 模型</h3><p>其中Netty NIO 为多Reactor 多线程模型的变种，mainReactor负责监听ServerSocketChannel，用来处理客户端新连接的建立，并将建立的客户端的 SocketChannel 指定注册给 subReactor 。subReactor 维护自己的 Selector ，基于 mainReactor 建立的客户端的 SocketChannel 多路分离 IO 读写事件，读写网络数据。对于业务处理的功能，另外扔给 worker 线程池来完成。图例如下</p>
 <p><img src="http://static2.iocoder.cn/images/Netty/2018_05_01/03.png" alt="03"></p>
-<h3 id="Netty-NIO-客户端"><a href="#Netty-NIO-客户端" class="headerlink" title="Netty NIO 客户端"></a>Netty NIO 客户端</h3><ul>
+<h3 id="0x03-Netty-NIO-客户端"><a href="#0x03-Netty-NIO-客户端" class="headerlink" title="0x03 Netty NIO 客户端"></a>0x03 Netty NIO 客户端</h3><ul>
 <li>对于一个Netty NIO客户端来说一个EventLoop对应的是一个Reactor。</li>
 <li>一个 Bootstrap 的启动，只能发起对一个远程的地址。所以只会使用一个 NIO Selector ，也就是说仅使用<strong>一个</strong> Reactor 。即使，我们在声明使用一个 EventLoopGroup ，该 EventLoopGroup 也只会分配一个 EventLoop 对 IO 事件进行处理。</li>
 </ul>
 <p>所以我们可以认为我Netty NIO客户端是一种【Reactor 单线程模型】</p>
 <p>（注：Dubbo 或 Motan 这两个 RPC 框架，支持通过配置，同一个 Consumer 对同一个 Provider 实例同时建立多个客户端连接。可以算是Reactor多线程模型，但我们一般传统意义上的Netty客户端是单线程模型）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个 EventLoopGroup 对象</span></span><br><span class="line">EventLoopGroup group = <span class="keyword">new</span> NioEventLoopGroup();</span><br><span class="line"><span class="comment">// 创建 Bootstrap 对象</span></span><br><span class="line">Bootstrap b = <span class="keyword">new</span> Bootstrap();</span><br><span class="line"><span class="comment">// 设置使用的 EventLoopGroup</span></span><br><span class="line">b.group(group);</span><br></pre></td></tr></table></figure>
-<h3 id="Netty-NIO-服务端"><a href="#Netty-NIO-服务端" class="headerlink" title="Netty NIO 服务端"></a>Netty NIO 服务端</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建两个 EventLoopGroup 对象</span></span><br><span class="line">EventLoopGroup bossGroup = <span class="keyword">new</span> NioEventLoopGroup(<span class="number">1</span>); <span class="comment">// 创建 boss 线程组 用于服务端接受客户端的连接</span></span><br><span class="line">EventLoopGroup workerGroup = <span class="keyword">new</span> NioEventLoopGroup(); <span class="comment">// 创建 worker 线程组 用于进行 SocketChannel 的数据读写</span></span><br><span class="line"><span class="comment">// 创建 ServerBootstrap 对象</span></span><br><span class="line">ServerBootstrap b = <span class="keyword">new</span> ServerBootstrap();</span><br><span class="line"><span class="comment">// 设置使用的 EventLoopGroup</span></span><br><span class="line">b.group(bossGroup, workerGroup);</span><br></pre></td></tr></table></figure>
+<h3 id="0x04-Netty-NIO-服务端"><a href="#0x04-Netty-NIO-服务端" class="headerlink" title="0x04 Netty NIO 服务端"></a>0x04 Netty NIO 服务端</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建两个 EventLoopGroup 对象</span></span><br><span class="line">EventLoopGroup bossGroup = <span class="keyword">new</span> NioEventLoopGroup(<span class="number">1</span>); <span class="comment">// 创建 boss 线程组 用于服务端接受客户端的连接</span></span><br><span class="line">EventLoopGroup workerGroup = <span class="keyword">new</span> NioEventLoopGroup(); <span class="comment">// 创建 worker 线程组 用于进行 SocketChannel 的数据读写</span></span><br><span class="line"><span class="comment">// 创建 ServerBootstrap 对象</span></span><br><span class="line">ServerBootstrap b = <span class="keyword">new</span> ServerBootstrap();</span><br><span class="line"><span class="comment">// 设置使用的 EventLoopGroup</span></span><br><span class="line">b.group(bossGroup, workerGroup);</span><br></pre></td></tr></table></figure>
 <p>对于 Netty NIO 服务端来说，创建两个 EventLoopGroup 。</p>
 <ul>
 <li><code>bossGroup</code> 对应 Reactor 模式的 mainReactor ，用于服务端接受客户端的连接。比较特殊的是，传入了方法参数 <code>nThreads = 1</code> ，表示只使用一个 EventLoop ，即只使用一个 Reactor 。这个也符合我们上面提到的，“<em>通常，mainReactor 只需要一个，因为它一个线程就可以处理</em>”。</li>
 <li><code>workerGroup</code> 对应 Reactor 模式的 subReactor ，用于进行 SocketChannel 的数据读写。对于 EventLoopGroup ，如果未传递方法参数 <code>nThreads</code> ，表示使用 CPU 个数 Reactor 。这个也符合我们上面提到的，“<em>通常，subReactor 的个数和 CPU 个数相等，每个 subReactor 独占一个线程来处理</em>”。</li>
 </ul>
 <p>因为使用两个 EventLoopGroup ，所以符合【多 Reactor 多线程模型】的多 Reactor 的要求</p>
-<p>参考：<a href="http://svip.iocoder.cn/Netty/EventLoop-1-Reactor-Model/" target="_blank" rel="noopener">精尽 Netty 源码解析 —— EventLoop（一）之 Reactor 模型</a></p>
+<h3 id="0x05-Netty-线程模型"><a href="#0x05-Netty-线程模型" class="headerlink" title="0x05 Netty 线程模型"></a>0x05 Netty 线程模型</h3><blockquote>
+<p>Netty的线程模型并不是一成不变的，它实际取决于用户的启动参数配置。通过设置不同的启动参数，Netty可以同时支持Reactor单线程模型、多线程模型和主从Reactor多线程模型。</p>
+</blockquote>
+<p>所以我们可以把Netty看作是主从多线程模型的变种，大体思想即为boss线程使用多线程来处理客户端连接，对应上文的mainReactor，work线程使用多个子线程处理事件响应，对应上文的subReactor</p>
+<p>参考：</p>
+<p><a href="http://svip.iocoder.cn/Netty/EventLoop-1-Reactor-Model/" target="_blank" rel="noopener">精尽 Netty 源码解析 —— EventLoop（一）之 Reactor 模型</a></p>
+<p><a href="https://juejin.im/post/5bb626945188255c9031e747" target="_blank" rel="noopener">浅谈Netty的线程模型</a></p>
 
     
 
@@ -395,6 +419,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2019/10/22/Netty-面试题整理-三/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Netty 面试题整理(三)
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/12/关于NBA问题的一点思考/" id="article-nav-older" class="article-nav-link-wrap">
@@ -588,11 +621,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Netty</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color1">Netty</a>
               </li>
              
               <li class="article-tag-list-item">
