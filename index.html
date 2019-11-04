@@ -190,6 +190,99 @@
 
 
   
+    <article id="post-Redis-面试题Collection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/04/Redis-面试题Collection/" target="_blank">Redis 面试题Collection</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/04/Redis-面试题Collection/" class="archive-article-date">
+        <time datetime="2019-11-04T03:19:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h2 id="0x01-为什么要用Redis-为什么要使用缓存技术mark"><a href="#0x01-为什么要用Redis-为什么要使用缓存技术mark" class="headerlink" title="0x01  为什么要用Redis/为什么要使用缓存技术mark"></a>0x01  为什么要用Redis/为什么要使用缓存技术mark</h2><p><strong>高性能：</strong> 用户第一次访问数据库中的数据，因为需要从硬盘读取，这个过程会比较慢。所以将经常被访问的数据存在缓存中（redis使用内存存储），会加快访问速度。</p>
+<p><strong>高并发：</strong>Redis通过主从架构，实现读写分离，主节点负责写，并将数据同步给其他从节点，从节点负责读，从而实现高并发。</p>
+<blockquote>
+<p>直接操作缓存能够承受的请求是远远大于直接访问数据库的，所以我们可以考虑把数据库中的部分数据转移到缓存中去，这样用户的一部分请求会直接到缓存这里而不用经过数据库。</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2019/11/04/Redis-面试题Collection/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/04/Redis-面试题Collection/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Netty-面试题整理-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1092,146 +1185,6 @@
 
 
   
-    <article id="post-线性回归、预测回归、一般回归" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/09/16/线性回归、预测回归、一般回归/" target="_blank">机器学习笔记(4):线性回归、预测回归、一般回归</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/09/16/线性回归、预测回归、一般回归/" class="archive-article-date">
-        <time datetime="2018-09-16T07:27:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h6 id="平方误差代价函数"><a href="#平方误差代价函数" class="headerlink" title="平方误差代价函数"></a>平方误差代价函数</h6><blockquote>
-<p>我们的目标就是让J()尽可能的小</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-f008d18366521bcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="平方误差代价函数 .png"></p>
-<h6 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h6><ul>
-<li>:= 是赋值的意思</li>
-<li>$\alpha$  是指learning rate(学习速度)</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-1266ebcb4bb86df3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/440" alt="梯度下降"></p>
-<blockquote>
-<p> 对theta求导（斜率），theta在左半边的时候，斜率为负，所以theta会向右更新，同理在又边的时候会向左更新。可以得出当斜率为0的时候，theta不再更新。</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-01c209d91b612704.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/440" alt="偏导数.jpg"></p>
-<blockquote>
-<p> 我们可以用梯度下降对多个参数（theta）进行求导，当多个参数均开始收敛（即前后两次迭代的值不再发生变化了。一般情况下，会设置一个具体的参数，当前后两次迭代差值小于该参数时候结束迭代）的时候，这即为一个比较合适的值。</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-ca96119b29467199.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/440" alt="最后得出的偏导公式.jpg"></p>
-<h6 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h6><ul>
-<li>知识回顾：矩阵的迹<br>  <a href="http://blog.csdn.net/mathmetics/article/deta" target="_blank" rel="noopener">http://blog.csdn.net/mathmetics/article/deta</a> ils/17504179</li>
-</ul>
-<blockquote>
-<p>将训练特征表示为X矩阵，结果表示成y向量，仍然是线性回归模型，误差函数不变。那么θ可以直接由下面公式得出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">此方法要求X是列满秩的，而且求矩阵的逆比较慢。</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-628fb9ddea326813.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240" alt="最小二乘法"></p>
-<blockquote>
-<p>最小二乘法讲解：<br><a href="https://www.cnblogs.com/iamccme/archive/2013/05/15/3080737.html" target="_blank" rel="noopener">https://www.cnblogs.com/iamccme/archive/2013/05/15/3080737.html</a></p>
-<p>最大似然估计<br><a href="http://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html" target="_blank" rel="noopener">http://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html</a></p>
-</blockquote>
-<h5 id="带权重的线性回归"><a href="#带权重的线性回归" class="headerlink" title="带权重的线性回归"></a>带权重的线性回归</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">上面提到的线性回归的误差函数里系统都是1，没有权重。带权重的线性回归加入了权重信息。</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>基本假设是<br><img src="http://upload-images.jianshu.io/upload_images/1679955-1d145e43d2391c0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="
-"></p>
-</li>
-<li><p>其中假设w(i)符合公式：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-55c89ba332cd9d2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-</li>
-</ul>
-<p>其中x是要预测的特征，这样假设的道理是离x越近的样本权重越大，越远的影响越小。这个公式与高斯分布类似，但不一样,因为W(i)不是随机变量。<br>此方法成为非参数学习算法，因为误差函数随着预测值的不同而不同，这样θ无法事先确定，预测一次需要临时计算，感觉类似KNN。</p>
-<h5 id="分类和对数回归"><a href="#分类和对数回归" class="headerlink" title="分类和对数回归"></a>分类和对数回归</h5><p>一般来说，回归不用在分类问题上，因为回归是连续型模型，而且受噪声影响比较大。如果非要应用进入，可以使用对数回归。</p>
-<p>对数回归本质上是线性回归，只是在特征到结果的映射中加入了一层函数映射，即先把特征线性求和，然后使用函数g(z)将最为假设函数来预测。g(z)可以将连续值映射到0和1上。</p>
-<p>对数回归的假设函数如下，线性回归假设函数只是θ^T x</p>
-<blockquote>
-<p> ######sigmod函数/Logistic函数<br> <img src="http://upload-images.jianshu.io/upload_images/1679955-f6f7ea37c2987da0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="sigmod函数"></p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-4c3c26ef4301006c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/440" alt="sigmod函数的轨迹"></p>
-<p>对数回归用来分类0/1问题，也就是预测结果属于0或者1的二值分类问题。这里假设了二值满足伯努利分布，也就是<br><img src="http://upload-images.jianshu.io/upload_images/1679955-e81af65a770397d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>当然假设它满足泊松分布、指数分布等等也可以，只是比较复杂，后面会提到线性回归的一般形式。<br>与第7节一样，仍然求的是最大似然估计，然后求导，得到迭代公式结果为</p>
-<blockquote>
-<p>这个结果看上去与线性回归类似，只是θ^T x(i)换成了hθ (x（i))，但其实h就是θ^T x(i)经过g(z)映射过来的，而这也是它与最小二乘回归的最大区别<br><img src="http://upload-images.jianshu.io/upload_images/1679955-de4242faca3e5810.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-</blockquote>
-<h5 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h5><ul>
-<li>参考资料：<br><a href="http://blog.csdn.net/computerme/article/details/50486937" target="_blank" rel="noopener">http://blog.csdn.net/computerme/article/details/50486937</a></li>
-</ul>
-<blockquote>
-<p>简单来说，岭回归是在矩阵X^tX上加入一个∂ I 从而使矩阵奇异，进而能对X^tX+ ∂ I 求逆。其中矩阵I是一个m*m的单位矩阵，对角线元素为1，其余元素为0，而∂是一个用户定义的数值。在这种情况下，回归系数的计算公式变成：</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-89012020c6e1df49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240" alt="回归系数公式"><br>岭回归最先用于处理特征数多于样本数的情况，现在也用于在估计中加入偏差，从而得到更好的估计，这里通过引入∂来限制了所有w之和，通过引入惩罚项，能够减少不重要的参数，这个技术在统计学中也叫做缩减。</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/09/16/线性回归、预测回归、一般回归/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1377,15 +1330,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spark</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1398,6 +1351,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
             
             <div class="clearfix"></div>
