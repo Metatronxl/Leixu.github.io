@@ -80,6 +80,8 @@
 	        
 				<li><a href="/tags/Netty/" target="_blank">Netty</a></li>
 	        
+				<li><a href="/tags/论文阅读/" target="_blank">论文阅读</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -142,6 +144,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -160,11 +164,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/Netty/">Netty</a></li>
+					<li style="width: 25%"><a href="/tags/Netty/">Netty</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/论文阅读/">论文阅读</a></li>
 		        
 				</ul>
 			</nav>
@@ -187,6 +193,101 @@
   <script>
     Oauthcallback();
   </script>
+
+
+  
+    <article id="post-《Characterization-of-Encrypted-and-VPN-Traffic-using-Time-related-Features》阅读笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/11/《Characterization-of-Encrypted-and-VPN-Traffic-using-Time-related-Features》阅读笔记/" target="_blank">《Characterization of Encrypted and VPN Traffic using Time-related Features》阅读笔记</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/11/《Characterization-of-Encrypted-and-VPN-Traffic-using-Time-related-Features》阅读笔记/" class="archive-article-date">
+        <time datetime="2019-11-11T08:49:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="0x01-Abstract"><a href="#0x01-Abstract" class="headerlink" title="0x01 Abstract"></a>0x01 Abstract</h2><p>使用<code>Characterization of Encrypted and VPN Traffic using Time-related Features</code>这个特征来检测VPN流量，并将其分类。主要使用的机器学习算法为<strong>(C4.5 and KNN) </strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8u74i7x5rj30u016pb29.jpg" alt="截屏2019-11-11下午4.48.23"></p>
+<h2 id="0x02-Conclusion"><a href="#0x02-Conclusion" class="headerlink" title="0x02  Conclusion"></a>0x02  Conclusion</h2><p>整片文章因为已经是16年的上古文章了，idea在19年看起来已经很过时（就是很水的意思），主要贡献在于提出时序特征可以作为加密流量分类的特征使用，同时通过简单的ML算法得出使用较短的超时value可以让分类器的效果更好。</p>
+<h2 id="0x03-贡献"><a href="#0x03-贡献" class="headerlink" title="0x03 贡献"></a>0x03 贡献</h2><ul>
+<li><p>提出时序特征可以作为加密流量分类的特征使用</p>
+</li>
+<li><p>提供一个流量分类的数据集</p>
+</li>
+<li>编写定制的流量生成代码[ISCXFlowMeter](</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文阅读</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/11/《Characterization-of-Encrypted-and-VPN-Traffic-using-Time-related-Features》阅读笔记/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
 
 
   
@@ -1038,153 +1139,6 @@
 
 
   
-    <article id="post-AdaBoost算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/09/16/AdaBoost算法/" target="_blank">机器学习笔记(5):AdaBoost算法</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/09/16/AdaBoost算法/" class="archive-article-date">
-        <time datetime="2018-09-16T07:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>######参考Blog：<br><a href="https://wizardforcel.gitbooks.io/dm-algo-top10/content/adaboost.html" target="_blank" rel="noopener">adaBoost算法</a></p>
-<p>######参考书籍：<br>《机器学习实战》</p>
-<ul>
-<li>参考书籍：<blockquote>
-<p>Adaboost是一种迭代算法，其核心思想是针对同一个训练集训练不同的分类器（弱分类器），然后把这些弱分类器集合起来，构成一个更强的最终分类器（强分类器）。Adaboost算法本身是通过改变数据分布来实现的，它根据每次训练集之中每个样本的分类是否正确，以及上次的总体分类的准确率，来确定每个样本的权值。将修改过权值的新数据集送给下层分类器进行训练，最后将每次得到的分类器最后融合起来，作为最后的决策分类器。</p>
-</blockquote>
-</li>
-</ul>
-<h5 id="算法概述"><a href="#算法概述" class="headerlink" title="算法概述"></a>算法概述</h5><blockquote>
-<p>AdaBoost为每个分类器分配了一个权重值alpha，这些alpha值是基于每个弱分类器的错误率进行计算的</p>
-</blockquote>
-<ul>
-<li><ol>
-<li>先通过对N个训练样本的学习得到第一个弱分类器(权重相等)</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li><p>2.在第二次训练中，第一次分对的样本的权重降低，分错的样本权重提高（突出错误样本）</p>
-</li>
-<li><p>3.最终经过提升的强分类器，即某个数据被分为哪一类主要由各匪类器权值决定</p>
-</li>
-</ul>
-<h5 id="对比Bagging（基于数据随机重抽样的分类器构建方法）"><a href="#对比Bagging（基于数据随机重抽样的分类器构建方法）" class="headerlink" title="对比Bagging（基于数据随机重抽样的分类器构建方法）"></a>对比Bagging（基于数据随机重抽样的分类器构建方法）</h5><ul>
-<li>使用加权后选取的训练数据代替随机选取的训练样本，训练的重点被放在被已有分类器错分的那些数据，从而获得新的分类器</li>
-<li>联合所有弱分类器，使用加权的投票机制代替平均投票机制。分类效果好的弱分类器具有较大的权重，分类效果差的分类器具有较小的权重。</li>
-</ul>
-<h5 id="算法训练过程"><a href="#算法训练过程" class="headerlink" title="算法训练过程"></a>算法训练过程</h5><p>adaBoost 算法流程<br><img src="http://upload-images.jianshu.io/upload_images/1679955-b1c3c191c096078a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-12 下午9.39.21.png"></p>
-<blockquote>
-<p>1.被错误分类的样本权重(alpha)会升高（见下面?alpha定义）</p>
-<ol>
-<li>分类效果差的分类器的权重会降低</li>
-</ol>
-</blockquote>
-<ul>
-<li><p>错误率的定义为：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-80388a5cd0c56ba9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="错误率定义"></p>
-</li>
-<li><p>alpha计算公式：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-78aa0e8ab4b73896.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-12 下午9.33.28.png"></p>
-</li>
-<li><p>样本权重公式:</p>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-3943407115da2ed9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-12 下午9.38.34.png"></p>
-<p>由公式可以看到，权值是关于误差的表达式。每次迭代都会提高错分点的权值，当下一次分类器再次错分这些点之后，会提高整体的错误率，这样就导致分类器权值变小，进而导致这个分类器在最终的混合分类器中的权值变小，也就是说，Adaboost算法让正确率高的分类器占整体的权值更高，让正确率低的分类器权值更低，从而提高最终分类器的正确率。</p>
-<h5 id="实例讲解"><a href="#实例讲解" class="headerlink" title="实例讲解"></a>实例讲解</h5><p>[站外图片上传中…(image-17246c-1515809860998)]<br>图中“+”和“-”表示两种类别。我们用水平或者垂直的直线作为分类器进行分类。<br>算法开始前默认均匀分布D，共10个样本，故每个样本权值为0.1.<br>第一次分类：<br>[站外图片上传中…(image-72228f-1515809860998)]<br>第一次划分有3个点划分错误，根据误差表达式计算可得<br>e1 = (0.1+0.1+0.1)/1.0 = 0.3</p>
-<p>分类器权重为：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-d3d6fd0657823d42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-12 下午10.03.12.png"><br>第二次分类：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-bf2bcc4f9a250574.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>分类误差为e2 = 0.2144<br>分类器权重：a2 = 0.6493<br>错分的3个点权值为：d2 = 0.1*（1-0.2144)/0.2144 = 0.3664</p>
-<p>第三次分类：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-02b2d5e58001b3fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>e3= 0.1365                  a3 = 0.9223            d3 = 0.6326</p>
-<p>最终的强分类器即为三个弱分类器的叠加：<br><img src="http://upload-images.jianshu.io/upload_images/1679955-548d318f0785c64a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2018-01-12 下午10.07.37.png"></p>
-<h5 id="adaboost-Python代码"><a href="#adaboost-Python代码" class="headerlink" title="adaboost Python代码"></a>adaboost Python代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">将所有的弱分类器的结果加权求和就可以得到最后的结果 :P</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># demo数据集</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadSimpData</span><span class="params">()</span>:</span></span><br><span class="line">    datMat = matrix([[ <span class="number">1.</span> ,  <span class="number">2.1</span>],</span><br><span class="line">        [ <span class="number">2.</span> ,  <span class="number">1.1</span>],</span><br><span class="line">        [ <span class="number">1.3</span>,  <span class="number">1.</span> ],</span><br><span class="line">        [ <span class="number">1.</span> ,  <span class="number">1.</span> ],</span><br><span class="line">        [ <span class="number">2.</span> ,  <span class="number">1.</span> ]])</span><br><span class="line">    classLabels = [<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">-1.0</span>, <span class="number">-1.0</span>, <span class="number">1.0</span>]</span><br><span class="line">    <span class="keyword">return</span> datMat,classLabels</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stumpClassify</span><span class="params">(dataMatrix,dimen,threshVal,threshIneg)</span>:</span></span><br><span class="line">    retArray = ones((shape(dataMatrix)[<span class="number">0</span>],<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">if</span> threshIneg == <span class="string">'lt'</span>:</span><br><span class="line">        <span class="comment">#数据过滤</span></span><br><span class="line">        retArray[dataMatrix[:,dimen] &lt;= threshVal] = <span class="number">-1.0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        retArray[dataMatrix[:,dimen] &gt; threshVal] = <span class="number">-1.0</span></span><br><span class="line">    <span class="keyword">return</span> retArray</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildStump</span><span class="params">(dataArr,classLabels,D)</span>:</span></span><br><span class="line">    dataMatrix = mat(dataArr)</span><br><span class="line">    labelMat = mat(classLabels).T</span><br><span class="line">    m,n = shape(dataMatrix)</span><br><span class="line">    numSteps = <span class="number">10.0</span> ; bestStump = &#123;&#125;;bestClasEst = mat(zeros((m,<span class="number">1</span>)))</span><br><span class="line">    minError = inf</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        rangeMin = dataMatrix[:,i].min(); rangeMax = dataMatrix[:,i].max()</span><br><span class="line">        stepSize = (rangeMax-rangeMin)/ numSteps</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">-1</span>,int(numSteps)+<span class="number">1</span>): <span class="comment">## 阀值可以设置在取值范围之外</span></span><br><span class="line">            <span class="keyword">for</span> inequal <span class="keyword">in</span> [<span class="string">'lt'</span>,<span class="string">'gt'</span>]:</span><br><span class="line">                threshVal = (rangeMin + float(j)*stepSize)</span><br><span class="line">                predictedVals = stumpClassify(dataMatrix,i,threshVal,inequal)</span><br><span class="line">                errArr = mat(ones((m,<span class="number">1</span>)))</span><br><span class="line">                errArr[predictedVals == labelMat] = <span class="number">0</span></span><br><span class="line">                weightdError = D.T * errArr</span><br><span class="line">                <span class="comment"># print "split : dim %d ,thresh %.2f , thresh inequal: %s, the weighted error is %.3f" % \</span></span><br><span class="line">                <span class="comment">#     (i,threshVal,inequal,weightdError)</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> weightdError &lt; minError:</span><br><span class="line">                    minError = weightdError</span><br><span class="line">                    bestClasEst = predictedVals.copy()</span><br><span class="line">                    bestStump[<span class="string">'dim'</span>] = i</span><br><span class="line">                    bestStump[<span class="string">'thresh'</span>] = threshVal</span><br><span class="line">                    bestStump[<span class="string">'ineq'</span>] = inequal</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> bestStump,minError,bestClasEst</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">adaBoostTrainDS</span><span class="params">(dataArr,classLabels,numIt=<span class="number">40</span>)</span>:</span> <span class="comment"># 单层决策树(decision stump)</span></span><br><span class="line">    weakClassArr = []</span><br><span class="line">    m = shape(dataArr)[<span class="number">0</span>] <span class="comment"># 数组第一维的个数</span></span><br><span class="line">    D = mat(ones((m,<span class="number">1</span>))/m) <span class="comment"># 一开始的权重是相等的</span></span><br><span class="line">    aggClassEst = mat(zeros((m,<span class="number">1</span>)))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(numIt):</span><br><span class="line">        bestStump,error,classEst = buildStump(dataArr,classLabels,D)</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"current D:"</span>,D.T</span><br><span class="line">        <span class="comment"># 算法为分配器分配的权重值</span></span><br><span class="line">        alpha = float(<span class="number">0.5</span>*log((<span class="number">1.0</span>-error)/max(error,<span class="number">1e-16</span>)))  <span class="comment"># 确保不会发生除0</span></span><br><span class="line">        bestStump[<span class="string">'alpha'</span>] = alpha</span><br><span class="line">        weakClassArr.append(bestStump)</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"classEst: "</span>,classEst.T</span><br><span class="line"></span><br><span class="line">        expon = multiply(<span class="number">-1</span>*alpha*mat(classLabels).T,classEst)</span><br><span class="line">        D= multiply(D,exp(expon))</span><br><span class="line">        D = D/D.sum()</span><br><span class="line">        aggClassEst += alpha*classEst <span class="comment">#将错误率累加计算,可以更好的估计出这个值是对的还是错误的</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"aggClassEst: "</span>,aggClassEst.T</span><br><span class="line"></span><br><span class="line">        aggErrors = multiply(sign(aggClassEst) != mat(classLabels).T,ones((m,<span class="number">1</span>))) <span class="comment"># numpy.sign() 大于0的返回1,小于0的返回-1 ,等于0的返回0</span></span><br><span class="line">        errorRate = aggErrors.sum()/m</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"total error: "</span>,errorRate,<span class="string">"\n"</span></span><br><span class="line">        <span class="keyword">if</span> errorRate == <span class="number">0.0</span>:<span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> weakClassArr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addClassify</span><span class="params">(datToClass,classifierArr)</span>:</span></span><br><span class="line">    dataMatrix = mat(datToClass)</span><br><span class="line">    m = shape(dataMatrix)[<span class="number">0</span>]</span><br><span class="line">    aggClassEst = mat(zeros((m,<span class="number">1</span>)))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(classifierArr)):</span><br><span class="line">        classEst = stumpClassify(dataMatrix,classifierArr[i][<span class="string">'dim'</span>],classifierArr[i][<span class="string">'thresh'</span>],classifierArr[i][<span class="string">'ineq'</span>])</span><br><span class="line">        aggClassEst += classifierArr[i][<span class="string">'alpha'</span>]*classEst <span class="comment">#将多个弱分类器的错误率累加计算,可以更好的估计出这个值是否是错误的</span></span><br><span class="line">        <span class="keyword">print</span> aggClassEst</span><br><span class="line">    <span class="keyword">return</span> sign(aggClassEst)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    dataMat,classLabels = loadSimpData()</span><br><span class="line">    adaBoostTrainDS(dataMat,classLabels,<span class="number">9</span>)</span><br></pre></td></tr></table></figure>
-<p>#####算法优点：</p>
-<ul>
-<li>1)Adaboost是一种有很高精度的分类器 </li>
-<li>2)可以使用各种方法构建子分类器,Adaboost算法提供的是框架</li>
-<li>3）不用做特征筛选</li>
-<li>4）不用担心overfitting的问题</li>
-</ul>
-<p>#####算法缺点：</p>
-<ul>
-<li>1）容易受到噪声干扰（大部分算法存在这样的缺点）</li>
-<li>2）训练时间较长</li>
-<li>3）依赖弱分类器的选择</li>
-</ul>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/09/16/AdaBoost算法/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1330,10 +1284,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spark</a>
               </li>
              
@@ -1342,7 +1292,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
               </li>
              
               <li class="article-tag-list-item">
