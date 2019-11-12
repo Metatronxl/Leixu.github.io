@@ -82,6 +82,8 @@
 	        
 				<li><a href="/tags/论文阅读/" target="_blank">论文阅读</a></li>
 	        
+				<li><a href="/tags/Java/" target="_blank">Java</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -146,6 +148,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -164,13 +168,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 20%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/Netty/">Netty</a></li>
+					<li style="width: 20%"><a href="/tags/Netty/">Netty</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/论文阅读/">论文阅读</a></li>
+					<li style="width: 20%"><a href="/tags/论文阅读/">论文阅读</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/Java/">Java</a></li>
 		        
 				</ul>
 			</nav>
@@ -193,6 +199,104 @@
   <script>
     Oauthcallback();
   </script>
+
+
+  
+    <article id="post-Java-静态代理、动态代理、cglib代理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/12/Java-静态代理、动态代理、cglib代理/" target="_blank">Java 静态代理、动态代理、cglib代理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/12/Java-静态代理、动态代理、cglib代理/" class="archive-article-date">
+        <time datetime="2019-11-12T05:14:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>代理模式UML类图</p>
+</blockquote>
+<p> <img src="https://segmentfault.com/img/remote/1460000011291184" alt=""></p>
+<h2 id="0x01-静态代理"><a href="#0x01-静态代理" class="headerlink" title="0x01  静态代理"></a>0x01  静态代理</h2><p>这种代理方式需要代理对象和目标对象实现一样的接口。</p>
+<p>优点：可以在不修改目标对象的前提下扩展目标对象的功能。</p>
+<p>缺点：</p>
+<ol>
+<li>冗余。由于代理对象要实现与目标对象一致的接口，会产生过多的代理类。</li>
+<li>不易维护。一旦接口增加方法，目标对象与代理对象都要进行修改。</li>
+</ol>
+    
+    <a class="article-more-a" href="/2019/11/12/Java-静态代理、动态代理、cglib代理/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/12/Java-静态代理、动态代理、cglib代理/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
 
 
   
@@ -1040,105 +1144,6 @@
 
 
   
-    <article id="post-特征缩放" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/09/16/特征缩放/" target="_blank">机器学习笔记(3):特征缩放</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/09/16/特征缩放/" class="archive-article-date">
-        <time datetime="2018-09-16T07:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>参考：<a href="http://blog.csdn.net/xlinsist/article/details/51212348" target="_blank" rel="noopener">http://blog.csdn.net/xlinsist/article/details/51212348</a></p>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2></blockquote>
-<p>在运用一些机器学习算法的时候不可避免地要对数据进行特征缩放（feature scaling），比如：在随机梯度下降（stochastic gradient descent）算法中，特征缩放有时能提高算法的收敛速度。下面我会主要介绍一些特征缩放的方法。</p>
-<h2 id="什么是特征缩放"><a href="#什么是特征缩放" class="headerlink" title="什么是特征缩放"></a>什么是特征缩放</h2><p>特征缩放是用来标准化数据特征的范围。</p>
-<h2 id="机器算法为什么要特征缩放"><a href="#机器算法为什么要特征缩放" class="headerlink" title="机器算法为什么要特征缩放"></a>机器算法为什么要特征缩放</h2><p>特征缩放还可以使机器学习算法工作的更好。比如在K近邻算法中，分类器主要是计算两点之间的欧几里得距离，如果一个特征比其它的特征有更大的范围值，那么距离将会被这个特征值所主导。因此每个特征应该被归一化，比如将取值范围处理为0到1之间。</p>
-<p>就如我在引言所说，特征缩放也可以加快梯度收敛的速度。</p>
-<h2 id="特征缩放的一些方法"><a href="#特征缩放的一些方法" class="headerlink" title="特征缩放的一些方法"></a>特征缩放的一些方法</h2><h3 id="调节比例（Rescaling）"><a href="#调节比例（Rescaling）" class="headerlink" title="调节比例（Rescaling）"></a>调节比例（Rescaling）</h3><p>这种方法是将数据的特征缩放到[0,1]或[-1,1]之间。缩放到什么范围取决于数据的性质。对于这种方法的公式如下：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-0f69461dd085c15e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/440" alt="调节比例(Rescaling)"></p>
-<h3 id="标准化-Standardization"><a href="#标准化-Standardization" class="headerlink" title="标准化(Standardization)"></a>标准化(Standardization)</h3><p>特征标准化使每个特征的值有零均值(zero-mean)和单位方差(unit-variance)。这个方法在机器学习地算法中被广泛地使用。例如：SVM，逻辑回归和神经网络。这个方法的公式如下：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1679955-46c238b066e1f40f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标准化(Standardization)"></p>
-<ul>
-<li>其中delta为x的标准差</li>
-</ul>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/09/16/特征缩放/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1284,6 +1289,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spark</a>
               </li>
              
@@ -1292,15 +1301,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1309,6 +1314,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
