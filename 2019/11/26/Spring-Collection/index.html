@@ -6,24 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://Metatronxl.github.io">
-  <title>Java 静态代理、动态代理、cglib代理 | Noisy&#39;s BLog</title>
+  <title>Spring Collection | Noisy&#39;s BLog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="代理模式UML类图    0x01  静态代理这种代理方式需要代理对象和目标对象实现一样的接口。 优点：可以在不修改目标对象的前提下扩展目标对象的功能。 缺点：  冗余。由于代理对象要实现与目标对象一致的接口，会产生过多的代理类。 不易维护。一旦接口增加方法，目标对象与代理对象都要进行修改。">
+  <meta name="description" content="[demo 版本 ] 0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）首先通过资源定位来找到配置文件（xml注入），然后使用BeanDefinition载入和解析、注册BeanDefinition、接着对Bean进行实例化、在Bean被使用的时候（getBean()调用时再注入熟悉，懒加载">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 静态代理、动态代理、cglib代理">
-<meta property="og:url" content="http://Metatronxl.github.io/2019/11/12/Java-静态代理、动态代理、cglib代理/index.html">
+<meta property="og:title" content="Spring Collection">
+<meta property="og:url" content="http://Metatronxl.github.io/2019/11/26/Spring-Collection/index.html">
 <meta property="og:site_name" content="Noisy&#39;s BLog">
-<meta property="og:description" content="代理模式UML类图    0x01  静态代理这种代理方式需要代理对象和目标对象实现一样的接口。 优点：可以在不修改目标对象的前提下扩展目标对象的功能。 缺点：  冗余。由于代理对象要实现与目标对象一致的接口，会产生过多的代理类。 不易维护。一旦接口增加方法，目标对象与代理对象都要进行修改。">
+<meta property="og:description" content="[demo 版本 ] 0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）首先通过资源定位来找到配置文件（xml注入），然后使用BeanDefinition载入和解析、注册BeanDefinition、接着对Bean进行实例化、在Bean被使用的时候（getBean()调用时再注入熟悉，懒加载的特性）进行依赖注入 0x02  什么时候需要@ComponentScan注解1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://segmentfault.com/img/remote/1460000011291184">
-<meta property="og:updated_time" content="2019-11-12T05:16:20.160Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g949ucsm5fj308k06xdfv.jpg">
+<meta property="og:updated_time" content="2019-11-26T06:45:54.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 静态代理、动态代理、cglib代理">
-<meta name="twitter:description" content="代理模式UML类图    0x01  静态代理这种代理方式需要代理对象和目标对象实现一样的接口。 优点：可以在不修改目标对象的前提下扩展目标对象的功能。 缺点：  冗余。由于代理对象要实现与目标对象一致的接口，会产生过多的代理类。 不易维护。一旦接口增加方法，目标对象与代理对象都要进行修改。">
-<meta name="twitter:image" content="https://segmentfault.com/img/remote/1460000011291184">
+<meta name="twitter:title" content="Spring Collection">
+<meta name="twitter:description" content="[demo 版本 ] 0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）首先通过资源定位来找到配置文件（xml注入），然后使用BeanDefinition载入和解析、注册BeanDefinition、接着对Bean进行实例化、在Bean被使用的时候（getBean()调用时再注入熟悉，懒加载的特性）进行依赖注入 0x02  什么时候需要@ComponentScan注解1">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g949ucsm5fj308k06xdfv.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Noisy&#39;s BLog" type="application/atom+xml">
   
@@ -196,14 +196,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java-静态代理、动态代理、cglib代理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Spring-Collection" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Java 静态代理、动态代理、cglib代理
+      Spring Collection
     </h1>
   
 
@@ -215,8 +215,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/11/12/Java-静态代理、动态代理、cglib代理/" class="archive-article-date">
-        <time datetime="2019-11-12T05:14:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-12</time>
+<a href="/2019/11/26/Spring-Collection/" class="archive-article-date">
+        <time datetime="2019-11-26T06:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
 </a>
 
   
@@ -229,7 +229,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.5k字</span>
+      <span class="post-count">3.2k字</span>
     </span>
   </span>
 
@@ -238,7 +238,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">10分</span>
+      <span class="post-count">12分</span>
     </span>
   </span>
 </div>
@@ -249,92 +249,126 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p>代理模式UML类图</p>
+    <p>[demo 版本 ]</p>
+<h2 id="0x01-Spring-自动发现Bean配置的时间（Spring的启动流程）"><a href="#0x01-Spring-自动发现Bean配置的时间（Spring的启动流程）" class="headerlink" title="0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）"></a>0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）</h2><p>首先通过资源定位来找到配置文件（xml注入），然后使用BeanDefinition载入和解析、注册BeanDefinition、接着对Bean进行实例化、在Bean被使用的时候（getBean()调用时再注入熟悉，懒加载的特性）进行依赖注入</p>
+<h2 id="0x02-什么时候需要-ComponentScan注解"><a href="#0x02-什么时候需要-ComponentScan注解" class="headerlink" title="0x02  什么时候需要@ComponentScan注解"></a>0x02  什么时候需要@ComponentScan注解</h2><h3 id="1、-ComponentScan注解是什么"><a href="#1、-ComponentScan注解是什么" class="headerlink" title="1、 @ComponentScan注解是什么"></a>1、 @ComponentScan注解是什么</h3><p> 其实很简单，@ComponentScan主要就是<strong>定义扫描的路径</strong>从中找出标识了<strong>需要装配的类</strong>自动装配到spring的bean容器中</p>
+<h3 id="2、-ComponentScan注解的详细使用"><a href="#2、-ComponentScan注解的详细使用" class="headerlink" title="2、@ComponentScan注解的详细使用"></a>2、@ComponentScan注解的详细使用</h3><p>做过web开发的同学一定都有用过@Controller，@Service，@Repository注解，查看其源码你会发现，他们中有一个<strong>共同的注解@Component</strong>，没错@ComponentScan注解默认就会装配标识了@Controller，@Service，@Repository，@Component注解的类到spring容器中，好下面咱们就先来简单演示一下这个例子</p>
+<p> 所以在Spring中我们需要一个Config类来启动组件扫描 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DEMO</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(value=<span class="string">"com.zhang.dao"</span>,useDefaultFilters=<span class="keyword">true</span>,basePackageClasses=UserService.class)</span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainScanConfig</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3、SpringBoot中的-ComponetScan"><a href="#3、SpringBoot中的-ComponetScan" class="headerlink" title="3、SpringBoot中的@ComponetScan"></a>3、SpringBoot中的@ComponetScan</h3><p> 在SpringBoot 工程中Application类的位置。默认情况下就不需要配置@ComponentScan这个注解了。 因为Application类，在启动的时候，默认是加载和Application类所在同一个目录下的所有类，包括所有子目录下的类。所以一般情况下，启动类的位置是<br> 有特殊要求的。</p>
+<p><strong>重要</strong>⚠️</p>
+<blockquote>
+<p>假设写的模块，编译成了jar包，并且上传到了私服。在pom中以第三方包的形式依赖进来。<br>如果jar包中也存在注解，为了spring boot启动的时候，注解可以被扫描到，需要做的就是<br>在spring boot启动类中配置上 @ComponentScan注解，并且指定第三方jar包的根路径。<br>所以一般情况下，公司级的第三包前面的路径名最好一直。比方说 com.pa 这样就不会出现遗漏的情况。</p>
+<p>还有一个说法是，第三方包中最好不要使用注解，因为注解会带来调用者使用不方便，需要配置扫描注解等。如果遗漏指定包扫描路径，那么就会出bean加载失败的情况。所以我们看到的最基础的第三方jar包，几乎是没有注解的。</p>
 </blockquote>
-<p> <img src="https://segmentfault.com/img/remote/1460000011291184" alt=""></p>
-<h2 id="0x01-静态代理"><a href="#0x01-静态代理" class="headerlink" title="0x01  静态代理"></a>0x01  静态代理</h2><p>这种代理方式需要代理对象和目标对象实现一样的接口。</p>
-<p>优点：可以在不修改目标对象的前提下扩展目标对象的功能。</p>
-<p>缺点：</p>
+<p><a href="https://blog.csdn.net/onedaycbfly/article/details/79082730" target="_blank" rel="noopener">Springboot中@ComponentScan 注解</a></p>
+<h2 id="0x03-谈谈自己对于Spring-IOC-和AOP的理解"><a href="#0x03-谈谈自己对于Spring-IOC-和AOP的理解" class="headerlink" title="0x03 谈谈自己对于Spring IOC 和AOP的理解"></a>0x03 谈谈自己对于Spring IOC 和AOP的理解</h2><p>IoC（Inverse of Control:控制反转）是一种<strong>设计思想</strong>，就是 <strong>将原本在程序中手动创建对象的控制权，交由Spring框架来管理。</strong> IoC 在其他语言中也有应用，并非 Spirng 特有。Spring 实现IOC的方式主要是通过 <strong>依赖注入</strong>（DI)来实现</p>
+<p>AOP(Aspect-Oriented Programming:面向切面编程)能够将那些与业务无关，<strong>却为业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来</strong>，便于<strong>减少系统的重复代码</strong>，<strong>降低模块间的耦合度</strong>，并<strong>有利于未来的可拓展性和可维护性</strong>。</p>
+<p><strong>Spring AOP就是基于动态代理的</strong>，如果要代理的对象，实现了某个接口，那么Spring AOP会使用<strong>JDK Proxy</strong>，去创建代理对象，而对于没有实现接口的对象，就无法使用 JDK Proxy 去进行代理了，这时候Spring AOP会使用<strong>Cglib</strong> ，这时候Spring AOP会使用 <strong>Cglib</strong> 生成一个被代理对象的子类来作为代理。</p>
+<h2 id="0x04-Spring-Bean实例的生命周期-amp-amp-初始化流程"><a href="#0x04-Spring-Bean实例的生命周期-amp-amp-初始化流程" class="headerlink" title="0x04 Spring Bean实例的生命周期 &amp;&amp; 初始化流程"></a>0x04 Spring Bean实例的生命周期 &amp;&amp; 初始化流程</h2><ul>
+<li><p>实例化Bean对象</p>
+<ul>
+<li><p>Spring容器根据配置中的Bean Definition来实例化Bean对象</p>
+<blockquote>
+<p>Bean Definition 可以通过 XML，Java 注解或 Java Config 代码提供。</p>
+</blockquote>
+</li>
+<li><p>Spring 使用依赖注入<strong>填充</strong>所有属性，如 Bean 中所定义的配置。</p>
+</li>
+</ul>
+</li>
+<li><p>Aware 相关的属性，注入到 Bean 对象</p>
+<ul>
+<li>如果 Bean 实现 <strong>BeanNameAware</strong> 接口，则工厂通过传递 Bean 的 beanName 来调用 <code>#setBeanName(String name)</code> 方法。</li>
+<li>如果 Bean 实现 <strong>BeanFactoryAware</strong> 接口，工厂通过传递自身的实例来调用 <code>#setBeanFactory(BeanFactory beanFactory)</code> 方法。</li>
+</ul>
+</li>
+<li><p>调用相应的方法，进一步初始化 Bean 对象</p>
+<ul>
+<li>如果存在与 Bean 关联的任何 <strong>BeanPostProcessor</strong> 们，则调用 <code>#preProcessBeforeInitialization(Object bean, String beanName)</code> 方法。</li>
+<li>如果 Bean 实现 <strong>InitializingBean</strong> 接口，则会调用 <code>#afterPropertiesSet()</code> 方法。</li>
+<li>如果为 Bean 指定了 <strong>init</strong> 方法（例如 <code>&lt;bean /&gt;</code> 的 <code>init-method</code> 属性），那么将调用该方法。</li>
+<li>如果存在与 Bean 关联的任何 <strong>BeanPostProcessor</strong> 们，则将调用 <code>#postProcessAfterInitialization(Object bean, String beanName)</code> 方法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="0x05-Spring-IOC-解决循环依赖的方式"><a href="#0x05-Spring-IOC-解决循环依赖的方式" class="headerlink" title="0x05  Spring IOC 解决循环依赖的方式"></a>0x05  Spring IOC 解决循环依赖的方式</h2><h2 id="0x06-JDK-动态代理-amp-amp-CGLIB-动态代理"><a href="#0x06-JDK-动态代理-amp-amp-CGLIB-动态代理" class="headerlink" title="0x06  JDK 动态代理  &amp;&amp; CGLIB 动态代理"></a>0x06  JDK 动态代理  &amp;&amp; CGLIB 动态代理</h2><ul>
+<li>参考 <a href="http://svip.iocoder.cn/Spring/IoC-get-Bean-createBean-5/" target="_blank" rel="noopener">死磕Spring  IOC加载 解决重复依赖</a></li>
+</ul>
+<p>Spring加载 bean 最初始的方法 AbstractBeanFactory 的 <code>#doGetBean(final String name, final Class&lt;T&gt; requiredType, final Object[] args, boolean typeCheckOnly)</code> 方法开始。</p>
+<p>在 <code>#doGetBean(...)</code> 方法中，首先会根据 <code>beanName</code> 从单例 bean 缓存中获取，<strong>如果不为空则直接返回</strong>。其中调用了<code>#getSingleton(String beanName, boolean allowEarlyReference)</code> 方法，从单例缓存中获取。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DefaultSingletonBeanRegistry.java</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Nullable</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> Object <span class="title">getSingleton</span><span class="params">(String beanName, <span class="keyword">boolean</span> allowEarlyReference)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 从单例缓冲中加载 bean</span></span><br><span class="line">    Object singletonObject = <span class="keyword">this</span>.singletonObjects.get(beanName);</span><br><span class="line">    <span class="comment">// 缓存中的 bean 为空，且当前 bean 正在创建</span></span><br><span class="line">    <span class="keyword">if</span> (singletonObject == <span class="keyword">null</span> &amp;&amp; isSingletonCurrentlyInCreation(beanName)) &#123;</span><br><span class="line">        <span class="comment">// 加锁</span></span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>.singletonObjects) &#123;</span><br><span class="line">            <span class="comment">// 从 earlySingletonObjects 获取</span></span><br><span class="line">            singletonObject = <span class="keyword">this</span>.earlySingletonObjects.get(beanName);</span><br><span class="line">            <span class="comment">// earlySingletonObjects 中没有，且允许提前创建</span></span><br><span class="line">            <span class="keyword">if</span> (singletonObject == <span class="keyword">null</span> &amp;&amp; allowEarlyReference) &#123;</span><br><span class="line">                <span class="comment">// 从 singletonFactories 中获取对应的 ObjectFactory</span></span><br><span class="line">                ObjectFactory&lt;?&gt; singletonFactory = <span class="keyword">this</span>.singletonFactories.get(beanName);</span><br><span class="line">                <span class="keyword">if</span> (singletonFactory != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="comment">// 获得 bean</span></span><br><span class="line">                    singletonObject = singletonFactory.getObject();</span><br><span class="line">                    <span class="comment">// 添加 bean 到 earlySingletonObjects 中</span></span><br><span class="line">                    <span class="keyword">this</span>.earlySingletonObjects.put(beanName, singletonObject);</span><br><span class="line">                    <span class="comment">// 从 singletonFactories 中移除对应的 ObjectFactory</span></span><br><span class="line">                    <span class="keyword">this</span>.singletonFactories.remove(beanName);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> singletonObject;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这个方法主要是从三个缓存中获取，分别是：<code>singletonObjects</code>、<code>earlySingletonObjects</code>、<code>singletonFactories</code> 。三者定义如下：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DefaultSingletonBeanRegistry.java</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Cache of singleton objects: bean name to bean instance.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 存放的是单例 bean 的映射。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 对应关系为 bean name --&gt; bean instance</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, Object&gt; singletonObjects = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="number">256</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Cache of singleton factories: bean name to ObjectFactory.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 存放的是【早期】的单例 bean 的映射。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 对应关系也是 bean name --&gt; bean instance。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 它与 &#123;<span class="doctag">@link</span> #singletonObjects&#125; 的区别区别在，于 earlySingletonObjects 中存放的 bean 不一定是完整的。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 从 &#123;<span class="doctag">@link</span> #getSingleton(String)&#125; 方法中，中我们可以了解，bean 在创建过程中就已经加入到 earlySingletonObjects 中了，</span></span><br><span class="line"><span class="comment"> * 所以当在 bean 的创建过程中就可以通过 getBean() 方法获取。</span></span><br><span class="line"><span class="comment"> * 这个 Map 也是解决【循环依赖】的关键所在。</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, ObjectFactory&lt;?&gt;&gt; singletonFactories = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">16</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Cache of early singleton objects: bean name to bean instance.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 存放的是 ObjectFactory 的映射，可以理解为创建单例 bean 的 factory 。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 对应关系是 bean name --&gt; ObjectFactory</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, Object&gt; earlySingletonObjects = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">16</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>singletonObjects</code> ：单例对象的 Cache 。 (1级缓存)</li>
+<li><code>earlySingletonObjects</code> ：<strong>提前曝光</strong>的单例对象的 Cache 。（2级缓存）</li>
+<li><code>singletonFactories</code> ： 单例对象工厂的 Cache 。（3级缓存）</li>
+</ul>
+<p><code>#getSingleton(String beanName, boolean allowEarlyReference)</code> 方法，整个过程如下：</p>
+<ul>
+<li><p>首先，从一级缓存 <code>singletonObjects</code> 获取。</p>
+</li>
+<li><p>如果，没有且当前指定的 <code>beanName</code> 正在创建，就再从二级缓存 <code>earlySingletonObjects</code> 中获取。</p>
+</li>
+<li><p>如果，还是没有获取到且允许 <code>singletonFactories</code> 通过 <code>#getObject()</code> 获取，则从三级缓存 <code>singletonFactories</code> 获取。如果获取到，则通过其 <code>#getObject()</code> 方法，获取对象，并将其加入到二级缓存 <code>earlySingletonObjects</code> 中，并从三级缓存 <code>singletonFactories</code> 删除。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DefaultSingletonBeanRegistry.java</span></span><br><span class="line"></span><br><span class="line">singletonObject = singletonFactory.getObject();</span><br><span class="line"><span class="keyword">this</span>.earlySingletonObjects.put(beanName, singletonObject);</span><br><span class="line"><span class="keyword">this</span>.singletonFactories.remove(beanName);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这样，就从三级缓存<strong>升级</strong>到二级缓存了。</li>
+<li>😈 所以，二级缓存存在的<strong>意义</strong>，就是缓存三级缓存中的 ObjectFactory 的 <code>#getObject()</code> 方法的执行结果，提早曝光的<strong>单例</strong> Bean 对象。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3级缓存中数据的来源-addSingleonFactory"><a href="#3级缓存中数据的来源-addSingleonFactory" class="headerlink" title="3级缓存中数据的来源 addSingleonFactory"></a>3级缓存中数据的来源 addSingleonFactory</h4><p>上面是从缓存中获取，但是缓存中的数据从哪里添加进来的呢？一直往下跟会发现在 AbstractAutowireCapableBeanFactory 的 <code>#doCreateBean(final String beanName, final RootBeanDefinition mbd, final Object[] args)</code> 方法中，有这么一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// AbstractAutowireCapableBeanFactory.java</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span> earlySingletonExposure = (mbd.isSingleton() <span class="comment">// 单例模式</span></span><br><span class="line">        &amp;&amp; <span class="keyword">this</span>.allowCircularReferences <span class="comment">// 运行循环依赖</span></span><br><span class="line">        &amp;&amp; isSingletonCurrentlyInCreation(beanName)); <span class="comment">// 当前单例 bean 是否正在被创建</span></span><br><span class="line"><span class="keyword">if</span> (earlySingletonExposure) &#123;</span><br><span class="line">    <span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">        logger.trace(<span class="string">"Eagerly caching bean '"</span> + beanName +</span><br><span class="line">                <span class="string">"' to allow for resolving potential circular references"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 提前将创建的 bean 实例加入到 singletonFactories 中</span></span><br><span class="line">    <span class="comment">// 这里是为了后期避免循环依赖</span></span><br><span class="line">    addSingletonFactory(beanName, () -&gt; getEarlyBeanReference(beanName, mbd, bean));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>当一个 Bean 满足三个条件时，则调用 <code>#addSingletonFactory(...)</code>方法，将它添加到缓存中。三个条件如下：<ul>
+<li>单例</li>
+<li>运行提前暴露 bean</li>
+<li>当前 bean 正在创建中</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>具体的诸如1级缓存在哪获得bean就不展开分析了</p>
+<p>@@@@@@@@@@@@@@@@@@@@@@</p>
+</blockquote>
+<h5 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h5><p>Spring 在创建 bean 的时候并不是等它完全完成，而是在创建过程中将创建中的 bean 的 ObjectFactory 提前曝光（即加入到 <code>singletonFactories</code> 缓存中）。这样，一旦下一个 bean 创建的时候需要依赖 bean ，则直接使用 ObjectFactory 的 <code>#getObject()</code> 方法来获取了。</p>
+<p><strong>循环依赖Spring 的解决方案：</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g949ucsm5fj308k06xdfv.jpg" alt="20170912082357749"></p>
+<blockquote>
+<ul>
+<li>首先 A 完成初始化第一步并将自己提前曝光出来（通过 ObjectFactory 将自己提前曝光），在初始化的时候，发现自己依赖对象 B，此时就会去尝试 get(B)，这个时候发现 B 还没有被创建出来</li>
+<li>然后 B 就走创建流程，在 B 初始化的时候，同样发现自己依赖 C，C 也没有被创建出来</li>
+<li>这个时候 C 又开始初始化进程，但是在初始化的过程中发现自己依赖 A，于是尝试 get(A)，这个时候由于 A 已经添加至缓存中（一般都是添加至三级缓存 <code>singletonFactories</code> ），通过 ObjectFactory 提前曝光，所以可以通过 <code>ObjectFactory#getObject()</code> 方法来拿到 A 对象，C 拿到 A 对象后顺利完成初始化，然后将自己添加到一级缓存中</li>
+<li>回到 B ，B 也可以拿到 C 对象，完成初始化，A 可以顺利拿到 B 完成初始化。到这里整个链路就已经完成了初始化过程了</li>
+</ul>
+</blockquote>
+<h2 id="0x07-Spring-IOC-的初始化过程"><a href="#0x07-Spring-IOC-的初始化过程" class="headerlink" title="0x07 Spring IOC 的初始化过程"></a>0x07 Spring IOC 的初始化过程</h2><p>a. 加载配置文件，解析成 BeanDefinition 放在 Map 里。</p>
+<p>b. 调用 getBean 的时候，从 BeanDefinition 所属的 Map 里，拿出 Class 对象进行实例化，同时，如果有依赖关系，将递归调用 getBean 方法 —— 完成依赖注入。</p>
+<h2 id="0x08-Spring-AOP-理解"><a href="#0x08-Spring-AOP-理解" class="headerlink" title="0x08 Spring AOP 理解"></a>0x08 Spring AOP 理解</h2><p><a href="https://segmentfault.com/a/1190000007469968" target="_blank" rel="noopener">彻底征服 Spring AOP 之 理论篇</a></p>
+<h2 id="0x09-Spring-中的单例-bean-的线程安全问题了解吗？"><a href="#0x09-Spring-中的单例-bean-的线程安全问题了解吗？" class="headerlink" title="0x09 Spring 中的单例 bean 的线程安全问题了解吗？"></a>0x09 Spring 中的单例 bean 的线程安全问题了解吗？</h2><p>大部分时候我们并没有在系统中使用多线程，所以很少有人会关注这个问题。单例 bean 存在线程问题，主要是因为当多个线程操作同一个对象的时候，对这个对象的非静态成员变量的写操作会存在线程安全问题。</p>
+<p>常见的有两种解决办法：</p>
 <ol>
-<li>冗余。由于代理对象要实现与目标对象一致的接口，会产生过多的代理类。</li>
-<li>不易维护。一旦接口增加方法，目标对象与代理对象都要进行修改。</li>
+<li>在Bean对象中尽量避免定义可变的成员变量（不太现实）。</li>
+<li>在类中定义一个ThreadLocal成员变量，将需要的可变成员变量保存在 ThreadLocal 中（推荐的一种方式）。</li>
 </ol>
-<a id="more"></a>
 <blockquote>
-<p>demo</p>
+<p>ThreadLocal会为每一个线程提供一个独立的变量副本，从而隔离了多个线程对数据的访问冲突。因为每一个线程都拥有自己的变量副本，从而也就没有必要对该变量进行同步了。ThreadLocal提供了线程安全的共享对象，在编写多线程代码时，可以把不安全的变量封装进ThreadLocal。 </p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lei.X</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/11/12</span></span><br><span class="line"><span class="comment"> * 类提供的接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IUserDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lei.X</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/11/12</span></span><br><span class="line"><span class="comment"> * 接口的实现类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDao</span> <span class="keyword">implements</span> <span class="title">IUserDao</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"save data"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lei.X</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/11/12</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDaoProxy</span> <span class="keyword">implements</span> <span class="title">IUserDao</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过接口来代理的真实类</span></span><br><span class="line">    <span class="keyword">private</span> IUserDao target;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserDaoProxy</span><span class="params">(IUserDao target)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过与真实类实现一样的接口来扩展额外功能</span></span><br><span class="line"><span class="comment">     * 其实不代理一样的接口也可以，只要代理类汇总有真实类的属性即可，这也要要求了真实类必须得实现自身的接口</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"开启事务"</span>);<span class="comment">//扩展了额外功能</span></span><br><span class="line">        target.save();</span><br><span class="line">        System.out.println(<span class="string">"提交事务"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lei.X</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/11/12</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestStaticUserProxy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testStaticProxy</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//目标对象</span></span><br><span class="line">        IUserDao target = <span class="keyword">new</span> UserDao();</span><br><span class="line">        <span class="comment">//代理对象</span></span><br><span class="line">        UserDaoProxy proxy = <span class="keyword">new</span> UserDaoProxy(target);</span><br><span class="line">        proxy.save();</span><br><span class="line">      </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  测试结果：</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment">    开启事务</span></span><br><span class="line"><span class="comment">    save data</span></span><br><span class="line"><span class="comment">    提交事务</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="0x02-动态代理"><a href="#0x02-动态代理" class="headerlink" title="0x02 动态代理"></a>0x02 动态代理</h2><p>动态代理利用了<a href="http://tool.oschina.net/uploads/apidocs/jdk-zh/" target="_blank" rel="noopener">JDK API</a>，动态地在内存中构建代理对象，从而实现对目标对象的代理功能。动态代理又被称为JDK代理或接口代理。</p>
-<p>静态代理与动态代理的区别主要在：</p>
-<ul>
-<li>静态代理在编译时就已经实现，编译完成后代理类是一个实际的class文件</li>
-<li>动态代理是在运行时动态生成的，即编译完成后没有实际的class文件，而是在运行时动态生成类字节码，并加载到JVM中</li>
-</ul>
-<p><strong>特点：</strong><br>动态代理对象不需要实现接口，但是要求目标对象必须实现接口，否则不能使用动态代理。</p>
-<ul>
-<li>JDK动态代理主要涉及的类</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> Object    <span class="title">newProxyInstance</span><span class="params">(ClassLoader loader,  //指定当前目标对象使用类加载器</span></span></span><br><span class="line"><span class="function"><span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params"> Class&lt;?&gt;[] interfaces,    //目标对象实现的接口的类型</span></span></span><br><span class="line"><span class="function"><span class="params"> InvocationHandler h      //事件处理器</span></span></span><br><span class="line"><span class="function"><span class="params">)</span> </span></span><br><span class="line"><span class="function"><span class="comment">//返回一个指定接口的代理类实例，该接口可以将方法调用指派到指定的调用处理程序。</span></span></span><br><span class="line"><span class="function">  </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">Object    <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> </span></span><br><span class="line"><span class="function"><span class="comment">// 在代理实例上处理方法调用并返回结果。</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="0x10-BeanFactory-和-ApplicationContext-的区别"><a href="#0x10-BeanFactory-和-ApplicationContext-的区别" class="headerlink" title="0x10  BeanFactory 和 ApplicationContext 的区别"></a>0x10  BeanFactory 和 ApplicationContext 的区别</h2><p>BeanFactory 可以理解为含有bean集合的工厂类。BeanFactory 包含了种bean的定义，以便在接收到客户端请求时将对应的bean实例化。同时具有Bean生命周期的控制、初始化方法和销毁方法。</p>
+<p>ApplicationContext是对BeanFactory的封装，除了具有所有BeanFactory的功能外，还提供自动注册功能（BF是采用懒加载的形式、而AC是在容器启动会时一次性创建所有的Bean）、国际化的消息访问（MessageSource）、资源访问扩展了ResourceLoader接口（URL和文件、可以用来加载多个Resource）、事件传播机制</p>
+<h2 id="0x11-Spring-的隔离级别"><a href="#0x11-Spring-的隔离级别" class="headerlink" title="0x11 Spring 的隔离级别"></a>0x11 Spring 的隔离级别</h2><p>① ISOLATION_DEFAULT：这是个 PlatfromTransactionManager 默认的隔离级别，使用数据库默认的事务隔离级别。</p>
+<p>② ISOLATION_READ_UNCOMMITTED：读未提交，允许另外一个事务可以看到这个事务未提交的数据。（脏读、不可重复读、幻读可能发生）</p>
+<p>③ ISOLATION_READ_COMMITTED：读已提交，保证一个事务修改的数据提交后才能被另一事务读取，而且能看到该事务对已有记录的更新。（不可重复读和幻读可能发生）</p>
+<p>④ ISOLATION_REPEATABLE_READ：可重复读，保证一个事务修改的数据提交后才能被另一事务读取，但是不能看到该事务对已有记录的更新。（幻读可能发生）</p>
+<p>⑤ ISOLATION_SERIALIZABLE：一个事务在执行的过程中完全看不到其他事务对数据库所做的更新。（避免以上所有问题，但是效率影响很大）</p>
 <blockquote>
-<p>dynamic proxy  demo</p>
+<p>Mysql 默认：可重复读</p>
+<p>Oracle 默认：读已提交</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lei.X</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/11/12</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 动态代理对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Object target;<span class="comment">// 维护一个目标对象</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProxyFactory</span><span class="params">(Object target)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取目标对象生成的代理对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getProxyInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        Object proxyObject = Proxy.newProxyInstance(</span><br><span class="line">                target.getClass().getClassLoader(),  <span class="comment">// 指定当前目标对象使用的类加载器</span></span><br><span class="line">                target.getClass().getInterfaces(),  <span class="comment">// 目标对象实现的所有接口</span></span><br><span class="line">                <span class="keyword">new</span> MyInvocationHandler(target)  <span class="comment">// 事件处理器（代理方法）</span></span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> proxyObject;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lei.X</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/11/12</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span>  <span class="keyword">implements</span> <span class="title">InvocationHandler</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    Object target; <span class="comment">// 被代理的对象，实际的方法执行者</span></span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Object target)</span></span>&#123;</span><br><span class="line">         <span class="keyword">this</span>.target = target;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"开启事务"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行目标对象方法</span></span><br><span class="line">        Object returnValue = method.invoke(target, args); <span class="comment">// 调用 target 的 method 方法</span></span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"提交事务"</span>);</span><br><span class="line">        <span class="keyword">return</span> returnValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lei.X</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/11/12</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestProxy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">testDynamicProxy</span><span class="params">()</span></span>&#123;</span><br><span class="line">        IUserDao target = <span class="keyword">new</span> UserDao();</span><br><span class="line">        System.out.println(target.getClass());  <span class="comment">//输出目标对象信息</span></span><br><span class="line">        IUserDao proxy = (IUserDao) <span class="keyword">new</span> ProxyFactory(target).getProxyInstance();</span><br><span class="line">        System.out.println(proxy.getClass());  <span class="comment">//输出代理对象信息</span></span><br><span class="line">        proxy.save();  <span class="comment">//执行代理方法</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="comment">/**  结果：</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">class com.example.demo.dynamicProxy.dynamicProxy.UserDao</span></span><br><span class="line"><span class="comment">class com.sun.proxy.$Proxy4</span></span><br><span class="line"><span class="comment">开启事务</span></span><br><span class="line"><span class="comment">save data</span></span><br><span class="line"><span class="comment">提交事务</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">/</span></span><br><span class="line"><span class="comment">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="0x03-Cglib代理"><a href="#0x03-Cglib代理" class="headerlink" title="0x03 Cglib代理"></a>0x03 Cglib代理</h2><p><strong>cglib特点</strong></p>
-<ul>
-<li>JDK的动态代理有一个限制，就是使用动态代理的对象必须实现一个或多个接口。<br>如果想代理没有实现接口的类，就可以使用CGLIB实现。</li>
-<li>CGLIB是一个强大的高性能的代码生成包，它可以在运行期扩展Java类与实现Java接口。<br>它广泛的被许多AOP的框架使用，例如Spring AOP和dynaop，为他们提供方法的interception（拦截）。</li>
-<li>CGLIB包的底层是通过使用一个小而快的字节码处理框架ASM，来转换字节码并生成新的类。<br>不鼓励直接使用ASM，因为它需要你对JVM内部结构包括class文件的格式和指令集都很熟悉。</li>
-</ul>
-<p>cglib与动态代理最大的<strong>区别</strong>就是</p>
-<ul>
-<li>使用动态代理的对象必须实现一个或多个接口</li>
-<li>使用cglib代理的对象则无需实现接口，达到代理类无侵入。</li>
-<li>cglib通过继承实现代理，所以它无法代理final类型</li>
-</ul>
-<blockquote>
-<p>cglib demo</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cglib;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDao</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"保存数据"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cglib;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.Enhancer;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.MethodInterceptor;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.MethodProxy;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  cglib不需要代理对象必须实现接口 ：）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyFactory</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Object target;<span class="comment">//维护一个目标对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProxyFactory</span><span class="params">(Object target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//为目标对象生成代理对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getProxyInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//工具类</span></span><br><span class="line">        Enhancer en = <span class="keyword">new</span> Enhancer();</span><br><span class="line">        <span class="comment">//设置父类（即需要代理的类）</span></span><br><span class="line">        en.setSuperclass(target.getClass());</span><br><span class="line">        <span class="comment">//设置回调函数</span></span><br><span class="line">        en.setCallback(<span class="keyword">this</span>);</span><br><span class="line">        <span class="comment">//创建子类对象代理</span></span><br><span class="line">        <span class="keyword">return</span> en.create();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object obj, Method method, Object[] args, MethodProxy proxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"开启事务"</span>);</span><br><span class="line">        <span class="comment">// 执行目标对象的方法</span></span><br><span class="line">        Object returnValue = method.invoke(target, args);</span><br><span class="line">        System.out.println(<span class="string">"关闭事务"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cglib;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestProxy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCglibProxy</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//目标对象</span></span><br><span class="line">        UserDao target = <span class="keyword">new</span> UserDao();</span><br><span class="line">        System.out.println(target.getClass());</span><br><span class="line">        <span class="comment">//代理对象</span></span><br><span class="line">        UserDao proxy = (UserDao) <span class="keyword">new</span> ProxyFactory(target).getProxyInstance();</span><br><span class="line">        System.out.println(proxy.getClass());</span><br><span class="line">        <span class="comment">//执行代理对象方法</span></span><br><span class="line">        proxy.save();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**  结果：</span></span><br><span class="line"><span class="comment">class com.cglib.UserDao</span></span><br><span class="line"><span class="comment">class com.cglib.UserDao$$EnhancerByCGLIB$$552188b6</span></span><br><span class="line"><span class="comment">开启事务</span></span><br><span class="line"><span class="comment">保存数据</span></span><br><span class="line"><span class="comment">关闭事务</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h3 id="0x04-面试题"><a href="#0x04-面试题" class="headerlink" title="0x04  面试题"></a>0x04  面试题</h3><blockquote>
-<p>来源于网上，用于帮助理解和掌握，欢迎补充</p>
-</blockquote>
-<h4 id="1-描述动态代理的几种实现方式？分别说出相应的优缺点"><a href="#1-描述动态代理的几种实现方式？分别说出相应的优缺点" class="headerlink" title="1. 描述动态代理的几种实现方式？分别说出相应的优缺点"></a>1. 描述动态代理的几种实现方式？分别说出相应的优缺点</h4><p>代理可以分为 “静态代理” 和 “动态代理”，动态代理又分为 “JDK动态代理” 和 “CGLIB动态代理” 实现。</p>
-<p><strong>静态代理</strong>：代理对象和实际对象都继承了同一个接口，在代理对象中指向的是实际对象的实例，这样对外暴露的是代理对象而真正调用的是 Real Object</p>
-<ul>
-<li><strong>优点</strong>：可以很好的保护实际对象的业务逻辑对外暴露，从而提高安全性。</li>
-<li><strong>缺点</strong>：不同的接口要有不同的代理类实现，会很冗余</li>
-</ul>
-<p><strong>JDK 动态代理</strong>：</p>
-<ul>
-<li>为了解决静态代理中，生成大量的代理类造成的冗余；</li>
-<li>JDK 动态代理只需要实现 InvocationHandler 接口，重写 invoke 方法便可以完成代理的实现，</li>
-<li>jdk的代理是利用反射生成代理类 Proxyxx.class 代理类字节码，并生成对象</li>
-<li>jdk动态代理之所以<strong>只能代理接口</strong>是因为<strong>代理类本身已经extends了Proxy，而java是不允许多重继承的</strong>，但是允许实现多个接口</li>
-<li><strong>优点</strong>：解决了静态代理中冗余的代理实现类问题。</li>
-<li><strong>缺点</strong>：JDK 动态代理是基于接口设计实现的，如果没有接口，会抛异常。</li>
-</ul>
-<p><strong>CGLIB 代理</strong>：</p>
-<ul>
-<li>由于 JDK 动态代理限制了只能基于接口设计，而对于没有接口的情况，JDK方式解决不了；</li>
-<li>CGLib 采用了非常底层的字节码技术，其原理是通过字节码技术为一个类创建子类，并在子类中采用方法拦截的技术拦截所有父类方法的调用，顺势织入横切逻辑，来完成动态代理的实现。</li>
-<li>实现方式实现 MethodInterceptor 接口，重写 intercept 方法，通过 Enhancer 类的回调方法来实现。</li>
-<li>但是CGLib在创建代理对象时所花费的时间却比JDK多得多，所以对于单例的对象，因为无需频繁创建对象，用CGLib合适，反之，使用JDK方式要更为合适一些。</li>
-<li>同时，由于CGLib由于是采用动态创建子类的方法，对于final方法，无法进行代理。</li>
-<li><strong>优点</strong>：没有接口也能实现动态代理，而且采用字节码增强技术，性能也不错。</li>
-<li><strong>缺点</strong>：技术实现相对难理解些。</li>
-</ul>
-<h4 id="2-CGlib-对接口实现代理？"><a href="#2-CGlib-对接口实现代理？" class="headerlink" title="2. CGlib 对接口实现代理？"></a>2. CGlib 对接口实现代理？</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.Enhancer;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.MethodInterceptor;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.MethodProxy;</span><br><span class="line"><span class="keyword">import</span> proxy.UserService;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建代理类的工厂 该类要实现 MethodInterceptor 接口。</span></span><br><span class="line"><span class="comment"> * 该类中完成三样工作：</span></span><br><span class="line"><span class="comment"> * （1）声明目标类的成员变量，并创建以目标类对象为参数的构造器。用于接收目标对象</span></span><br><span class="line"><span class="comment"> * （2）定义代理的生成方法，用于创建代理对象。方法名是任意的。代理对象即目标类的子类</span></span><br><span class="line"><span class="comment"> * （3）定义回调接口方法。对目标类的增强这在这里完成</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CGLibFactory</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 声明目标类的成员变量</span></span><br><span class="line">    <span class="keyword">private</span> UserService target;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CGLibFactory</span><span class="params">(UserService target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 定义代理的生成方法,用于创建代理对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserService <span class="title">myCGLibCreator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Enhancer enhancer = <span class="keyword">new</span> Enhancer();</span><br><span class="line">        <span class="comment">// 为代理对象设置父类，即指定目标类</span></span><br><span class="line">        enhancer.setSuperclass(UserService.class);</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 设置回调接口对象 注意，只所以在setCallback()方法中可以写上this，</span></span><br><span class="line"><span class="comment">         * 是因为MethodIntecepter接口继承自Callback，是其子接口</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        enhancer.setCallback(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">return</span> (UserService) enhancer.create();<span class="comment">// create用以生成CGLib代理对象</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object obj, Method method, Object[] args, MethodProxy proxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"start invoke "</span> + method.getName());</span><br><span class="line">        Object result = method.invoke(target, args);</span><br><span class="line">        System.out.println(<span class="string">"end invoke "</span> + method.getName());</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://segmentfault.com/a/1190000011291179" target="_blank" rel="noopener">Java三种代理模式：静态代理、动态代理和cglib代理</a></p>
-<p><a href="https://juejin.im/post/5c1ca8df6fb9a049b347f55c" target="_blank" rel="noopener">Java 动态代理详解</a></p>
-<p>[CGlib动态代理原理](</p>
 
     
 
@@ -381,7 +415,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://Metatronxl.github.io/2019/11/12/Java-静态代理、动态代理、cglib代理/" title="Java 静态代理、动态代理、cglib代理" target="_blank">http://Metatronxl.github.io/2019/11/12/Java-静态代理、动态代理、cglib代理/</a>
+          <a href="http://Metatronxl.github.io/2019/11/26/Spring-Collection/" title="Spring Collection" target="_blank">http://Metatronxl.github.io/2019/11/26/Spring-Collection/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -456,7 +490,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://Metatronxl.github.io/2019/11/12/Java-静态代理、动态代理、cglib代理/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://Metatronxl.github.io/2019/11/26/Spring-Collection/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -471,18 +505,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/11/26/Spring-Collection/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Spring Collection
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/11/《Characterization-of-Encrypted-and-VPN-Traffic-using-Time-related-Features》阅读笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《Characterization of Encrypted and VPN Traffic using Time-related Features》阅读笔记</div>
+    <a href="/2019/11/12/Java-静态代理、动态代理、cglib代理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java 静态代理、动态代理、cglib代理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -520,9 +545,9 @@
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "Java 静态代理、动态代理、cglib代理" -->
+  <!-- id: "Spring Collection" -->
   var giteement = new Giteement({
-    id: '20191112131404',
+    id: '20191126144523',
     owner: 'Metatronxl',
     repo: 'blog',
     backcall_uri: 'https://metatronxl.github.io/',
