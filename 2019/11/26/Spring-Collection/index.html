@@ -10,20 +10,21 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="[demo 版本 ] 0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）首先通过资源定位来找到配置文件（xml注入），然后使用BeanDefinition载入和解析、注册BeanDefinition、接着对Bean进行实例化、在Bean被使用的时候（getBean()调用时再注入熟悉，懒加载">
+  <meta name="description" content="[demo 版本 ] [TOC]  0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）首先通过资源定位来找到配置文件（xml注入），然后使用BeanDefinition载入和解析、注册BeanDefinition、接着对Bean进行实例化、在Bean被使用的时候（getBean()调用时再注">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Collection">
 <meta property="og:url" content="http://Metatronxl.github.io/2019/11/26/Spring-Collection/index.html">
 <meta property="og:site_name" content="Noisy&#39;s BLog">
-<meta property="og:description" content="[demo 版本 ] 0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）首先通过资源定位来找到配置文件（xml注入），然后使用BeanDefinition载入和解析、注册BeanDefinition、接着对Bean进行实例化、在Bean被使用的时候（getBean()调用时再注入熟悉，懒加载的特性）进行依赖注入 0x02  什么时候需要@ComponentScan注解1">
+<meta property="og:description" content="[demo 版本 ] [TOC]  0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）首先通过资源定位来找到配置文件（xml注入），然后使用BeanDefinition载入和解析、注册BeanDefinition、接着对Bean进行实例化、在Bean被使用的时候（getBean()调用时再注入熟悉，懒加载的特性）进行依赖注入 0x02  什么时候需要@Component">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cllj9uvuj30qe0ki43d.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g949ucsm5fj308k06xdfv.jpg">
-<meta property="og:updated_time" content="2019-11-26T06:45:54.934Z">
+<meta property="og:updated_time" content="2019-11-27T06:49:49.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Collection">
-<meta name="twitter:description" content="[demo 版本 ] 0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）首先通过资源定位来找到配置文件（xml注入），然后使用BeanDefinition载入和解析、注册BeanDefinition、接着对Bean进行实例化、在Bean被使用的时候（getBean()调用时再注入熟悉，懒加载的特性）进行依赖注入 0x02  什么时候需要@ComponentScan注解1">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g949ucsm5fj308k06xdfv.jpg">
+<meta name="twitter:description" content="[demo 版本 ] [TOC]  0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）首先通过资源定位来找到配置文件（xml注入），然后使用BeanDefinition载入和解析、注册BeanDefinition、接着对Bean进行实例化、在Bean被使用的时候（getBean()调用时再注入熟悉，懒加载的特性）进行依赖注入 0x02  什么时候需要@Component">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cllj9uvuj30qe0ki43d.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Noisy&#39;s BLog" type="application/atom+xml">
   
@@ -250,11 +251,14 @@
   <div class="article-entry" itemprop="articleBody">
     
     <p>[demo 版本 ]</p>
+<p>[TOC]</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cllj9uvuj30qe0ki43d.jpg" alt="截屏2019-11-27下午2.49.30"></p>
 <h2 id="0x01-Spring-自动发现Bean配置的时间（Spring的启动流程）"><a href="#0x01-Spring-自动发现Bean配置的时间（Spring的启动流程）" class="headerlink" title="0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）"></a>0x01  Spring 自动发现Bean配置的时间（Spring的启动流程）</h2><p>首先通过资源定位来找到配置文件（xml注入），然后使用BeanDefinition载入和解析、注册BeanDefinition、接着对Bean进行实例化、在Bean被使用的时候（getBean()调用时再注入熟悉，懒加载的特性）进行依赖注入</p>
 <h2 id="0x02-什么时候需要-ComponentScan注解"><a href="#0x02-什么时候需要-ComponentScan注解" class="headerlink" title="0x02  什么时候需要@ComponentScan注解"></a>0x02  什么时候需要@ComponentScan注解</h2><h3 id="1、-ComponentScan注解是什么"><a href="#1、-ComponentScan注解是什么" class="headerlink" title="1、 @ComponentScan注解是什么"></a>1、 @ComponentScan注解是什么</h3><p> 其实很简单，@ComponentScan主要就是<strong>定义扫描的路径</strong>从中找出标识了<strong>需要装配的类</strong>自动装配到spring的bean容器中</p>
 <h3 id="2、-ComponentScan注解的详细使用"><a href="#2、-ComponentScan注解的详细使用" class="headerlink" title="2、@ComponentScan注解的详细使用"></a>2、@ComponentScan注解的详细使用</h3><p>做过web开发的同学一定都有用过@Controller，@Service，@Repository注解，查看其源码你会发现，他们中有一个<strong>共同的注解@Component</strong>，没错@ComponentScan注解默认就会装配标识了@Controller，@Service，@Repository，@Component注解的类到spring容器中，好下面咱们就先来简单演示一下这个例子</p>
 <p> 所以在Spring中我们需要一个Config类来启动组件扫描 </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DEMO</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(value=<span class="string">"com.zhang.dao"</span>,useDefaultFilters=<span class="keyword">true</span>,basePackageClasses=UserService.class)</span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainScanConfig</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="3、SpringBoot中的-ComponetScan"><a href="#3、SpringBoot中的-ComponetScan" class="headerlink" title="3、SpringBoot中的@ComponetScan"></a>3、SpringBoot中的@ComponetScan</h3><p> 在SpringBoot 工程中Application类的位置。默认情况下就不需要配置@ComponentScan这个注解了。 因为Application类，在启动的时候，默认是加载和Application类所在同一个目录下的所有类，包括所有子目录下的类。所以一般情况下，启动类的位置是<br> 有特殊要求的。</p>
 <p><strong>重要</strong>⚠️</p>
 <blockquote>
