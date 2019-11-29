@@ -6,25 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://Metatronxl.github.io">
-  <title>算法学习：排序  | Noisy&#39;s BLog</title>
+  <title>Java 基础知识储备(二) | Noisy&#39;s BLog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="《算法设计与分析》课程学习总结  0x00 插入排序pass  0x01 希尔排序原理：将待排序的数组元素按照下标进行一定的增量分组，分成多个子序列，对这些子序列进行插入排序，然后依次缩减增量再进行排序，直到增量为1，排序结束">
-<meta name="keywords" content="算法">
+  <meta name="description" content="[TOC] 0x01 Java 自动拆装箱自动装箱和拆箱从Java 1.5开始引入，目的是将原始类型值转自动地转换成对应的对象。自动装箱与拆箱的机制可以让我们在Java的变量赋值或者是方法调用等情况下使用原始类型或者对象类型更加简单直接。 详细的解释可以参考: Java中的自动装箱与拆箱 0x02 equals 与 =">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法学习：排序 ">
-<meta property="og:url" content="http://Metatronxl.github.io/2018/09/24/算法学习：排序/index.html">
+<meta property="og:title" content="Java 基础知识储备(二)">
+<meta property="og:url" content="http://Metatronxl.github.io/2019/11/29/Java-基础知识储备-二/index.html">
 <meta property="og:site_name" content="Noisy&#39;s BLog">
-<meta property="og:description" content="《算法设计与分析》课程学习总结  0x00 插入排序pass  0x01 希尔排序原理：将待排序的数组元素按照下标进行一定的增量分组，分成多个子序列，对这些子序列进行插入排序，然后依次缩减增量再进行排序，直到增量为1，排序结束">
+<meta property="og:description" content="[TOC] 0x01 Java 自动拆装箱自动装箱和拆箱从Java 1.5开始引入，目的是将原始类型值转自动地转换成对应的对象。自动装箱与拆箱的机制可以让我们在Java的变量赋值或者是方法调用等情况下使用原始类型或者对象类型更加简单直接。 详细的解释可以参考: Java中的自动装箱与拆箱 0x02 equals 与 == 的区别 值类型（int,char,long,boolean等）的话  都是用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6095354-ff984d80dbc0455f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/670">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fvku42hovuj310q0mmq73.jpg">
-<meta property="og:updated_time" content="2018-09-24T11:08:41.383Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cpqfbrblj311q0k6gwn.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/690102/201607/690102-20160727132640216-1387063948.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/690102/201607/690102-20160727132838528-120069275.png">
+<meta property="og:updated_time" content="2019-11-29T06:56:16.885Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法学习：排序 ">
-<meta name="twitter:description" content="《算法设计与分析》课程学习总结  0x00 插入排序pass  0x01 希尔排序原理：将待排序的数组元素按照下标进行一定的增量分组，分成多个子序列，对这些子序列进行插入排序，然后依次缩减增量再进行排序，直到增量为1，排序结束">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6095354-ff984d80dbc0455f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/670">
+<meta name="twitter:title" content="Java 基础知识储备(二)">
+<meta name="twitter:description" content="[TOC] 0x01 Java 自动拆装箱自动装箱和拆箱从Java 1.5开始引入，目的是将原始类型值转自动地转换成对应的对象。自动装箱与拆箱的机制可以让我们在Java的变量赋值或者是方法调用等情况下使用原始类型或者对象类型更加简单直接。 详细的解释可以参考: Java中的自动装箱与拆箱 0x02 equals 与 == 的区别 值类型（int,char,long,boolean等）的话  都是用">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cpqfbrblj311q0k6gwn.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Noisy&#39;s BLog" type="application/atom+xml">
   
@@ -197,14 +198,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-算法学习：排序" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java-基础知识储备-二" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      算法学习：排序 
+      Java 基础知识储备(二)
     </h1>
   
 
@@ -216,8 +217,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2018/09/24/算法学习：排序/" class="archive-article-date">
-        <time datetime="2018-09-24T11:05:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-24</time>
+<a href="/2019/11/29/Java-基础知识储备-二/" class="archive-article-date">
+        <time datetime="2019-11-29T06:55:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
 </a>
 
   
@@ -230,7 +231,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">696字</span>
+      <span class="post-count">5.4k字</span>
     </span>
   </span>
 
@@ -239,7 +240,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">20分</span>
     </span>
   </span>
 </div>
@@ -250,20 +251,192 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p> 《算法设计与分析》课程学习总结</p>
+    <p>[TOC]</p>
+<h2 id="0x01-Java-自动拆装箱"><a href="#0x01-Java-自动拆装箱" class="headerlink" title="0x01 Java 自动拆装箱"></a>0x01 Java 自动拆装箱</h2><p>自动装箱和拆箱从Java 1.5开始引入，目的是将原始类型值转自动地转换成对应的对象。自动装箱与拆箱的机制可以让我们在Java的变量赋值或者是方法调用等情况下使用原始类型或者对象类型更加简单直接。</p>
+<p>详细的解释可以参考: <a href="https://droidyue.com/blog/2015/04/07/autoboxing-and-autounboxing-in-java/" target="_blank" rel="noopener">Java中的自动装箱与拆箱</a></p>
+<h2 id="0x02-equals-与-的区别"><a href="#0x02-equals-与-的区别" class="headerlink" title="0x02 equals 与 == 的区别"></a>0x02 equals 与 == 的区别</h2><ul>
+<li><p>值类型（int,char,long,boolean等）的话</p>
+<ul>
+<li>都是用 == 判断相等性。</li>
+</ul>
+</li>
+<li><p>对象引用的话</p>
+<ul>
+<li><p>== 判断引用所指的对象是否是同一个。</p>
+</li>
+<li><p>equals 方法，是 Object 的成员函数，有些类会覆盖(<code>override</code>) 这个方法，用于判断对象的等价性。</p>
+<blockquote>
+<p>例如 String 类，两个引用所指向的 String 都是 <code>&quot;abc&quot;</code> ，但可能出现他们实际对应的对象并不是同一个（和 JVM 实现方式有关），因此用 == 判断他们可能不相等，但用 equals 方法判断一定是相等的。</p>
 </blockquote>
-<h3 id="0x00-插入排序"><a href="#0x00-插入排序" class="headerlink" title="0x00 插入排序"></a>0x00 插入排序</h3><p>pass </p>
-<h3 id="0x01-希尔排序"><a href="#0x01-希尔排序" class="headerlink" title="0x01 希尔排序"></a>0x01 希尔排序</h3><p>原理：将待排序的数组元素按照下标进行一定的增量分组，分成多个子序列，对这些子序列进行插入排序，然后依次缩减增量再进行排序，直到增量为1，排序结束</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/6095354-ff984d80dbc0455f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/670" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
 <a id="more"></a>
-<p>具体代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo.Algorithm.sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lei.X</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/9/23</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShellSort</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">99</span>, <span class="number">5</span>, <span class="number">69</span>, <span class="number">33</span>, <span class="number">56</span>, <span class="number">13</span>, <span class="number">22</span>, <span class="number">55</span>, <span class="number">77</span>, <span class="number">48</span>, <span class="number">12</span>, <span class="number">88</span>, <span class="number">2</span>,<span class="number">69</span>,<span class="number">99</span>&#125;;</span><br><span class="line">        System.out.println(<span class="string">"排序之前数组："</span>);</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">        <span class="comment">//希尔排序</span></span><br><span class="line">        insertionSort(arr);</span><br><span class="line">        System.out.println(<span class="string">"希尔排序后数组："</span>);</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span>  <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length &lt;= <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = arr.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> d=len/<span class="number">2</span>;d&gt;<span class="number">0</span>;d/=<span class="number">2</span>)&#123;   <span class="comment">// 决定子数组的大小（7 ，3， 1）</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=d;i&lt;len;i++)&#123;  <span class="comment">//第2个子分组所在的坐标</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=i-d;j&gt;=<span class="number">0</span>;j -=d)&#123; <span class="comment">//每一个子分组所在的坐标</span></span><br><span class="line">                    <span class="keyword">if</span> (arr[j] &gt; arr[j+d])&#123;   <span class="comment">//这里一定要注意用j+d而不是用i来表示，因为i是一个不会变的值，而j+d会不断变化</span></span><br><span class="line">                        swap(arr,j+d,j);</span><br><span class="line">                        System.out.println(Arrays.toString(arr));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">   发现无论什么排序。都需要对满足条件的元素进行位置置换。</span></span><br><span class="line"><span class="comment">   所以可以把这部分相同的代码提取出来，单独封装成一个函数。</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = arr[a];</span><br><span class="line">        arr[a] = arr[b];</span><br><span class="line">        arr[b] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="0x02-Quick-Sort"><a href="#0x02-Quick-Sort" class="headerlink" title="0x02 Quick Sort"></a>0x02 Quick Sort</h3><p><code>quickSort</code>的核心在于随机找到一个值，然后以这个值为中心，将比这个值小的数放到左边，比这个值大的数放到右边，然后递归进行</p>
-<p>下图为partSort的示意图</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fvku42hovuj310q0mmq73.jpg" alt="屏幕快照 2018-09-24 下午7.03.36"></p>
-<p>(…感觉是一堆废话，直接上代码吧- -‘)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo.Algorithm.sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lei.X</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/9/24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">8</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">6</span>,<span class="number">11</span>,<span class="number">19</span>,<span class="number">13</span>,<span class="number">55</span>,<span class="number">67</span>,<span class="number">32</span>,<span class="number">22</span>&#125;;</span><br><span class="line"></span><br><span class="line">        quickSort(arr);</span><br><span class="line"><span class="comment">//        System.out.println(partSort(arr,0,arr.length-1));</span></span><br><span class="line"></span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        recurPartiton(arr,<span class="number">0</span>,arr.length-<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//quickSort的核心</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> low ,<span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> base = arr[high];</span><br><span class="line">        <span class="keyword">int</span> cur = low; <span class="comment">//cur代表base最后应该放置的位置</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=low;i&lt;high;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i]&lt;base)&#123;</span><br><span class="line">                swap(arr,cur,i);</span><br><span class="line">                cur++; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr,high,cur); <span class="comment">//最后将base放到cur这个坐标上</span></span><br><span class="line">        <span class="keyword">return</span> cur;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">recurPartiton</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> start,<span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (end-start&lt;<span class="number">1</span>) <span class="keyword">return</span>; <span class="comment">//递归数组只剩一个元素</span></span><br><span class="line">        <span class="keyword">int</span> partition = partSort(arr,start,end);</span><br><span class="line">        recurPartiton(arr,start,partition-<span class="number">1</span>);</span><br><span class="line">        recurPartiton(arr,partition+<span class="number">1</span>,end);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = arr[a];</span><br><span class="line">        arr[a] = arr[b];</span><br><span class="line">        arr[b] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="0x03-说一说你对-java-lang-Object-对象中-hashCode-和-equals-方法的理解。在什么场景下需要重新实现这两个方法"><a href="#0x03-说一说你对-java-lang-Object-对象中-hashCode-和-equals-方法的理解。在什么场景下需要重新实现这两个方法" class="headerlink" title="0x03 说一说你对 java.lang.Object 对象中 hashCode 和 equals 方法的理解。在什么场景下需要重新实现这两个方法?"></a>0x03 说一说你对 java.lang.Object 对象中 hashCode 和 equals 方法的理解。在什么场景下需要重新实现这两个方法?</h2><p>equals方法用于比较对象的内容是否相等</p>
+<blockquote>
+<p>当覆盖了 equals 方法时，比较对象是否相等将通过覆盖后的 equals 方法进行比较（判断对象的内容是否相等）。</p>
+</blockquote>
+<p>hashCode 方法，大多在集合中用到</p>
+<blockquote>
+<p>将对象放入到集合中时，首先判断要放入对象的 hashCode 值与集合中的任意一个元素的 hashCode 值是否相等，如果不相等直接将该对象放入集合中。</p>
+<p>如果 hashCode 值相等，然后再通过 equals 方法判断要放入对象与集合中的任意一个对象是否相等，如果 equals 判断不相等，直接将该元素放入到集合中，否则不放入。   </p>
+</blockquote>
+<p>父类的 equals ，一般情况下是无法满足子类的 equals 的需求。</p>
+<ul>
+<li>比如所有的对象都继承 Object ，默认使用的是 Object 的 equals 方法，在比较两个对象的时候，是看他们是否指向同一个地址。但是我们的需求是对象的某个属性相同，就相等了，而默认的 equals 方法满足不了当前的需求，所以我们要重写 equals 方法。</li>
+<li>如果重写了 equals 方法，就必须重写 hashCode 方法，否则就会降低 Map 等集合的索引速度。</li>
+</ul>
+<p>⚠️ <strong>有没有可能 2 个不相等的对象有相同的 hashCode？</strong></p>
+<p>可能会发生，这个被称为<strong>哈希碰撞</strong>。当然，相等的对象，即我们重写了 equals 方法，一定也要重写 hashCode 方法，否则将出现我们在 HashMap 中，相等的对象作为 key ，将找不到对应的 value 。</p>
+<p>所以说，equals 和 hashCode 的关系会是：</p>
+<ul>
+<li>equals 不相等，hashCode 可能相等。</li>
+<li>equals 相等，请重写 hashCode 方法，保证 hashCode 相等。</li>
+</ul>
+<p>一般来说，hashCode 方法的重写，可以看看 <a href="https://segmentfault.com/a/1190000010799123" target="_blank" rel="noopener">《科普：为什么 String hashCode 方法选择数字31作为乘子》</a> 方法。</p>
+<h2 id="0x04-继承和组合的区别"><a href="#0x04-继承和组合的区别" class="headerlink" title="0x04 继承和组合的区别"></a>0x04 继承和组合的区别</h2><ul>
+<li>继承：指的是一个类（称为子类、子接口）继承另外的一个类（称为父类、父接口）的功能，并可以增加它自己的新功能的能力，继承是类与类或者接口与接口之间最常见的关系。在 Java 中，此类关系通过关键字 <code>extends</code> 明确标识，在设计时一般没有争议性。</li>
+<li>组合：组合是关联关系的一种特例，他体现的是整体与部分、拥有的关系，即 has-a 的关系，此时整体与部分之间是可分离的，他们可以具有各自的生命周期，部分可以属于多个整体对象，也可以为多个整体对象共享。<ul>
+<li>比如，计算机与 CPU 、公司与员工的关系等。</li>
+<li>表现在代码层面，和关联关系是一致的，只能从语义级别来区分。</li>
+</ul>
+</li>
+</ul>
+<p>因为组合能带来比继承更好的灵活性，所以有句话叫做“组合优于继承”。可以参考 <a href="https://www.zhihu.com/question/21862257" target="_blank" rel="noopener">《怎样理解“组合优于继承”以及“OO的反模块化”，在这些方面FP具体来说有什么优势？》</a> </p>
+<h2 id="0x05-Java-class-的实例化顺序"><a href="#0x05-Java-class-的实例化顺序" class="headerlink" title="0x05 Java class 的实例化顺序"></a>0x05 Java class 的实例化顺序</h2><p>初始化顺序如下：</p>
+<ul>
+<li>父类静态变量</li>
+<li>父类静态代码块</li>
+<li>子类静态变量、</li>
+<li>子类静态代码块</li>
+<li>父类非静态变量（父类实例成员变量）</li>
+<li>父类构造函数</li>
+<li>子类非静态变量（子类实例成员变量）</li>
+<li>子类构造函数</li>
+</ul>
+<p>实例参考文章：<a href="https://blog.csdn.net/Vencc__/article/details/52222628" target="_blank" rel="noopener">《Java 类的实例化顺序》</a> </p>
+<h2 id="0x06-什么是内部类"><a href="#0x06-什么是内部类" class="headerlink" title="0x06 什么是内部类"></a>0x06 什么是内部类</h2><p>简单的说，就是在一个类、接口或者方法的内部创建另一个类。这样理解的话，创建内部类的方法就很明确了。当然，详细的可以看看 <a href="https://blog.csdn.net/hikvision_java_gyh/article/details/8964155" target="_blank" rel="noopener">《Java 内部类总结（吐血之作）》</a> 文章。</p>
+<p>⚠️ <strong>内部类的作用是什么？</strong></p>
+<p>内部类提供了更好的封装，除了该外围类，其他类都不能访问。</p>
+<h4 id="⚠️-对于为什么需要内部类？java内部类的好处给了一个解释"><a href="#⚠️-对于为什么需要内部类？java内部类的好处给了一个解释" class="headerlink" title="⚠️  对于为什么需要内部类？java内部类的好处给了一个解释"></a>⚠️  对于为什么需要内部类？<a href="https://blog.csdn.net/hikvision_java_gyh/article/details/8963562" target="_blank" rel="noopener">java内部类的好处</a>给了一个解释</h4><p>首先举一个简单的例子，如果你想实现一个接口，但是这个接口中的一个方法和你构想的这个类中的一个方法的名称，参数相同，你应该怎么办？这时候，你可以建一个内部类实现这个接口。由于内部类对外部类的所有内容都是可访问的，所以这样做可以完成所有你直接实现这个接口的功能。<br>不过你可能要质疑，更改一下方法的不就行了吗？<br>的确，以此作为设计内部类的理由，实在没有说服力。<br>真正的原因是这样的，java中的内部类和接口加在一起，可以的解决常被C++程序员抱怨java中存在的一个问题 没有多继承。实际上，C++的多继承设计起来很复杂，而java通过内部类加上接口，可以很好的实现多继承的效果。</p>
+<blockquote>
+<p>个人认为内部类的存在会影响java源码的可读性，能有更好的设计最好就不要存在内部类</p>
+</blockquote>
+<p>⚠️  <strong>Anonymous Inner Class(匿名内部类)是否可以继承其它类？是否可以实现接口？</strong></p>
+<p>可以继承其他类或实现其他接口，在 Java 集合的流式操作中，我们常常这么干。</p>
+<p>⚠️  <strong>内部类可以引用它的包含类（外部类）的成员吗？有没有什么限制？</strong></p>
+<p>一个内部类对象可以访问创建它的外部类对象的成员，包括私有成员。</p>
+<h2 id="0x07-什么是Java序列化"><a href="#0x07-什么是Java序列化" class="headerlink" title="0x07 什么是Java序列化"></a>0x07 什么是Java序列化</h2><p>序列化就是一种用来处理对象流的机制，所谓对象流也就是将对象的内容进行流化。</p>
+<ul>
+<li>可以对流化后的对象进行读写操作，也可将流化后的对象传输于网络之间。</li>
+<li>序列化是为了解决在对对象流进行读写操作时所引发的问题。</li>
+</ul>
+<p>反序列化的过程，则是和序列化相反的过程。</p>
+<blockquote>
+<p>另外，我们不能将序列化局限在 Java 对象转换成二进制数组，例如说，我们将一个 Java 对象，转换成 JSON 字符串，或者 XML 字符串，这也可以理解为是序列化。</p>
+</blockquote>
+<p>⚠️  <strong>Java 序列话中，如果有些字段不想进行序列化怎么办？</strong></p>
+<p>对于不想进行序列化的变量，使用 <code>transient</code> 关键字修饰。</p>
+<ul>
+<li>当对象被序列化时，阻止实例中那些用此关键字修饰的的变量序列化。</li>
+<li>当对象被反序列化时，被 <code>transient</code> 修饰的变量值不会被持久化和恢复。</li>
+<li><code>transient</code> 只能修饰变量，不能修饰类和方法。</li>
+</ul>
+<h2 id="0x08-trasient-关键字学习"><a href="#0x08-trasient-关键字学习" class="headerlink" title="0x08  trasient 关键字学习"></a>0x08  trasient 关键字学习</h2><p>java 的transient关键字为我们提供了便利，你只需要实现Serilizable接口，将不需要序列化的属性前添加关键字transient，序列化对象的时候，这个属性就不会序列化到指定的目的地中。</p>
+<p><strong>transient使用小结</strong></p>
+<p>1）一旦变量被transient修饰，变量将不再是对象持久化的一部分，该变量内容在序列化后无法获得访问。</p>
+<p>2）transient关键字只能修饰变量，而不能修饰方法和类。注意，本地变量是不能被transient关键字修饰的。变量如果是用户自定义类变量，则该类需要实现Serializable接口。</p>
+<p>3）被transient关键字修饰的变量不再能被序列化，一个静态变量不管是否被transient修饰，均不能被序列化</p>
+<p><strong>详细案例可以参考</strong>：<a href="https://www.cnblogs.com/lanxuezaipiao/p/3369962.html" target="_blank" rel="noopener">Java transient关键字使用小记</a></p>
+<h2 id="0x09-讲解一下ThreadLocal-（非常重要！！！）"><a href="#0x09-讲解一下ThreadLocal-（非常重要！！！）" class="headerlink" title="0x09  讲解一下ThreadLocal （非常重要！！！）"></a>0x09  讲解一下ThreadLocal （非常重要！！！）</h2><p>源码详解参考：<a href="https://www.jianshu.com/p/30ee77732843" target="_blank" rel="noopener">并发容器之ThreadLocal</a></p>
+<p>首先通过实例来理解一下ThreadLocal的用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ThreadLocal&lt;String&gt; localName = <span class="keyword">new</span> ThreadLocal();</span><br><span class="line">localName.set(<span class="string">"占小狼"</span>);</span><br><span class="line">String name = localName.get();</span><br></pre></td></tr></table></figure>
+<p>ThreadLocal可以保证各个线程的数据互不干扰，核心原因见下面的源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">    Thread t = Thread.currentThread();</span><br><span class="line">    ThreadLocalMap map = getMap(t);  <span class="comment">// 取出当前线程的ThreadLocalMap</span></span><br><span class="line">    <span class="keyword">if</span> (map != <span class="keyword">null</span>)   </span><br><span class="line">        map.set(<span class="keyword">this</span>, value);   <span class="comment">// 将新的value值放入</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        createMap(t, value);  <span class="comment">//  如果当前线程还未创建ThreadLocalMap则创建，并放入值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Thread t = Thread.currentThread();</span><br><span class="line">    ThreadLocalMap map = getMap(t);  <span class="comment">// 获取同理是从当前线程的ThreadLocal中获得对应的value</span></span><br><span class="line">    <span class="keyword">if</span> (map != <span class="keyword">null</span>) &#123;</span><br><span class="line">        ThreadLocalMap.Entry e = map.getEntry(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">            T result = (T)e.value;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> setInitialValue();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ThreadLocalMap <span class="title">getMap</span><span class="params">(Thread t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> t.threadLocals;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由上面的源码我们可以得知ThreadLocal保证各个线程的数据互不干扰的关键在于，每个线程中都有一个<code>ThreadLocalMap</code>数据结构，当执行set方法时，其值是保存在当前线程的<code>threadLocals</code>变量中，当执行set方法中，是从当前线程的<code>threadLocals</code>变量获取。所以在线程1中set的值，对线程2来说是摸不到的，而且在线程2中重新set的话，也不会影响到线程1中的值，保证了线程之间不会相互干扰。</p>
+<h4 id="⚠️-ThreadLocal解决hash冲突"><a href="#⚠️-ThreadLocal解决hash冲突" class="headerlink" title="⚠️  ThreadLocal解决hash冲突"></a>⚠️  ThreadLocal解决hash冲突</h4><p>可以通过查看ThreadLocal 的set方法来查看</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(ThreadLocal&lt;?&gt; key, Object value)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Entry[] tab = table;</span><br><span class="line">    <span class="keyword">int</span> len = tab.length;</span><br><span class="line">    <span class="keyword">int</span> i = key.threadLocalHashCode &amp; (len-<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 出现哈希冲突</span></span><br><span class="line">  	<span class="comment">// 当出现哈希冲突时，它的做法看是否是同一个对象或者是是否可以替换，否则往后移动一位，继续判断</span></span><br><span class="line">    <span class="keyword">for</span> (Entry e = tab[i];</span><br><span class="line">         e != <span class="keyword">null</span>;</span><br><span class="line">         e = tab[i = nextIndex(i, len)]) &#123;</span><br><span class="line">        ThreadLocal&lt;?&gt; k = e.get();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果是同一个对象，则覆盖value值</span></span><br><span class="line">        <span class="keyword">if</span> (k == key) &#123;</span><br><span class="line">            e.value = value;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果key为null，则替换它的位置</span></span><br><span class="line">        <span class="keyword">if</span> (k == <span class="keyword">null</span>) &#123;</span><br><span class="line">            replaceStaleEntry(key, value, i);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 否则往后一个位置找，直到找到空的位置</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tab[i] = <span class="keyword">new</span> Entry(key, value);</span><br><span class="line">    <span class="keyword">int</span> sz = ++size;</span><br><span class="line">    <span class="keyword">if</span> (!cleanSomeSlots(i, sz) &amp;&amp; sz &gt;= threshold)</span><br><span class="line">        rehash();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 寻找tab[]的下一个空位</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">nextIndex</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ((i + <span class="number">1</span> &lt; len) ? i + <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="⚠️-ThreadLocal中的内存泄露"><a href="#⚠️-ThreadLocal中的内存泄露" class="headerlink" title="⚠️ ThreadLocal中的内存泄露"></a>⚠️ ThreadLocal中的内存泄露</h4><p>先看看Entry的实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span> <span class="keyword">extends</span> <span class="title">WeakReference</span>&lt;<span class="title">ThreadLocal</span>&lt;?&gt;&gt; </span>&#123;</span><br><span class="line">    <span class="comment">/** The value associated with this ThreadLocal. */</span></span><br><span class="line">    Object value;</span><br><span class="line"></span><br><span class="line">    Entry(ThreadLocal&lt;?&gt; k, Object v) &#123;</span><br><span class="line">        <span class="keyword">super</span>(k);</span><br><span class="line">        value = v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过之前的分析已经知道，当使用ThreadLocal保存一个value时，会在ThreadLocalMap中的数组插入一个Entry对象，按理说key-value都应该以强引用保存在Entry对象中，但在ThreadLocalMap的实现中，key被保存到了WeakReference对象中。</p>
+<p>这就导致了一个问题，ThreadLocal在没有外部强引用时，发生GC时会被回收，如果创建ThreadLocal的线程一直持续运行，那么这个Entry对象中的value就有可能一直得不到回收，发生内存泄露。</p>
+<p><strong>如何避免内存泄露</strong></p>
+<p>详情参考：<a href="https://www.jianshu.com/p/dde92ec37bd1" target="_blank" rel="noopener">一篇文章，从源码深入详解ThreadLocal内存泄漏问题</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cpqfbrblj311q0k6gwn.jpg" alt="image-20191127171244202"></p>
+<p>既然已经发现有内存泄露的隐患，自然有应对的策略，在调用ThreadLocal的get()、set()可能会清除ThreadLocalMap中key为null的Entry对象，这样对应的value就没有GC Roots可达了，下次GC的时候就可以被回收，当然如果调用remove方法，肯定会删除对应的Entry对象。</p>
+<p>如果使用ThreadLocal的set方法之后，没有显示的调用remove方法，就有可能发生内存泄露，所以养成良好的编程习惯十分重要，使用完ThreadLocal之后，记得调用remove方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ThreadLocal&lt;String&gt; localName = <span class="keyword">new</span> ThreadLocal();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    localName.set(<span class="string">"占小狼"</span>);</span><br><span class="line">    <span class="comment">// 其它业务逻辑</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    localName.remove();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="0x10-Java-实现对象克隆"><a href="#0x10-Java-实现对象克隆" class="headerlink" title="0x10 Java 实现对象克隆"></a>0x10 Java 实现对象克隆</h2><p>在Java中，如果只是单纯的将一个变量赋值给另一个变量，这其实并没有对对象进行克隆，在内存中并没有给新的对象开辟一块新的空间，而只是给已有空间新增了一个引用，这样造成的后果是任何一个引用改变值时，所有的引用的值都会改变（因为它们指向的同一块的内存中的值已经改变）</p>
+<ul>
+<li>demo</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> number;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNumber</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">return</span> number;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNumber</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">this</span>.number = number;  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;  </span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;  </span><br><span class="line">        Student stu1 = <span class="keyword">new</span> Student();  </span><br><span class="line">        stu1.setNumber(<span class="number">12345</span>);  </span><br><span class="line">        Student stu2 = stu1;  </span><br><span class="line">          </span><br><span class="line">        System.out.println(<span class="string">"学生1:"</span> + stu1.getNumber());  </span><br><span class="line">        System.out.println(<span class="string">"学生2:"</span> + stu2.getNumber());  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">结果：</span></span><br><span class="line"><span class="comment">学生1:12345  </span></span><br><span class="line"><span class="comment">学生2:12345 </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">试着改变stu2的值后</span></span><br><span class="line"><span class="comment">stu2.setNumber(54321);   </span></span><br><span class="line"><span class="comment">System.out.println("学生1:" + stu1.getNumber());  </span></span><br><span class="line"><span class="comment">System.out.println("学生2:" + stu2.getNumber());  </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">结果：</span></span><br><span class="line"><span class="comment">学生1:54321  </span></span><br><span class="line"><span class="comment">学生2:54321  </span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>直接new一个对象是可以达到类似clone的效果的，但是new对象需要赋值，着很麻烦。更重要的原因在于<code>Object.clone()</code>方法是一个naive方法，这意味着效率会很高</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Creates and returns a copy of this object. The precise meaning of "copy" may depend on the class of the object.</span></span><br><span class="line"><span class="comment">The general intent is that, for any object x, the expression:</span></span><br><span class="line"><span class="comment">1) x.clone() != x will be true</span></span><br><span class="line"><span class="comment">2) x.clone().getClass() == x.getClass() will be true, but these are not absolute requirements.</span></span><br><span class="line"><span class="comment">3) x.clone().equals(x) will be true, this is not an absolute requirement.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>浅克隆(ShallowClone)</strong>和<strong>深克隆(DeepClone)</strong></p>
+<h3 id="1、浅克隆"><a href="#1、浅克隆" class="headerlink" title="1、浅克隆"></a>1、浅克隆</h3><p>在浅克隆中，如果原型对象的成员变量是值类型，将复制一份给克隆对象；如果原型对象的成员变量是引用类型，则将引用对象的地址复制一份给克隆对象，也就是说原型对象和克隆对象的成员变量指向相同的内存地址。</p>
+<p>简单来说，在浅克隆中，当对象被复制时只复制它本身和其中包含的值类型的成员变量，而引用类型的成员对象并没有复制。</p>
+<p><img src="https://images2015.cnblogs.com/blog/690102/201607/690102-20160727132640216-1387063948.png" alt="浅克隆示意图"></p>
+<p>在Java语言中，通过<strong>覆盖Object类的clone()方法可以实现浅克隆</strong>。</p>
+<h3 id="2、深克隆"><a href="#2、深克隆" class="headerlink" title="2、深克隆"></a>2、深克隆</h3><p>在深克隆中，无论原型对象的成员变量是值类型还是引用类型，都将复制一份给克隆对象，深克隆将原型对象的所有引用对象也复制一份给克隆对象。</p>
+<p>简单来说，在深克隆中，除了对象本身被复制外，对象所包含的所有成员变量也将复制。</p>
+<p><img src="https://images2015.cnblogs.com/blog/690102/201607/690102-20160727132838528-120069275.png" alt="深克隆示意图"></p>
+<p>在Java语言中，如果需要<strong>实现深克隆，可以通过覆盖Object类的clone()方法实现，也可以通过序列化(Serialization)等方式</strong>来实现。</p>
+<p>（<strong>如果引用类型里面还包含很多引用类型，或者内层引用类型的类里面又包含引用类型，使用clone方法就会很麻烦。这时我们可以用序列化的方式来实现对象的深克隆。</strong>）</p>
+<p>序列化就是将对象写到流的过程，写到流中的对象是原有对象的一个拷贝，而原对象仍然存在于内存中。通过序列化实现的拷贝不仅可以复制对象本身，而且可以复制其引用的成员对象，因此通过序列化将对象写到一个流中，再从流里将其读出来，可以实现深克隆。需要注意的是能够实现序列化的对象其类必须实现Serializable接口，否则无法实现序列化操作。</p>
+<h4 id="⚠️-BeanUtils-提供的拷贝功能"><a href="#⚠️-BeanUtils-提供的拷贝功能" class="headerlink" title="⚠️ BeanUtils()提供的拷贝功能"></a>⚠️ BeanUtils()提供的拷贝功能</h4><p>直接上结论：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1``、BeanUtils的copyProperties()方法并不是完全的深度克隆，在包含有引用类型的对象拷贝上就可能会出现引用对象指向同一个的情况，且该方法的性能低下，项目中一定要谨慎使用。</span><br><span class="line">2``、要实现高性能且安全的深度克隆方法还是实现Serializable接口,多层克隆时，引用类型均要实现Serializable接口。</span><br></pre></td></tr></table></figure>
+<h2 id="0x11-Java-反射的用途及实现"><a href="#0x11-Java-反射的用途及实现" class="headerlink" title="0x11 Java 反射的用途及实现"></a>0x11 Java 反射的用途及实现</h2><p>Java 反射机制主要提供了以下功能：</p>
+<ul>
+<li>在运行时构造一个类的对象。</li>
+<li>判断一个类所具有的成员变量和方法。</li>
+<li>调用一个对象的方法。</li>
+<li>生成动态代理。</li>
+</ul>
+<p>反射的应用很多，很多框架都有用到：</p>
+<ul>
+<li>Spring 框架的 IoC 基于反射创建对象和设置依赖属性。</li>
+<li>Spring MVC 的请求调用对应方法，也是通过反射。</li>
+<li>JDBC 的 <code>Class#forName(String className)</code> 方法，也是使用反射。</li>
+</ul>
+<p><strong>反射的详细用法可以参考：</strong><a href="https://juejin.im/post/598ea9116fb9a03c335a99a4" target="_blank" rel="noopener">Java 反射由浅入深 | 进阶必备</a></p>
+<h4 id="⚠️-反射中，Class-forName-和-ClassLoader-区别？"><a href="#⚠️-反射中，Class-forName-和-ClassLoader-区别？" class="headerlink" title="⚠️ 反射中，Class.forName 和 ClassLoader 区别？"></a>⚠️ <strong>反射中，Class.forName 和 ClassLoader 区别？</strong></h4><p>这两者，都可用来对类进行加载。差别在于：</p>
+<ul>
+<li><p><code>Class#forName(...)</code> 方法，除了将类的 <code>.class</code> 文件加载到JVM 中之外，还会对类进行解释，执行类中的 <code>static</code> 块。</p>
+</li>
+<li><p>ClassLoader 只干一件事情，就是将 <code>.class</code> 文件加载到 JVM 中，不会执行 <code>static</code> 中的内容，只有在 newInstance 才会去执行 <code>static</code> 块。</p>
+<blockquote>
+<p><code>Class#forName(name, initialize, loader)</code> 方法，带参函数也可控制是否加载 <code>static</code> 块，并且只有调用了newInstance 方法采用调用构造函数，创建类的对象。</p>
+</blockquote>
+</li>
+</ul>
+<p>详细的测试，可以看看 <a href="https://blog.csdn.net/qq_27093465/article/details/52262340" target="_blank" rel="noopener">《Java 反射中，Class.forName 和ClassLoader 的区别(代码说话)》</a> 文章。</p>
+<h2 id="0x12-Java-反射"><a href="#0x12-Java-反射" class="headerlink" title="0x12 Java 反射"></a>0x12 Java 反射</h2><ul>
+<li>参考：<a href="https://blog.csdn.net/briblue/article/details/73824058" target="_blank" rel="noopener">秒懂，Java 注解 （Annotation）你可以这样学</a></li>
+</ul>
+<blockquote>
+<p>博客中有详细的资料讲解Java元注解、注解属性、Java预置的常用注解、如何编写自定义注解&amp;&amp;使用，如果不熟悉以上内容，可以去博客内详细学习：）</p>
+</blockquote>
+<h4 id="⚠️-Java-元注解"><a href="#⚠️-Java-元注解" class="headerlink" title="⚠️ Java 元注解"></a>⚠️ Java 元注解</h4><p>元标签有 @Retention、@Documented、@Target、@Inherited、@Repeatable 5 种。</p>
+<p><strong>@Retention</strong><br>Retention 的英文意为保留期的意思。当 @Retention 应用到一个注解上的时候，它解释说明了这个注解的的存活时间。</p>
+<p>它的取值如下：</p>
+<blockquote>
+<p>RetentionPolicy.SOURCE 注解只在源码阶段保留，在编译器进行编译时它将被丢弃忽视。<br>RetentionPolicy.CLASS 注解只被保留到编译进行的时候，它并不会被加载到 JVM 中。<br>RetentionPolicy.RUNTIME 注解可以保留到程序运行的时候，它会被加载进入到 JVM 中，所以在程序运行时可以获取到它们</p>
+</blockquote>
+<p>我们可以这样的方式来加深理解，@Retention 去给一张标签解释的时候，它指定了这张标签张贴的时间。@Retention 相当于给一张标签上面盖了一张时间戳，时间戳指明了标签张贴的时间周期。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> TestAnnotation &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 上面的代码中，我们指定 TestAnnotation 可以在程序运行周期被获取到，因此它的生命周期非常的长。</span></span><br></pre></td></tr></table></figure>
+<p><strong>@Documented</strong><br>顾名思义，这个元注解肯定是和文档有关。它的作用是能够将注解中的元素包含到 Javadoc 中去。</p>
+<p><strong>@Target</strong><br>Target 是目标的意思，@Target 指定了注解运用的地方。</p>
+<p>你可以这样理解，当一个注解被 @Target 注解时，这个注解就被限定了运用的场景。</p>
+<p>类比到标签，原本标签是你想张贴到哪个地方就到哪个地方，但是因为 @Target 的存在，它张贴的地方就非常具体了，比如只能张贴到方法上、类上、方法参数上等等。@Target 有下面的取值</p>
+<p>ElementType.ANNOTATION_TYPE 可以给一个注解进行注解<br>ElementType.CONSTRUCTOR 可以给构造方法进行注解<br>ElementType.FIELD 可以给属性进行注解<br>ElementType.LOCAL_VARIABLE 可以给局部变量进行注解<br>ElementType.METHOD 可以给方法进行注解<br>ElementType.PACKAGE 可以给一个包进行注解<br>ElementType.PARAMETER 可以给一个方法内的参数进行注解<br>ElementType.TYPE 可以给一个类型进行注解，比如类、接口、枚举</p>
+<p><strong>@Inherited</strong><br>Inherited 是继承的意思，但是它并不是说注解本身可以继承，而是说如果一个超类被 @Inherited 注解过的注解进行注解的话，那么如果它的子类没有被任何注解应用的话，那么这个子类就继承了超类的注解。<br>说的比较抽象。代码来解释。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@interface</span> Test &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//注解 Test 被 @Inherited 修饰，之后类 A 被 Test 注解，类 B 继承 A,类 B 也拥有 Test 这个注解。</span></span><br></pre></td></tr></table></figure>
+<p><strong>@Repeatable</strong><br>Repeatable 自然是可重复的意思。@Repeatable 是 Java 1.8 才加进来的，所以算是一个新的特性。</p>
+<p>什么样的注解会多次应用呢？通常是注解的值可以同时取多个。</p>
+<p>举个例子，一个人他既是程序员又是产品经理,同时他还是个画家。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> Persons &#123;</span><br><span class="line">	Person[]  value();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Repeatable</span>(Persons.class)</span><br><span class="line"><span class="meta">@interface</span> Person&#123;</span><br><span class="line">	String role <span class="keyword">default</span> <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Person</span>(role=<span class="string">"artist"</span>)</span><br><span class="line"><span class="meta">@Person</span>(role=<span class="string">"coder"</span>)</span><br><span class="line"><span class="meta">@Person</span>(role=<span class="string">"PM"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SuperMan</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 注意上面的代码，@Repeatable 注解了 Person。而 @Repeatable 后面括号中的类相当于一个容器注解。</span></span><br></pre></td></tr></table></figure>
 
     
 
@@ -310,7 +483,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://Metatronxl.github.io/2018/09/24/算法学习：排序/" title="算法学习：排序 " target="_blank">http://Metatronxl.github.io/2018/09/24/算法学习：排序/</a>
+          <a href="http://Metatronxl.github.io/2019/11/29/Java-基础知识储备-二/" title="Java 基础知识储备(二)" target="_blank">http://Metatronxl.github.io/2019/11/29/Java-基础知识储备-二/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -329,7 +502,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -385,7 +558,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://Metatronxl.github.io/2018/09/24/算法学习：排序/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://Metatronxl.github.io/2019/11/29/Java-基础知识储备-二/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -400,18 +573,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/10/12/关于NBA问题的一点思考/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          关于NBA问题的一点思考
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/09/17/Java-设计模式-代理模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java 设计模式-代理模式</div>
+    <a href="/2019/11/29/Java-基础知识储备-一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java 基础知识储备(一)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -449,9 +613,9 @@
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "算法学习：排序 " -->
+  <!-- id: "Java 基础知识储备(二)" -->
   var giteement = new Giteement({
-    id: '20180924190528',
+    id: '20191129145504',
     owner: 'Metatronxl',
     repo: 'blog',
     backcall_uri: 'https://metatronxl.github.io/',

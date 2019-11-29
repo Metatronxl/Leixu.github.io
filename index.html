@@ -202,6 +202,215 @@
 
 
   
+    <article id="post-Java-基础知识储备-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/29/Java-基础知识储备-二/" target="_blank">Java 基础知识储备(二)</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/29/Java-基础知识储备-二/" class="archive-article-date">
+        <time datetime="2019-11-29T06:55:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h2 id="0x01-Java-自动拆装箱"><a href="#0x01-Java-自动拆装箱" class="headerlink" title="0x01 Java 自动拆装箱"></a>0x01 Java 自动拆装箱</h2><p>自动装箱和拆箱从Java 1.5开始引入，目的是将原始类型值转自动地转换成对应的对象。自动装箱与拆箱的机制可以让我们在Java的变量赋值或者是方法调用等情况下使用原始类型或者对象类型更加简单直接。</p>
+<p>详细的解释可以参考: <a href="https://droidyue.com/blog/2015/04/07/autoboxing-and-autounboxing-in-java/" target="_blank" rel="noopener">Java中的自动装箱与拆箱</a></p>
+<h2 id="0x02-equals-与-的区别"><a href="#0x02-equals-与-的区别" class="headerlink" title="0x02 equals 与 == 的区别"></a>0x02 equals 与 == 的区别</h2><ul>
+<li><p>值类型（int,char,long,boolean等）的话</p>
+<ul>
+<li>都是用 == 判断相等性。</li>
+</ul>
+</li>
+<li><p>对象引用的话</p>
+<ul>
+<li><p>== 判断引用所指的对象是否是同一个。</p>
+</li>
+<li><p>equals 方法，是 Object 的成员函数，有些类会覆盖(<code>override</code>) 这个方法，用于判断对象的等价性。</p>
+<blockquote>
+<p>例如 String 类，两个引用所指向的 String 都是 <code>&quot;abc&quot;</code> ，但可能出现他们实际对应的对象并不是同一个（和 JVM 实现方式有关），因此用 == 判断他们可能不相等，但用 equals 方法判断一定是相等的。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+    
+    <a class="article-more-a" href="/2019/11/29/Java-基础知识储备-二/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/29/Java-基础知识储备-二/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java-基础知识储备-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/29/Java-基础知识储备-一/" target="_blank">Java 基础知识储备(一)</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/29/Java-基础知识储备-一/" class="archive-article-date">
+        <time datetime="2019-11-29T06:52:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h2 id="0x00-JDK8-引入的新特性-amp-amp-学习"><a href="#0x00-JDK8-引入的新特性-amp-amp-学习" class="headerlink" title="0x00 JDK8 引入的新特性 &amp;&amp; 学习"></a>0x00 JDK8 引入的新特性 &amp;&amp; 学习</h2><p>参考： <a href="https://juejin.im/post/5ae6bfb66fb9a07a9b35bac1" target="_blank" rel="noopener">Java8新特性，你应该了解这些！</a></p>
+<h3 id="1-接口的默认方法和静态方法-接口增强"><a href="#1-接口的默认方法和静态方法-接口增强" class="headerlink" title="1.接口的默认方法和静态方法(接口增强)"></a>1.接口的默认方法和静态方法(接口增强)</h3><p>在Java8之前，接口中<strong>只能</strong>包含抽象方法。那么这有什么样弊端呢？比如，想再Collection接口中添加一个spliterator抽象方法，那么也就意味着之前所有实现Collection接口的实现类，都要重新实现spliterator这个方法才行。而接口的默认方法就是<strong>为了解决接口的修改与接口实现类不兼容的问题，作为代码向前兼容的一个方法</strong>。</p>
+<p>那么如何在接口中定义一个默认方法呢？来看下JDK中Collection中如何定义spliterator方法的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">default</span> Spliterator&lt;E&gt; <span class="title">spliterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Spliterators.spliterator(<span class="keyword">this</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>可以看到定义接口的默认方法是通过<strong>default</strong>关键字。因此，在Java8中接口能够包含抽象方法外还能够包含若干个默认方法（即有完整逻辑的实例方法）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IAnimal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"breath!"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DefaultMethodTest</span> <span class="keyword">implements</span> <span class="title">IAnimal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        DefaultMethodTest defaultMethod = <span class="keyword">new</span> DefaultMethodTest();</span><br><span class="line">        defaultMethod.breath();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输出结果为：breath!</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意⚠️：因为class可以继承多个Interface,所以如果一个class集成了多个含有相同名称的default方法的接口，就会报错，这个时候我们需要通过override来重写它。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DefaultMethodTest</span> <span class="keyword">implements</span> <span class="title">IAnimal</span>,<span class="title">IDonkey</span>,<span class="title">IHorse</span> </span>&#123;</span><br><span class="line">&gt;     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">&gt;         DefaultMethodTest defaultMethod = <span class="keyword">new</span> DefaultMethodTest();</span><br><span class="line">&gt;         defaultMethod.run();</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt; </span><br><span class="line">&gt;     <span class="meta">@Override</span></span><br><span class="line">&gt;     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&gt;         IHorse.<span class="keyword">super</span>.run();</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>静态方法</strong></p>
+<p>在Java8中还有一个特性就是，接口中还可以声明静态方法并且可以实现，如下例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IAnimal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"breath!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">"run run run !"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/11/29/Java-基础知识储备-一/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/29/Java-基础知识储备-一/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Spring-Collection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -954,191 +1163,6 @@
 
 
   
-    <article id="post-算法学习：排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/09/24/算法学习：排序/" target="_blank">算法学习：排序 </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/09/24/算法学习：排序/" class="archive-article-date">
-        <time datetime="2018-09-24T11:05:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p> 《算法设计与分析》课程学习总结</p>
-</blockquote>
-<h3 id="0x00-插入排序"><a href="#0x00-插入排序" class="headerlink" title="0x00 插入排序"></a>0x00 插入排序</h3><p>pass </p>
-<h3 id="0x01-希尔排序"><a href="#0x01-希尔排序" class="headerlink" title="0x01 希尔排序"></a>0x01 希尔排序</h3><p>原理：将待排序的数组元素按照下标进行一定的增量分组，分成多个子序列，对这些子序列进行插入排序，然后依次缩减增量再进行排序，直到增量为1，排序结束</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/6095354-ff984d80dbc0455f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/670" alt="img"></p>
-    
-    <a class="article-more-a" href="/2018/09/24/算法学习：排序/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/09/24/算法学习：排序/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java-设计模式-代理模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/09/17/Java-设计模式-代理模式/" target="_blank">Java 设计模式-代理模式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/09/17/Java-设计模式-代理模式/" class="archive-article-date">
-        <time datetime="2018-09-17T07:38:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Java的动态代理其实用到了代理模式的手段。所谓代理模式是指客户端并不直接调用实际的对象，而是通过调用代理，来间接的调用实际的对象。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://www.cnblogs.com/linzhong/p/7234051.html" target="_blank" rel="noopener">Java中的代理模式</a></li>
-</ul>
-<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fvckwc77cdj30df05iglh.jpg" alt="162cbbd27b4b8f88"></p>
-    
-    <a class="article-more-a" href="/2018/09/17/Java-设计模式-代理模式/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/09/17/Java-设计模式-代理模式/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1296,11 +1320,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
