@@ -202,6 +202,104 @@
 
 
   
+    <article id="post-Java-集合-知识储备" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/12/10/Java-集合-知识储备/" target="_blank">Java 集合 知识储备</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/12/10/Java-集合-知识储备/" class="archive-article-date">
+        <time datetime="2019-12-10T06:04:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ul>
+<li>Java 集合架构图<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9rlb5f8ylj30u015ix3q.jpg" alt="截屏2019-11-29下午3.28.24"></li>
+</ul>
+<p>[TOC]</p>
+<h1 id="ArrayList-源码考察"><a href="#ArrayList-源码考察" class="headerlink" title="ArrayList 源码考察"></a>ArrayList 源码考察</h1><h2 id="0x00-Java集合源码分析之List（二）：ArrayList"><a href="#0x00-Java集合源码分析之List（二）：ArrayList" class="headerlink" title="0x00 Java集合源码分析之List（二）：ArrayList"></a>0x00 <a href="https://www.jianshu.com/p/15e8e72ad0c8" target="_blank" rel="noopener">Java集合源码分析之List（二）：ArrayList</a></h2><p>（1）<code>ArrayList</code> 是一种变长的集合类，基于定长数组实现，使用默认构造方法初始化出来的容量是10（1.7之后都是延迟初始化，即第一次调用add方法添加元素的时候才将elementData容量初始化为10）。</p>
+<p>（2）<code>ArrayList</code> 允许空值和重复元素，当往 ArrayList 中添加的元素数量大于其底层数组容量时，其会通过<strong>扩容</strong>机制重新生成一个更大的数组。<code>ArrayList</code>扩容的长度是原长度的1.5倍</p>
+<p>（3）由于 <code>ArrayList</code> 底层基于数组实现，所以其可以保证在 <code>O(1)</code> 复杂度下完成随机查找操作。</p>
+<p>（4）<code>ArrayList</code> 是非线程安全类，并发环境下，多个线程同时操作 ArrayList，会引发不可预知的异常或错误。</p>
+<p>（5）顺序添加很方便</p>
+<p>（6）删除和插入需要复制数组，性能差（可以使用LinkindList）</p>
+<p>（7）Integer.MAX_VALUE - 8 ：主要是考虑到不同的JVM,有的JVM会在加入一些数据头,当扩容后的容量大于MAX_ARRAY_SIZE,我们会去比较最小需要容量和MAX_ARRAY_SIZE做比较,如果比它大, 只能取Integer.MAX_VALUE,否则是Integer.MAX_VALUE -8。 这个是从jdk1.7开始才有的</p>
+    
+    <a class="article-more-a" href="/2019/12/10/Java-集合-知识储备/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/12/10/Java-集合-知识储备/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java-基础知识储备-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1075,97 +1173,9 @@
 
 
   
-    <article id="post-关于NBA问题的一点思考" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/10/12/关于NBA问题的一点思考/" target="_blank">关于NBA问题的一点思考</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/10/12/关于NBA问题的一点思考/" class="archive-article-date">
-        <time datetime="2019-10-12T05:57:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>我很反感现在微博的一些没有自己思考的声音。NBA事件现在沸沸扬扬，我也无数次在心里骂着莫雷，不管他是出于自己的言论自由口嗨还是政治目的，他都不应该让肖华和整个NBA替他的行为背锅。但我同时也很反感国内的过激反应，我理解大家的爱国心情，我们的国家也确实值得我们自豪。但不知道什么时候开始，一旦某个事件一旦涉及到了ruhua，全民的情绪都会被调动起来，会翻老本的查找你任何不妥的举动，甚至全民进行道德绑架。</p>
-    
-    <a class="article-more-a" href="/2019/10/12/关于NBA问题的一点思考/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/12/关于NBA问题的一点思考/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1296,11 +1306,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java后端</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1320,19 +1330,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
